@@ -2,18 +2,14 @@
 include 'conexao.php';
 
 $nome = htmlspecialchars($_POST["nome"]);
-$matricula = htmlspecialchars($_POST["matricula"]);
-$disciplina =htmlspecialchars ($_POST["disciplina"]);
 $email =htmlspecialchars ($_POST["email"]);
 $login =htmlspecialchars ($_POST["login"]);
 $senha = htmlspecialchars($_POST["senha"]);
 
-$sql = "INSERT INTO usuario(USER_NOME,USER_MATRICULA,USER_DISCIPLINA,USER_EMAIL,USER_LOGIN,USER_SENHA)
-VALUES(:nome, :matricula, :disciplina, :email, :login, :senha)";
+$sql = "INSERT INTO usuario(USER_NOME,USER_EMAIL,USER_LOGIN,USER_SENHA)
+VALUES(:nome, :email, :login, :senha)";
 $stmt = $conn->prepare( $sql );
 $stmt->bindParam( ':nome', $nome );
-$stmt->bindParam( ':matricula', $matricula );
-$stmt->bindParam( ':disciplina',$disciplina );
 $stmt->bindParam( ':email', $email);
 $stmt->bindParam( ':login', $login);
 $stmt->bindParam( ':senha', $senha);
@@ -24,5 +20,5 @@ if ( ! $result ){
 	var_dump( $stmt->errorInfo() );
 	exit;
 }
-echo "<script>location.href='../login.php';</script>";
+echo "<script>location.href='../sistema_de_login/login.php';</script>";
 ?>

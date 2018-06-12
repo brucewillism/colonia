@@ -1,7 +1,7 @@
 <?php
 session_start();
 $host = "localhost";
-$banco = "formulario";
+$banco = "pibex";
 $user = "root";
 $pass = "123";
 $conexao = mysqli_connect($host, $user, $pass) or die(mysqli_error());
@@ -14,7 +14,7 @@ mysqli_select_db($conexao, $banco) or die(mysqli_error());
 	<title>Autenticação</title>
 	<script type="text/javascript">
 		function loginsucess(){
-			window.location='index.php';
+			window.location='../index.php';
 		}
 		function loginfailed(){
 			window.location='login.php';

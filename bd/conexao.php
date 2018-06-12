@@ -3,7 +3,7 @@ session_start();
 $host = "localhost";
 $usuario = "root";
 $senha = "123";
-$bd = "formulario";
+$bd = "pibex";
 
 try {
 	$conn = new PDO("mysql:host=localhost;dbname=$bd", $usuario, $senha);

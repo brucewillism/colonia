@@ -8,14 +8,14 @@ if(!isset($_SESSION['logado'])){
 <html>
 <head>
 
-  <title>FORMULARIO</title>
+  <title>Colonia</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" href="imagem/Stokage.png" type="image/x-png">
   <link rel="stylesheet"  href="recursos/font-awesome-4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" type="text/css" href="css/menu.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -26,15 +26,17 @@ if(!isset($_SESSION['logado'])){
     <div class="container">
       <div class="navbar-header">
 
-       <a class="navbar-brand" href="../index.php">FORMULARIO</a>
+       <a class="navbar-brand" href="../index.php">Colonia</a>
      </div>
      <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <?php if ($_SESSION['logado']==True): ?>
 
-          <li> <a href="formulario.php" class="fa fa-book">Cadastrar Novo Requerimento</a></li>
-          <li> <a href="index.php" class="fa fa-area-chart">Requerimentos</a></li>
+          <li> <a href="cadastro_pescadores.php" class="fa fa-book">Cadastrar Pescadores</a></li>
+          <li> <a href="armazenamento.php" class="fa fa-area-chart">Pescadores</a></li>
         <?php endif ?>
+        <li><a href="sobre.php" class="fa fa-users">Quem somos</a></li>
+        <li> <a href="contatos.php" class="fa fa-address-book-o" >Contato</a></li>
 
         <?php
         if($_SESSION['logado'] == True){
@@ -47,7 +49,7 @@ if(!isset($_SESSION['logado'])){
         foreach ($stmt as $dados) {
           echo "<li><div class='dropdown'>
           <div class='dropdown-content'>
-          <li><a href='logout.php'>Bem Vindo $llogin
+          <li><a href='sistema_de_login/logout.php'>Bem Vindo $llogin
           Sair <i class='fa fa-sign-out' aria-hidden='true'></i></a></li>
           </div>
           </div></li>";
@@ -67,12 +69,11 @@ if(!isset($_SESSION['logado'])){
 
 <?php
 if($_SESSION['logado'] == True){
-  echo "<li><a href='logout.php'>Sair <i class='fa fa-power-off' aria-hidden='true'></i></a></li>";
+  echo "<li><a href='sistema_de_login/logout.php'>Sair <i class='fa fa-power-off' aria-hidden='true'></i></a></li>";
 }
 ?>
 </div>
 </div>
 </div>
-
 </body>
 </html>

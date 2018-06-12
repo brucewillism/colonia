@@ -8,12 +8,8 @@ CREATE TABLE `pescadores` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `usuario` (
-  `id` int NOT NULL,
+  `id` int(11)  NOT NULL primary key auto_increment,
   `USER_NOME` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
-  `USER_CIDADE` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
-  `USER_TELEFONE` varchar(20) NOT NULL,
-  `USER_CPF` varchar(20) NOT NULL,
-  `USER_LOGRADOURO` varchar(40) NOT NULL,
   `USER_EMAIL` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `USER_LOGIN` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `USER_SENHA` varchar(40) NOT NULL
