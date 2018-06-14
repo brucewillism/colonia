@@ -17,7 +17,7 @@ mysqli_select_db($conexao, $banco) or die(mysqli_error());
 			window.location='../index.php';
 		}
 		function loginfailed(){
-			window.location='login.php';
+			window.location='../sistema_de_login/login.php';
 		}
 	</script>
 </head>

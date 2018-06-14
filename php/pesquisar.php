@@ -1,11 +1,11 @@
 <?php
 include "menu.php";
-include 'cabecalho_seguro.php';
+include '../segurança/cabecalho_seguro.php';
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="css/estilopesquisar.css">
+<link rel="stylesheet" type="text/css" href="../css/estilopesquisar.css">
   <title>pesquisar</title>
 </head>
 

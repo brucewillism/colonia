@@ -1,5 +1,5 @@
 <?php
-require_once 'bd/functions.php';
+require_once '../bd/functions.php';
 include 'menu.php';
 
 // pega o ID da URL
@@ -32,7 +32,7 @@ if(!is_array($resultado_msg_contato)){
     <head>
         <meta charset="utf-8">
         <title>Editar</title>
-        <link rel="stylesheet" type="text/css" href="css/estiloeditar.css">
+        <link rel="stylesheet" type="text/css" href="../css/estiloeditar.css">
     </head>
     <body>
         <h1>Editar </h1>

@@ -1,11 +1,6 @@
-<?php include "../menu.php"; ?>
+<?php include "../php/menu.php"; ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
 	<title>Login</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -67,10 +62,6 @@
 						</a>
 					</div>
  -->				</form>
-					<form class="login100-form validate-form" action="../sistema_de_cadastro_usuario/cadastro_usuario.php" method="POST">
-          	 			Ainda não é cadastrado?
-            			<button class="login100-form-btn" type="submit"> Cadastre-se! </button>
-        			</form>
 			</div>
 		</div>
 	</div>
@@ -88,5 +79,9 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 	<script src="js/main.js"></script>
 
+	<form class="login100-form validate-form" action="../sistema_de_cadastro_usuario/cadastro_usuario.php" method="POST">
+    	Ainda não é cadastrado?
+    	<button class="login100-form-btn" type="submit"> Cadastre-se! </button>
+    </form>
 </body>
 </html>

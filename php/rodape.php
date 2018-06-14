@@ -25,11 +25,11 @@
  <footer> <!-- Aqui e a area do footer -->
       <div class="container">
           <div id="linksImportantes" class="col-md-3">
-            <h4>Stockager</h4>
+            <h4>Colonia</h4>
             <ul>
-              <li><a href="index.php">Home</a></li>
-              <li><a href="sobre.php">Quem somos</a></li>
-              <li><a href="contatos.php">Contato</a></li>
+              <li><a href="../index.php">Home</a></li>
+              <li><a href="../sobre.php">Quem somos</a></li>
+              <li><a href="../contatos.php">Contato</a></li>
               <li><a href="#">Github</a></li>
             </ul>
           </div> <!-- Aqui e a area dos links importantes -->
@@ -42,7 +42,7 @@
             </ul>
           </div> <!-- Aqui e a area das redes sociais -->
           <div id="logoFooter" class="col-md-offset-3 col-md-3">
-            <h2>STOCKAGER</h2>
+            <h2>Colonia</h2>
           </div> <!-- Aqui e a area da logo do rodape -->
         </div>
       </div>

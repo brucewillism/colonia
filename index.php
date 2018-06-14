@@ -1,27 +1,22 @@
 <?php
-    include "menu.php";
-
+include 'php/menu.php';
 ?>
-<form action="pesquisar.php" method="POST" id='form-contato' class="form-horizontal col-md-10">
-    <label class="col-md-2 control-label" for="termo">Pesquisar</label>
-    <div class='col-md-7'>
-        <input type="text" class="form-control" id="pesquisa" name="pesquisa" placeholder="Infome o Nome do produto" required/>
-    </div>
-    <button type="submit" class="btn btn-primary">Pesquisar</button>
-    <a href='index.php' class="btn btn-primary">Ver Todos</a>
-</form>
-
-<a href='cadastrar_pescadores.php' class="btn btn-success pull-right">Cadastrar Novo Requerimento</a>
-<div class='clearfix'></div>
-
- --><!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Formulario</title>
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+  <title>Colonia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+<!--   <link rel="shortcut icon" href="imagem/Stokage.png" type="image/x-png">
+ -->  <link href='https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,700,500italic,400italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet"  href="recursos/font-awesome-4.7.0/css/font-awesome.min.css">
+
+
 </head>
 <body>
-ola
-
+    <h1>Colonia</h1>
+    <?php echo "ola" ?>
+    <?php include 'php/rodape.php';?>
 </body>
 </html>

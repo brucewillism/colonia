@@ -5,7 +5,7 @@ include 'menu.php';
 <html>
 <head>
     <title>FORMULARIO</title>
-    <link rel="stylesheet" type="text/css" href="./css/estilocadastrocliente.css">
+    <link rel="stylesheet" type="text/css" href="../css/estilocadastrocliente.css">
     <meta charset="utf-8">
 </head>
 <body>
