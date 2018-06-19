@@ -1,22 +1,41 @@
 <?php
 include 'php/menu.php';
+
 ?>
+<br>
+<br>
+<br>
+
+<form action="pesquisar.php" method="POST" id='form-contato' class="form-horiz
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Colonia</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="css/index.css">
-<!--   <link rel="shortcut icon" href="imagem/Stokage.png" type="image/x-png">
- -->  <link href='https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,700,500italic,400italic' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet"  href="recursos/font-awesome-4.7.0/css/font-awesome.min.css">
-
-
+    <link rel="stylesheet" type="text/css" href="css/itens.css">
+    <link rel="stylesheet"  href="recursos/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="imagem/Stokage.png" type="image/x-png">
+    <title>Stockager</title>
 </head>
 <body>
-    <h1>Colonia</h1>
-    <?php echo "ola" ?>
-    <?php include 'php/rodape.php';?>
+     <?php
+
+        require_once 'bd/conexao.php';
+
+        $stmt = $conn->query('SELECT * FROM cadastro ');
+        $cadastro = $stmt->fetchAll();
+        foreach ($cadastro as $dados) {
+
+        $id = $dados['id'];
+        $nome=$dados['nome'];
+        $quantidade = $dados['quantidade'];
+        $preco = $dados['preco'];
+        $categoria = $dados['nome_cat'];
+        echo
+        <td><a href='../bd/excluir.php?id=".$id."'><i class='fa fa-2x fa-trash sr-icons' title='Deletar Produto'></i></a></td>
+        <td><a href='formulario_editar.php?id=".$id."'><i class='fa fa-2x fa-pencil sr-icons' title='Editar Produto'></i></a></td>
+
+        </tr>;
+        }
+?>
+
 </body>
 </html>
