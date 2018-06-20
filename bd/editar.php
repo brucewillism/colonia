@@ -1,10 +1,6 @@
 <?php
 require_once 'functions.php';
-
-$host = "localhost";
-$usuario = "root";
-$senha = "123";
-$bd = "id2891328_s";
+require_once 'conexao.php';
 
 // pega os dados do formuário
 $nome = isset($_POST['nome']) ? $_POST['nome'] : null;
@@ -21,7 +17,7 @@ if (empty($nome) || empty($quantidade) || empty($preco))
 
 // insere no banco
 $PDO = db_connect();
-$sql_msg_contatos = "UPDATE cadastro SET nome = :nome, quantidade = :quantidade, preco = :preco WHERE id = :id";
+$sql_msg_contatos = "UPDATE pescadores SET nome = :nome, quantidade = :quantidade, preco = :preco WHERE id = :id";
 $insert_msg_contato = $PDO->prepare($sql_msg_contatos);
 $insert_msg_contato->bindParam(':nome', $nome);
 $insert_msg_contato->bindParam(':quantidade', $quantidade);

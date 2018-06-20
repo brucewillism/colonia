@@ -38,7 +38,7 @@ echo "<br>";
 // Monta outra consulta MySQL para a busca
 $buscar = $_POST['pesquisa'];
 
-$data = $conn->query("SELECT * FROM cadastro WHERE nome LIKE '%".$buscar."%'");
+$data = $conn->query("SELECT * FROM pescadores WHERE nome LIKE '%".$buscar."%'");
 
 
 echo "<table border=0 align=center width=800px>";

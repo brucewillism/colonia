@@ -12,7 +12,7 @@
 <br>
 <br>
 <br>
-<form action="pesquisar.php" method="POST" id='form-contato' class="form-horizontal col-md-10">
+<form action="#" method="POST" id='form-contato' class="form-horizontal col-md-10">
     <label class="col-md-2 control-label" for="termo">Pesquisar</label>
     <div class='col-md-7'>
         <input type="text" class="form-control" id="pesquisa" name="pesquisa" placeholder="Infome o Nome do produto" required/>
@@ -24,8 +24,42 @@
 <a href='../sitema_de_pescadores/cadastro_pescadores.php' class="btn btn-success pull-right">Cadastrar Novo Pescadores</a>
 <a href='../sitema_de_pescadores/cadastro_pescadores_caicara.php' class="btn btn-success pull-right">Cadastrar Novo Pescadores Caicaras</a>
 <div class='clearfix'></div>
+<?php
+// Monta outra consulta MySQL para a busca
+$buscar = $_POST['pesquisa'];
 
-        <?php
+echo "<table>";
+echo"
+
+<tr>
+<th>Nome </th>
+<th>Sorenome</th>
+<th>Endereco</th>
+<th>Bairro</th>
+
+</tr>";
+
+$data = $conn->query("SELECT * FROM pescadores WHERE nome LIKE '%".$buscar."%'");
+foreach($data as $row) {
+$id = $dados['id'];
+        $nome = $dados['nome'];
+        $sobrenome = $dados['sobrenome'];
+        $endereco = $dados['endereco'];
+        $bairro = $dados['bairro'];
+        echo "<tr>
+        <td> "."$nome"."</td>
+        <td>"."$sobrenome"."</td>
+        <td>"."$endereco"."</td>
+        <td>"."$bairro"."</td>
+        <td><a href='../bd/excluir.php?id=".$id."'><i class='fa fa-2x fa-trash sr-icons' title='Deletar Produto'></i></a></td>
+        <td><a href='formulario_editar.php?id=".$id."'><i class='fa fa-2x fa-pencil sr-icons' title='Editar Produto'></i></a></td>
+        <td><button' style='color:#337ab7;'data-toggle='modal' data-target='#myModal'><i class='fa fa-2x fa-ellipsis-h sr-icons' title='Detalhes do Produto'</button></td>
+
+        </tr>";
+        }
+?>
+<!-- ----------------------------------------------------------------------------------------
+ -->        <?php
 
         require_once '../bd/conexao.php';
 
