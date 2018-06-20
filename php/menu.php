@@ -12,10 +12,8 @@ if(!isset($_SESSION['logado'])){
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-<!--   <link rel="shortcut icon" href="imagem/Stokage.png" type="image/x-png">
- --><link rel="stylesheet"  href="../recursos/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet"  href="../recursos/font-awesome-4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" type="text/css" href="../css/menu.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -33,6 +31,7 @@ if(!isset($_SESSION['logado'])){
         <?php if ($_SESSION['logado']==True): ?>
 
           <li> <a href="../sitema_de_pescadores/cadastro_pescadores.php" class="fa fa-book">Cadastrar Pescadores</a></li>
+          <li> <a href="../sitema_de_pescadores/cadastro_pescadores_caicara.php" class="fa fa-book">Cadastrar Pescadores Caiçaras</a></li>
           <li> <a href="../php/armazenamento.php" class="fa fa-area-chart">Pescadores</a></li>
         <?php endif ?>
         <li><a href="../php/sobre.php" class="fa fa-users">Quem somos</a></li>

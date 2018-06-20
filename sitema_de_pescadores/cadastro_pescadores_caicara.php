@@ -40,6 +40,8 @@ include '../php/menu.php';
         <input type="text" nome="assinatura_socio" >
         <input type="text" nome="assinatura_presidente" >
 
+        <input type="submit" name="Salvar" value="Salvar">
+
     </form>
 <?php include '../php/rodape.php'; ?>
 </body>

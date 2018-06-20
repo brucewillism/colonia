@@ -35,14 +35,16 @@ include '../php/menu.php';
         <input type="number" nome="insc_inss" placeholder="Digite a Inscrição do INSS" >
         <input type="number" nome="rg" placeholder="Digite seu RG" >
         <select name="estado_civil">
-            <option name="Solteiro(A)" value="Solteiro(A)">Solteiro(A)</option>
-            <option name="Casado(A)" value="Casado(A)">Casado(A)</option>
-            <option name="Divorciado(A)" value="Divorciado(A)">Divorciado(A)</option>
-            <option name="Viuvo(A)" value="Viuva(A)">Viuva(A)</option>
+            <option value="Solteiro(A)">Solteiro(A)</option>
+            <option value="Casado(A)">Casado(A)</option>
+            <option value="Divorciado(A)">Divorciado(A)</option>
+            <option value="Viuva(A)">Viuva(A)</option>
         </select>
         <input type="text" nome="assinatura_socio" >
         <input type="text" nome="assinatura_presidente" >
-        <input type="submit" name="Salvar" value="Salvar">
+
+        <input type="submit" name="enviar" value="Salvar Cadastro">
+
     </form>
 <?php include '../php/rodape.php'; ?>
 </body>
