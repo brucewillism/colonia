@@ -26,12 +26,12 @@ include '../php/menu.php';
         <input type="number" nome="titulo" placeholder="Digite seu Titulo" >
         <input type="number" nome="profissional" placeholder="Digite sua Profissional" >
         <input type="number" nome="pis" placeholder="Digite seu Pis" >
-        <input type="number" nome="nascimento" placeholder="Digite sua Data de Nascimento" >
+        <input type="date" nome="nascimento" >
         <input type="number" nome="rgp" placeholder="Digite seu Rgp" >
         <input type="text" nome="nome_pai" placeholder="Digite seu Nome do pai" >
         <input type="text" nome="nome_mae" placeholder="Digite seu Nome da mae" >
         <input type="text" nome="dependente" placeholder="Digite seu Dependente" >
-        <input type="number" nome="data ins" placeholder="Digite a Data de Inscrição" >
+        <input type="date" nome="data ins"  >
         <input type="number" nome="insc_inss" placeholder="Digite a Inscrição do INSS" >
         <input type="number" nome="rg" placeholder="Digite seu RG" >
         <select name="estado_civil">
@@ -46,6 +46,5 @@ include '../php/menu.php';
         <input type="submit" name="enviar" value="Salvar Cadastro">
 
     </form>
-<?php include '../php/rodape.php'; ?>
 </body>
 </html>

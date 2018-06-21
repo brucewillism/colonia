@@ -20,16 +20,16 @@ include '../php/menu.php';
         <input type="text" nome="endereco" placeholder="Digite seu endereço" >
         <input type="text" nome="bairro" placeholder="Digite seu Bairro" >
         <input type="text" nome="estado" placeholder="Digite seu Estado" >
-        <input type="text" nome="indentidade" placeholder="Digite seu Identidade" >
-        <input type="text" nome="cpf" placeholder="Digite seu Cpf" >
-        <input type="text" nome="nascimento" placeholder="Digite sua Data de Nascimento" >
-        <input type="text" nome="rgp" placeholder="Digite seu Rgp" >
+        <input type="number" nome="indentidade" placeholder="Digite seu Identidade" >
+        <input type="number" nome="cpf" placeholder="Digite seu Cpf" >
+        <input type="date" nome="nascimento" placeholder="Digite sua Data de Nascimento" >
+        <input type="number" nome="rgp" placeholder="Digite seu Rgp" >
         <input type="text" nome="nome_pai" placeholder="Digite seu Nome do pai" >
         <input type="text" nome="nome_mae" placeholder="Digite seu Nome da mae" >
         <input type="text" nome="dependente" placeholder="Digite seu Dependente" >
-        <input type="text" nome="data ins" placeholder="Digite a Data de Inscrição" >
-        <input type="text" nome="insc_inss" placeholder="Digite a Inscrição do INSS" >
-        <input type="text" nome="rg" placeholder="Digite seu RG" >
+        <input type="date" nome="data ins" placeholder="Digite a Data de Inscrição" >
+        <input type="number" nome="insc_inss" placeholder="Digite a Inscrição do INSS" >
+        <input type="number" nome="rg" placeholder="Digite seu RG" >
         <select name="estado_civil">
             <option name="Solteiro(A)" value="Solteiro(A)">Solteiro(A)</option>
             <option name="Casado(A)" value="Casado(A)">Casado(A)</option>
@@ -41,6 +41,5 @@ include '../php/menu.php';
         <input type="text" nome="assinatura_presidente" >
 
     </form>
-<?php include '../php/rodape.php'; ?>
 </body>
 </html>

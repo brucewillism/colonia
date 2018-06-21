@@ -29,13 +29,13 @@ if(!is_array($resultado_msg_contato)){
 <br>
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Editar</title>
-    </head>
-    <body>
-        <h1>Editar </h1>
-        <form action="../bd/editar.php" method="POST">
+<head>
+    <meta charset="utf-8">
+    <title>Editar</title>
+</head>
+<body>
+    <h1>Editar </h1>
+    <form action="../bd/editar.php" method="POST">
         <input type="number" name="matricula">CADASTRO MAT. N
         <h1>Dados Pessoais e Profissionais</h1>
         <input type="text" nome="nome" placeholder="Digite seu Nome" value="<?php echo $resultado_msg_contato['nome']; ?>" >
@@ -69,8 +69,8 @@ if(!is_array($resultado_msg_contato)){
     </form>
     <br>
     <br>
-        <?php
-        include 'rodape.php';
-        ?>
-    </body>
+    <?php
+    include 'rodape.php';
+    ?>
+</body>
 </html>

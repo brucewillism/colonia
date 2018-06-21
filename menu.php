@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once'bd/conexao.php';
 if(!isset($_SESSION['logado'])){
   $_SESSION['logado'] = [];
 }
@@ -30,34 +30,34 @@ if(!isset($_SESSION['logado'])){
       <ul class="nav navbar-nav navbar-right">
         <?php if ($_SESSION['logado']==True): ?>
 
-          <li> <a href="../sitema_de_pescadores/cadastro_pescadores.php" class="fa fa-book">Cadastrar Pescadores</a></li>
-          <li> <a href="../sitema_de_pescadores/cadastro_pescadores_caicara.php" class="fa fa-book">Cadastrar Pescadores Caiçaras</a></li>
-          <li> <a href="../php/armazenamento.php" class="fa fa-area-chart">Pescadores</a></li>
+          <li> <a href="sitema_de_pescadores/cadastro_pescadores.php" class="fa fa-book">Cadastrar Pescadores</a></li>
+          <li> <a href="sitema_de_pescadores/cadastro_pescadores_caicara.php" class="fa fa-book">Cadastrar Pescadores Caiçaras</a></li>
+          <li> <a href="php/armazenamento.php" class="fa fa-area-chart">Pescadores</a></li>
         <?php endif ?>
-        <li><a href="../php/sobre.php" class="fa fa-users">Quem somos</a></li>
-        <li> <a href="../php/contatos.php" class="fa fa-address-book-o" >Contato</a></li>
+        <li><a href="php/sobre.php" class="fa fa-users">Quem somos</a></li>
+        <li> <a href="php/contatos.php" class="fa fa-address-book-o" >Contato</a></li>
 
         <?php
         if($_SESSION['logado'] == True){
           $llogin = $_SESSION['login'];
           $ssenha = $_SESSION['senha'];
-          require_once '../bd/conexao.php';
+        require_once'bd/conexao.php';
 
-          $sql ="SELECT * FROM usuario WHERE USER_LOGIN = '$llogin' and USER_SENHA = '$ssenha'";
-          $stmt = $conn->query($sql);
-          foreach ($stmt as $dados) {
-            echo "<li><div class='dropdown'>
-            <div class='dropdown-content'>
-            <li><a href='../sistema_de_login/logout.php'>Bem Vindo $llogin
-            Sair <i class='fa fa-sign-out' aria-hidden='true'></i></a></li>
-            </div>
-            </div></li>";
-          }
-        }
+        $sql ="SELECT * FROM usuario WHERE USER_LOGIN = '$llogin' and USER_SENHA = '$ssenha'";
+        $stmt = $conn->query($sql);
+        foreach ($stmt as $dados) {
+          echo "<li><div class='dropdown'>
+          <div class='dropdown-content'>
+          <li><a href='sistema_de_login/logout.php'>Bem Vindo $llogin
+          Sair <i class='fa fa-sign-out' aria-hidden='true'></i></a></li>
+          </div>
+          </div></li>";
+      }
+  }
         ?>
         <?php
         if($_SESSION['logado'] == False){
-          echo "<li><a href='../sistema_de_login/login.php'>Login <i class='fa fa-sign-in fa-1x' aria-hidden='true'></i></a></li>";
+          echo "<li><a href='sistema_de_login/login.php'>Login <i class='fa fa-sign-in fa-1x' aria-hidden='true'></i></a></li>";
         }
         ?>
       </ul>

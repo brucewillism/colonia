@@ -23,7 +23,7 @@ include 'menu.php';
             <h1>Cadastro Usuario</h1>
             <p id="profile-name" class="profile-name-card"></p>
 
-            <form class="form-signin" action="bd/cadastrarUsuario.php" method="POST">
+            <form class="form-signin" action="../bd/cadastrarUsuario.php" method="POST">
                 <span id="reauth-email" class="reauth-email"></span>
 
                 <input type="text" id="inputEmail" class="form-control" name="nome" placeholder="Nome"
