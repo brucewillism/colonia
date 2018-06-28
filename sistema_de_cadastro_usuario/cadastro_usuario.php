@@ -1,4 +1,4 @@
-<?php include "../php/menu.php"; ?>
+<?php include "../menu.php"; ?>
 
 <!DOCTYPE html>
 <html lang="en">

@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 if(!isset($_SESSION['logado'])){
@@ -24,18 +23,18 @@ if(isset($_SESSION["login"]) && isset($_SESSION["senha"])){
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="index.php" id="ss">Colonia</a>
+        <a class="navbar-brand" href="../index.php" id="ss">Colonia de Pescadores Z-10</a>
       </div>
 
       <ul class="nav navbar-nav navbar-right">
         <?php if($_SESSION['logado'] == True): ?>
           <li><a href="sistema_de_pescadores/cadastro_pescadores.php">Cadastra Pescadores <i class="fa fa-cloud-upload" aria-hidden="true"></i></a></li>
-          <li><a href="sistema_de_pescadores//cadastro_pescadores_caicaras.php">Cadastra Pescadores Caiçaras <i class="fa fa-cloud-upload" aria-hidden="true"></i></a></li>
-          <li><a href="php/armazenamento.php">Pescadores <i class="fa fa-map-o" aria-hidden="true"></i></a></li>
+          <li><a href="sistema_de_pescadores/cadastro_pescadores_caicara.php">Cadastra Pescadores Caiçaras <i class="fa fa-cloud-upload" aria-hidden="true"></i></a></li>
+          <li><a href="armazenamento.php">Pescadores <i class="fa fa-map-o" aria-hidden="true"></i></a></li>
 
         <?php endif ?>
-        <li><a href="php/contatos.php">Contatos <i class="fa fa-address-book-o" aria-hidden="true"></i></a></li>
-        <li><a href="php/sobre.php">Quem somos <i class="fa fa-users" aria-hidden="true"></i></a></li>
+        <li><a href="contatos.php">Contatos <i class="fa fa-address-book-o" aria-hidden="true"></i></a></li>
+        <li><a href="sobre.php">Quem somos <i class="fa fa-users" aria-hidden="true"></i></a></li>
         <?php
         if($_SESSION['logado'] == True):
           $llogin = $_SESSION['login'];

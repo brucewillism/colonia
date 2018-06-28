@@ -1,5 +1,5 @@
 <?php
-include '../php/menu.php';
+include '../menu.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -26,25 +26,24 @@ include '../php/menu.php';
         <input type="number" nome="titulo" placeholder="Digite seu Titulo" >
         <input type="number" nome="profissional" placeholder="Digite sua Profissional" >
         <input type="number" nome="pis" placeholder="Digite seu Pis" >
-        <input type="date" nome="nascimento" >
+        <input type="number" nome="nascimento" placeholder="Digite sua Data de Nascimento" >
         <input type="number" nome="rgp" placeholder="Digite seu Rgp" >
         <input type="text" nome="nome_pai" placeholder="Digite seu Nome do pai" >
         <input type="text" nome="nome_mae" placeholder="Digite seu Nome da mae" >
         <input type="text" nome="dependente" placeholder="Digite seu Dependente" >
-        <input type="date" nome="data ins"  >
+        <input type="number" nome="data ins" placeholder="Digite a Data de Inscrição" >
         <input type="number" nome="insc_inss" placeholder="Digite a Inscrição do INSS" >
         <input type="number" nome="rg" placeholder="Digite seu RG" >
         <select name="estado_civil">
-            <option value="Solteiro(A)">Solteiro(A)</option>
-            <option value="Casado(A)">Casado(A)</option>
-            <option value="Divorciado(A)">Divorciado(A)</option>
-            <option value="Viuva(A)">Viuva(A)</option>
+            <option name="Solteiro(A)" value="Solteiro(A)">Solteiro(A)</option>
+            <option name="Casado(A)" value="Casado(A)">Casado(A)</option>
+            <option name="Divorciado(A)" value="Divorciado(A)">Divorciado(A)</option>
+            <option name="Viuvo(A)" value="Viuva(A)">Viuva(A)</option>
         </select>
         <input type="text" nome="assinatura_socio" >
         <input type="text" nome="assinatura_presidente" >
-
-        <input type="submit" name="enviar" value="Salvar Cadastro">
-
+        <input type="submit" name="Salvar" value="Salvar">
     </form>
+<?php include '../php/rodape.php'; ?>
 </body>
 </html>
