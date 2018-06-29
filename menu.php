@@ -33,9 +33,10 @@ if(isset($_SESSION["login"]) && isset($_SESSION["senha"])){
           <li><a href="armazenamento.php">Pescadores <i class="fa fa-map-o" aria-hidden="true"></i></a></li>
 
         <?php endif ?>
-         --><li><a href="contatos.php">Contatos <i class="fa fa-address-book-o" aria-hidden="true"></i></a></li>
-        <li><a href="sobre.php">Quem somos <i class="fa fa-users" aria-hidden="true"></i></a></li>
-        <?php
+         --><li><a href="../contatos.php">Contatos <i class="fa fa-address-book-o" aria-hidden="true"></i></a></li>
+        <li><a href="../sobre.php">Quem somos <i class="fa fa-users" aria-hidden="true"></i></a></li>
+
+      <?php
         if($_SESSION['logado'] == True):
           $llogin = $_SESSION['login'];
           $ssenha = $_SESSION['senha'];
@@ -45,7 +46,7 @@ if(isset($_SESSION["login"]) && isset($_SESSION["senha"])){
           $stmt = $conn->query($sql);
           foreach ($stmt as $dados) {
             echo "
-            <li><a href='sistema_de_login/logout.php'>Bem Vindo $llogin
+            <li><a href='../sistema_de_login/logout.php'>Bem Vindo $llogin
             Sair <i class='fa fa-sign-out' aria-hidden='true'></i></a></li>";
           }
 
@@ -54,16 +55,22 @@ if(isset($_SESSION["login"]) && isset($_SESSION["senha"])){
           <ul class="nav navbar-nav">
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">
               <ul class="dropdown-menu">
-               <li><a href="sistema_de_login/logout.php">Sair <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+               <li><a href="../sistema_de_login/logout.php">Sair <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
              </ul>
            </li>
          </ul>
 
        <?php else:
-        echo "<li><a href='sistema_de_cadastro_usuario/cadastro_usuario.php'>Cadastre-se <span class='glyphicon glyphicon-user'></span> </a></li>
-        <li><a href='sistema_de_login/login.php'>Entrar <span class='glyphicon glyphicon-log-in'></span></a></li>";
+        echo "<li><a href='../sistema_de_cadastro_usuario/cadastro_usuario.php'>Cadastre-se <span class='glyphicon glyphicon-user'></span> </a></li>
+        <li><a href='../sistema_de_login/login.php'>Entrar <span class='glyphicon glyphicon-log-in'></span></a></li>";
       endif
       ?>
+      <li>
+        <form action="#" method="POST">
+          Pesquisar
+            <input type="text" name="pesquisa" placeholder="pesquisar" required/>
+            <input type="submit" value="Pesquisar"></input>
+        </form></li>
     </ul>
   </div>
 </nav>

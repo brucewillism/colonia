@@ -10,7 +10,7 @@ if(isset($_SESSION["login"]) && isset($_SESSION["senha"])){
 ?>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/estilo_menu_lateral.css">
+    <link rel="stylesheet" type="text/css" href="../css/estilo_menu_lateral.css">
     <title></title>
 </head>
 
@@ -42,9 +42,9 @@ if(isset($_SESSION["login"]) && isset($_SESSION["senha"])){
 <h4 class="link-titulo">Área Restrita</h4>
     <ul class="box">
     <?php if($_SESSION['logado'] == True): ?>
-          <li><a href="sistema_de_pescadores/cadastro_pescadores.php">Cadastra Pescadores <i class="fa fa-cloud-upload" aria-hidden="true"></i></a></li>
-          <li><a href="sistema_de_pescadores/cadastro_pescadores_caicara.php">Cadastra Pescadores Caiçaras <i class="fa fa-cloud-upload" aria-hidden="true"></i></a></li>
-          <li><a href="armazenamento.php">Pescadores <i class="fa fa-map-o" aria-hidden="true"></i></a></li>
+          <li><a href="../sistema_de_pescadores/cadastro_pescadores.php">Cadastra Pescadores <i class="fa fa-cloud-upload" aria-hidden="true"></i></a></li>
+          <li><a href="../sistema_de_pescadores/cadastro_pescadores_caicara.php">Cadastra Pescadores Caiçaras <i class="fa fa-cloud-upload" aria-hidden="true"></i></a></li>
+          <li><a href="../armazenamento.php">Pescadores <i class="fa fa-map-o" aria-hidden="true"></i></a></li>
     <?php endif ?>
     </ul>
 

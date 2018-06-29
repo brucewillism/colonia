@@ -1,7 +1,4 @@
 @charset "UTF-8";
-*, html, body {
-
-    }
 *, *:before, *:after {
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
