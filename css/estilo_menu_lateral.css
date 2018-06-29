@@ -1,7 +1,6 @@
 @charset "UTF-8";
 *, html, body {
-    margin:0;
-    padding:0;
+
     }
 *, *:before, *:after {
     -webkit-box-sizing: border-box;
@@ -61,13 +60,13 @@ left:-500px
     margin-bottom:1em;;
     padding-bottom:1em;
     }
-#lateral h3 {
+#lateral h4 {
     display:inline-block;
     font-weight:bold;
     font-size:1.6em;
     font-style:normal;
     padding-bottom:0.2em;
-    margin: 2em 0 2em 0.81em;
+    margin: 2em 2em 2em 0.81em;
     color:rgb(255,255,255);
     border-bottom: 4px solid rgb(155,155,155);
     }
@@ -83,7 +82,6 @@ left:-500px
     font-size:1.2em;
     color:rgb(255,255,255);
     text-decoration: none;
-    padding: 0.8em 0 0.8em 1em;
     display: block;
     -moz-transition: all 1.2s ease;
             -webkit-transition: all 1.2s ease;

@@ -12,10 +12,11 @@ if(isset($_SESSION["login"]) && isset($_SESSION["senha"])){
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/estilo_menu_lateral.css">
     <title></title>
+</head>
+
 <div id="lateral">
 <div id="menu">
-
-<h3 class="link-titulo">Institucional</h3>
+<h4 class="link-titulo">Institucional</h4>
     <ul class="box">
         <li><a href="#">Historia</a></li>
         <li><a href="#">Infraestrutura</a></li>
@@ -30,7 +31,7 @@ if(isset($_SESSION["login"]) && isset($_SESSION["senha"])){
         <li ><a href="#">Estatuto</a></li>
     </ul>
 
-<h3 class="link-titulo">Associado</h3>
+<h4 class="link-titulo">Associado</h4>
     <ul class="box">
         <li><a href="#">Associe-se</a></li>
         <li><a href="#">Benefícios</a></li>
@@ -38,15 +39,14 @@ if(isset($_SESSION["login"]) && isset($_SESSION["senha"])){
         <li><a href="#">Sistema de Cobrança</a></li>
     </ul>
 
-<h3 class="link-titulo">Área Restrita</h3>
+<h4 class="link-titulo">Área Restrita</h4>
     <ul class="box">
-        <li><a href="#">Atualização de Cadastro</a></li>
-        <li><a href="#">Situação Geral e Financeira</a></li>
-        <li><a href="#">Emissão de 2 Via de Boleto</a></li>
-        <li><a href="#">Rastreamento Carteira de Pesca</a></li>
-        <li><a href="#">Seguro Desemprego</a></li>
+    <?php if($_SESSION['logado'] == True): ?>
+          <li><a href="sistema_de_pescadores/cadastro_pescadores.php">Cadastra Pescadores <i class="fa fa-cloud-upload" aria-hidden="true"></i></a></li>
+          <li><a href="sistema_de_pescadores/cadastro_pescadores_caicara.php">Cadastra Pescadores Caiçaras <i class="fa fa-cloud-upload" aria-hidden="true"></i></a></li>
+          <li><a href="armazenamento.php">Pescadores <i class="fa fa-map-o" aria-hidden="true"></i></a></li>
+    <?php endif ?>
     </ul>
-
 
 </div>
 </div id="link">  <div>

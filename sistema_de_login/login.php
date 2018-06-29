@@ -1,4 +1,8 @@
-<?php include "../menu.php"; ?>
+<?php
+include "../menu.php";
+include 'menu_lateral.php';
+
+?>
 
 	<title>Login</title>
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>

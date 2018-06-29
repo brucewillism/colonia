@@ -1,6 +1,7 @@
 <?php
 require_once '../bd/functions.php';
 include 'menu.php';
+include 'menu_lateral.php';
 
 // pega o ID da URL
 $id = isset($_GET['id']) ? (int) $_GET['id'] : null;

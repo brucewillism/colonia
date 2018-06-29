@@ -1,6 +1,8 @@
 <?php
 include "menu.php";
 include '../segurança/cabecalho_seguro.php';
+include 'menu_lateral.php';
+
 ?>
 <!DOCTYPE html>
 <html>

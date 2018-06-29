@@ -15,25 +15,25 @@ if(isset($_SESSION["login"]) && isset($_SESSION["senha"])){
   <link rel="stylesheet" type="text/css" href="/recursos/font-awesome/css/font-awesome.min.css">
   <script src="/recursos/jquery/jquery-3.2.1.min.js"></script>
   <script src="/recursos/bootstrap/js/bootstrap.min.js"></script>
+  <link rel = "shortcut icon" type = "imagem/x-icon" href = "/imagem/favicon.ico"/>
 </head>
 
 <body>
-  <div id="espaco"></div>
-
-  <nav class="navbar navbar-inverse navbar-fixed-top">
+  <nav class="navbar navbar-inverse navbar-fixed-top" >
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="../index.php" id="ss">Colonia de Pescadores Z-10</a>
+        <p><a href="../index.php"><img src="../imagem/logotipo2.png" width="110" height="50" alt="logo"></a>
+
       </div>
 
       <ul class="nav navbar-nav navbar-right">
-        <?php if($_SESSION['logado'] == True): ?>
+        <!-- <?php if($_SESSION['logado'] == True): ?>
           <li><a href="sistema_de_pescadores/cadastro_pescadores.php">Cadastra Pescadores <i class="fa fa-cloud-upload" aria-hidden="true"></i></a></li>
           <li><a href="sistema_de_pescadores/cadastro_pescadores_caicara.php">Cadastra Pescadores Caiçaras <i class="fa fa-cloud-upload" aria-hidden="true"></i></a></li>
           <li><a href="armazenamento.php">Pescadores <i class="fa fa-map-o" aria-hidden="true"></i></a></li>
 
         <?php endif ?>
-        <li><a href="contatos.php">Contatos <i class="fa fa-address-book-o" aria-hidden="true"></i></a></li>
+         --><li><a href="contatos.php">Contatos <i class="fa fa-address-book-o" aria-hidden="true"></i></a></li>
         <li><a href="sobre.php">Quem somos <i class="fa fa-users" aria-hidden="true"></i></a></li>
         <?php
         if($_SESSION['logado'] == True):
@@ -44,12 +44,9 @@ if(isset($_SESSION["login"]) && isset($_SESSION["senha"])){
           $sql ="SELECT * FROM usuario WHERE USER_LOGIN = '$llogin' and USER_SENHA = '$ssenha'";
           $stmt = $conn->query($sql);
           foreach ($stmt as $dados) {
-            echo "<li><div class='dropdown'>
-            <div class='dropdown-content'>
+            echo "
             <li><a href='sistema_de_login/logout.php'>Bem Vindo $llogin
-            Sair <i class='fa fa-sign-out' aria-hidden='true'></i></a></li>
-            </div>
-            </div></li>";
+            Sair <i class='fa fa-sign-out' aria-hidden='true'></i></a></li>";
           }
 
           ?>

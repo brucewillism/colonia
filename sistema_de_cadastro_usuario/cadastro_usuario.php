@@ -1,4 +1,6 @@
-<?php include "../menu.php"; ?>
+<?php include "../menu.php";
+include 'menu_lateral.php';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
