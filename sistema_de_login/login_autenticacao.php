@@ -1,9 +1,9 @@
 <?php
 session_start();
 $host = "localhost";
-$banco = "pibex";
+$banco = "colonia";
 $user = "root";
-$pass = "123";
+$pass = "lucy";
 $conexao = mysqli_connect($host, $user, $pass) or die(mysqli_error());
 mysqli_select_db($conexao, $banco) or die(mysqli_error());
 ?>
