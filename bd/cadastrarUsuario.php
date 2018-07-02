@@ -20,5 +20,5 @@ if ( ! $result ){
 	var_dump( $stmt->errorInfo() );
 	exit;
 }
-echo "<script>location.href='../sistema_de_login/login.php';</script>";
+echo "<script>location.href='../login.php';</script>";
 ?>

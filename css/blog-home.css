@@ -1,0 +1,136 @@
+/*!
+ * Start Bootstrap - Blog Home (https://startbootstrap.com/template-overviews/blog-home)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-blog-home/blob/master/LICENSE)
+ */
+
+body {
+  padding-top: 54px;
+}
+
+@media (min-width: 900px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+/*acesso restrito*/
+.btn{
+	font-family: 
+	font-size:14px;
+	text-transform: uppercase;
+	font-weight: 700;
+	border: none;
+	padding: 10px;
+	cursor:pointer;
+	display:inline-block;
+}
+
+.btn-blue:houver{
+	background:#blue;
+	color:#blue;
+	box-shadow:0 5px 0 #003f00; 
+
+}
+.btn-blue:active{
+	position:relative;
+	top:5px;
+	box-shadow:none;
+
+
+}
+
+
+
+/*rodape*/
+footer {
+  background: #fff;
+}
+
+.inner-footer  ul li,a  {
+	list-style:none;
+}
+.widgetheading {
+  font-size: 20px;
+  color: #000;
+  font-weight: 600;
+  margin-top: 40px;
+  margin-bottom: 40px; 
+}
+.f-about a h1 {
+	text-align:center;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	color: #0db4be;	
+}
+.f-about a h1 span {
+	color: #0db4be;	
+}
+.f-about p {
+  font-size: 14px;
+  color: #8a8d94;
+ 
+}
+h3#cont{
+  margin-left:-75px;
+}
+.l-posts h3 {
+	margin-left:40px;
+}
+.l-posts li a {
+  font-size: 14px;
+  color: #8a8d94;
+  margin: 0;
+  font-weight: 300;
+  border-bottom: 1px solid #f6f6f6;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.l-posts li a:hover  {
+  color: #0db4be;
+}
+
+.f-contact p {
+  font-size: 14px;
+  color: #8a8d94;
+  margin: 0;
+  
+  font-weight: 300;
+  margin-bottom: 15px;
+}
+
+.f-contact i {
+  color: #56595f;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.f-contact a:hover p{
+  color: #0db4be;
+}
+
+/*cor do rodape*/
+.last-div {
+	margin-top:40px;
+    background: black;
+    padding: 20px 0;
+    position: relative;
+}
+
+.copyright {
+    font-size: 14px;
+    color: #fff;
+    margin: 0;   
+    font-weight: 300;
+    float: left;
+}
+.copyright a{
+    color: #fff;
+}
+.copyright a:hover {
+    text-decoration: underline;
+    color: #36CBD4;
+}
+
