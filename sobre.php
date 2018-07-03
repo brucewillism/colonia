@@ -12,7 +12,6 @@ include"cabeçalho.php"
 <body>
     <br>
     <br>
-    <em>Colonia de Pescadores</em> <br>
     <br><b>IFPE - Instituto Federal de Educação, Ciência e Tecnologica de Pernambuco</b></br>
     Curso Técnico de Informática para Internet<br>
     Projeto Pibex<br>
@@ -31,9 +30,9 @@ include"cabeçalho.php"
 
           <div class="col-md-4 f-contact" style="margin-left: 20px;">
             <h3 class="widgetheading">Entre em contato</h3>
-            
-            <p style="color: black; font-size: 11pt;"><i class="fa fa-phone"></i>+55 81 99145-4160</p>
-            <p style="color: black; font-size: 11pt;"><i class="fa fa-home"></i>Endereço: nº 320-B, BR 101 Norte – Km 43,5<br> Av. Alfredo Bandeira de Melo - Saramandaia, PE.</p>
+            <h3 class="widgetheading">Colônia de Pescadores Z-10 - Itapissuma</h3>
+            <p style="color: black; font-size: 11pt;"><i class="fa fa-phone"></i>Fone: 3548-1998</p>
+            <p style="color: black; font-size: 11pt;"><i class="fa fa-home"></i>Rua José Gonçalves, 87 - CEP 53.700-000 - Itapissuma -PE</p>
           </div>
         </div>
       </div>

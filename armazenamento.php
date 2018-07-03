@@ -19,7 +19,7 @@ require "cabecalho_seguro.php";
                 <input type="text" class="form-control" placeholder="Search for...">
                 <span class="input-group-btn">
                     <button class="btn btn-secondary" type="button">Pesquisar</button>
-                    <a class="btn btn-secondary" href='cadastro_pescadores.php'>Novo Pescadores</a>
+                   <a class="btn btn-secondary" href='cadastro_pescadores.php'>Novo Pescadores</a>
                     <a class="btn btn-secondary" href='cadastro_pescadores_caicara.php'>Novo Pescadores Caicara</a>
                 </span>
             </div>
