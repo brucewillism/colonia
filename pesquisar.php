@@ -1,6 +1,5 @@
 <?php
 include "cabeçalho.php";
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,9 +11,9 @@ include "cabeçalho.php";
 // Monta outra consulta MySQL para a busca
 $buscar = $_POST['pesquisa'];
 
-$data = $conn->query("SELECT * FROM pescadores WHERE nome LIKE '%".$buscar."%'");
+$data = $conn->query("SELECT * FROM pescadores WHERE ' matricula, nome, endereco, bairro, estado, cpf, titulo, profissional, pis, nascimento, rgp, nome_pai, nome_mae, dependente, data_ins, insc_inss, rg ' LIKE '%".$buscar."%'");
 
-$data1 = $conn->query("SELECT * FROM pescadores_caicaras WHERE nome LIKE '%".$buscar."%'");
+$data1 = $conn->query("SELECT * FROM pescadores_caicaras WHERE ' matricula, nome, endereco, bairro, estado, cpf, nascimento, rgp, nome_pai, nome_mae, dependente, data_ins, insc_inss, rg ' LIKE '%".$buscar."%'");
 
 
 echo "<table class='table' border='1px'";
@@ -41,7 +40,8 @@ foreach($data as $row) {
 
   </tr>
   ";
-}foreach($data1 as $row) {
+}
+foreach($data1 as $row) {
   echo "
   <tr>
   <td>".$row['nome']."</td>

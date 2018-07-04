@@ -14,11 +14,11 @@ require_once "cabeçalho.php";
         <div class="card-body">
             <div class="input-group">
                 <form action="pesquisar.php" method="POST">
-                    <input type="text" class="form-control" placeholder="Pesquise Aqui...">
+                    <input type="text" placeholder="Pesquise Aqui..." required>
                     <span class="input-group-btn">
                         <input class="btn btn-secondary" type="submit" name="pesquisa" value="pesquisar"></input>
-                        <a class="btn btn-secondary" href='cadastro_pescadores.php'>Cadastro De Pescadore</a>
-                        <a class="btn btn-secondary" href='cadastro_pescadores_caicara.php'>Cadastro De Pescadore Caicara</a>
+                        <a class="btn btn-secondary" href='cadastro_pescadores.php'>Cadastro De Pescador</a>
+                        <a class="btn btn-secondary" href='cadastro_pescadores_caicara.php'>Cadastro De Pescador Caicara</a>
                     </span>
                 </form>
             </div>

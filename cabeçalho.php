@@ -1,5 +1,5 @@
 <?php
-session_start();
+require 'bd/conexao.php';
 if(!isset($_SESSION['logado'])){
   $_SESSION['logado'] = [];
 }
@@ -34,7 +34,7 @@ if(isset($_SESSION["login"]) && isset($_SESSION["senha"])){
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <p><a class="navbar-brand" href="index.php"><img src="imagem/logo.png">Colônia De Pescadores Z-10</a></p>
+        <p><a class="navbar-brand" href="index.php"><img src="imagem/logo.png" height="25" width="40">Colônia De Pescadores Z-10</a></p>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -48,7 +48,6 @@ if(isset($_SESSION["login"]) && isset($_SESSION["senha"])){
         if($_SESSION['logado'] == True):
           $llogin = $_SESSION['login'];
           $ssenha = $_SESSION['senha'];
-          require_once'bd/conexao.php';
 
           $sql ="SELECT * FROM usuario WHERE USER_LOGIN = '$llogin' and USER_SENHA = '$ssenha'";
           $stmt = $conn->query($sql);

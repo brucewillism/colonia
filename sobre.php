@@ -17,7 +17,7 @@ include"cabeçalho.php"
     Projeto Pibex<br>
     <hr>
     <br><b>Descriçao sobre o Projeto: </b>
-    <br>"A ideia principal do projeto, é a criação de um aplicativo que funcione online <br>
+    <br>"A ideia principal do projeto, é a criação de um aplicação web que funcione online <br>
     com um design simples adaptado para atender as necessidades da colonia de pescadores de Itapissuma Z-10,<br>
     onde se possa adicionar Pescadores e informações sobre eles de maneira fácil e ágil. "<br>
 
@@ -48,7 +48,7 @@ include"cabeçalho.php"
           </div>
         </div>
       </div>
-      
+
   </footer>
 
 </body>
