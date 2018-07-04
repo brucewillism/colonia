@@ -1,5 +1,5 @@
 <?php
-include "cabeçalho.php";
+require_once "cabeçalho.php";
 
 ?>
     <!-- Page Content -->
@@ -97,19 +97,6 @@ include "cabeçalho.php";
         <!-- Sidebar Widgets Column -->
         <div class="col-md-4">
 
-          <!-- Search Widget -->
-          <div class="card my-4">
-            <h5 class="card-header">Pesquisar</h5>
-            <div class="card-body">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                  <button class="btn btn-secondary" type="button">Go!</button>
-                </span>
-              </div>
-            </div>
-          </div>
-
           <!-- Categories Widget -->
           <div class="card my-4">
             <h5 class="card-header">Institucional</h5>
@@ -151,9 +138,9 @@ include "cabeçalho.php";
             <button class="btn btn-blue">Area Restrita</button>
             <div class="card-body">
               <?php if($_SESSION['logado'] == True): ?>
-                    <li><a href="cadastro_pescadores.php">Cadastra Pescadores</a></li>
-                    <li><a href="cadastro_pescadores_caicara.php">Cadastra Pescadores Caiçaras</a></li>
-                    <li><a href="armazenamento.php">Pescadores</a></li>
+                    <li><a href="cadastro_pescadores.php">Cadastro Dos Pescadores</a></li>
+                    <li><a href="cadastro_pescadores_caicara.php">Cadastro Dos Pescadores Caiçaras</a></li>
+                    <li><a href="armazenamento.php">Listar Todos Pescadores</a></li>
               <?php endif ?>
               </ul>
             </div>
@@ -169,7 +156,7 @@ include "cabeçalho.php";
 
     <!-- Footer -->
    <?php
-   include "rodape.php"
+   require_once "rodape.php"
    ?>
 
     <!-- Bootstrap core JavaScript -->

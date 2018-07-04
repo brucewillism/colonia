@@ -12,45 +12,37 @@ include "cabeçalho.php";
          <div class="container" id="corpo">
         <p id="titulo">Dados Pessoais & Profissionais Dos Pescadores</p>
         <p id ="mat">CADASTRO MAT. N</p>
-        <input type="number" name="matricula"> 
-        <br></br
-        <label>Nome</label>
-        <input type="text" nome="nome" placeholder="Digite seu Nome">
-        <label>Endereço</label>
-        <input type="text" nome="endereco" placeholder="Digite seu endereço"><br></br>
-        <label>Bairro</label>
-        <input type="text" nome="bairro" placeholder="Digite seu Bairro">
-        <label>Estado</label>
-        <input type="text" nome="estado" placeholder="Digite seu Estado">
+        <input type="number" name="matricula">
         <br></br>
-        <label>Identidade</label>
-        <input type="number" nome="identidade" placeholder="Digite seu Identidade">
+        <label>Nome</label>
+        <input type="text" name="nome" placeholder="Digite Seu Nome" required>
+        <label>Endereço</label>
+        <input type="text" name="endereco" placeholder="Digite Seu endereço" required><br></br>
+        <label>Bairro</label>
+        <input type="text" name="bairro" placeholder="Digite Seu Bairro" required>
+        <label>Estado</label>
+        <input type="text" name="estado" placeholder="Digite Seu Estado">
+        <br></br>
         <label>CPF</label>
-        <input type="number" nome="cpf" placeholder="Digite seu Cpf">
+        <input type="number" name="cpf" placeholder="Digite Seu CPF" required>
         <br>
-        <label>Titulo</label>
-        <input type="number" nome="titulo" placeholder="Digite seu Titulo">
-        <label>Profissional</label>
-        <input type="number" nome="profissional" placeholder="Digite sua Profissional"><br></br>
-        <label>Pis</label>
-        <input type="number" nome="pis" placeholder="Digite seu Pis">
         <label>Data De Nascimento</label>
-        <input type="date" nome="nascimento" placeholder="Digite sua Data de nascimento"><br></br>
+        <input type="date" name="nascimento" placeholder="Digite Sua Data de nascimento"><br></br>
         <label>RGP</label>
-        <input type="number" nome="rgp" placeholder="Digite seu Rgp">
+        <input type="number" name="rgp" placeholder="Digite Seu RGP">
         <label>Nome Do Pai</label>
-        <input type="text" nome="nome_pai" placeholder="Digite seu Nome do pai ">
+        <input type="text" name="nome_pai" placeholder="Digite Seu Nome do pai ">
         <br>
         <label>Nome Da Mãe</label>
-        <input type="text" nome="nome_mae" placeholder="Digite seu Nome da mae ">
+        <input type="text" name="nome_mae" placeholder="Digite Seu Nome da mae ">
         <label>Nome Do Filho</label>
-        <input type="text" nome="dependente" placeholder="Digite seu Dependente">
+        <input type="text" name="dependente" placeholder="Digite Seu Dependente">
         <label>Data Da Inscrição</label>
-        <input type="date" nome="data_ins" placeholder="Digite a Data de Inscricão "><br></br>
+        <input type="date" name="data_ins" placeholder="Digite a Data de Inscricão "><br></br>
         <label>Inscrição do INSS</label>
-        <input type="number" nome="insc_inss" placeholder="Digite a Inscrição do INSS">
+        <input type="number" name="insc_inss" placeholder="Digite a Inscrição do INSS">
         <label>Inscrição do RG</label>
-        <input type="number" nome="rg" placeholder="Digite seu RG">
+        <input type="number" name="rg" placeholder="Digite Seu RG">
         <label>Estado Civil</label>
         <select name="estado_civil">
             <option value="Solteiro(A)">Solteiro(A)</option>
@@ -59,9 +51,9 @@ include "cabeçalho.php";
             <option value="Viuva(A)">Viuva(A)</option>
         </select>
         <label>Assinatura Do Socio</label>
-        <input type="text" nome="assinatura_socio"><br>
+        <input type="text" name="assinatura_socio"><br>
         <label>Assinatura Do Presidente</label>
-        <input type="text" nome="assinatura_presidente">
+        <input type="text" name="assinatura_presidente">
 
         <input type="submit" name="enviar" value="Salvar Cadastro">
 

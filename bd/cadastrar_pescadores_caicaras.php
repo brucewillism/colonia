@@ -49,5 +49,5 @@ if ( ! $result ){
     var_dump( $stmt->errorInfo() );
     exit;
 }
-echo "<script>location.href='../armazemamento.php';</script>";
+echo "<script>location.href='../armazenamento.php';</script>";
 ?>

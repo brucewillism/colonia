@@ -1,67 +1,60 @@
 <?php
-include "menu.php";
-include '../segurança/cabecalho_seguro.php';
-include 'menu_lateral.php';
+include "cabeçalho.php";
 
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="../css/estilopesquisar.css">
+  <meta charset="utf-8">
   <title>pesquisar</title>
 </head>
-
-</html>
-
-<?php
-echo "<br>";
-echo "<br>";
-echo "<br>";
-echo "<br>";
-?>
-<form action="pesquisar.php" method="POST" id='form-contato' class="form-horizontal col-md-10">
-    <label class="col-md-2 control-label" for="termo">Pesquisar</label>
-    <div class='col-md-7'>
-        <input type="text" class="form-control" id="pesquisa" name="pesquisa" placeholder="Infome o Nome do produto" required/>
-    </div>
-    <button type="submit" class="btn btn-primary">Pesquisar</button>
-    <a href='armazenamento_itens.php' class="btn btn-primary">Ver Todos</a>
-</form>
-
-<a href='cadastro_produto.php' class="btn btn-success pull-right">Cadastrar Novo Produtos</a>
-<div class='clearfix'></div>
-<?php
-echo "<br>";
-echo "<br>";
-echo "<br>";
-echo "<br>";
-?>
 <?php
 // Monta outra consulta MySQL para a busca
 $buscar = $_POST['pesquisa'];
 
 $data = $conn->query("SELECT * FROM pescadores WHERE nome LIKE '%".$buscar."%'");
 
+$data1 = $conn->query("SELECT * FROM pescadores_caicaras WHERE nome LIKE '%".$buscar."%'");
 
-echo "<table border=0 align=center width=800px>";
+
+echo "<table class='table' border='1px'";
 echo"
-
-<tr>
-<th>Nome </th>
-<th>Quantidade</th>
-<th>Preço</th>
-<th>Categoria</th>
-
+        <tr>
+            <th>Nome </th>
+            <th>CPF</th>
+            <th>endereco</th>
+            <th>Bairro</th>
+            <th>Deletar</th>
+            <th>Editar</th>
+            <th>Detalhes</th>
 </tr>";
 foreach($data as $row) {
   echo "
   <tr>
   <td>".$row['nome']."</td>
-  <td>".$row['relato']."</td>
-  <td>$".$row['nome_receptor  ']." </td>
+  <td>".$row['cpf']."</td>
+  <td>".$row['endereco']." </td>
+  <td>".$row['bairro']."</td>
+  <td><a  href='bd/excluir.php?id=".$id."'>Excluir</a></td>
+  <td><a  href='editar.php?id=".$id."'>Editar</a></td>
+  <td><button style='color:#337ab7;'data-toggle='modal' data-target='#myModal'>Detalhes</button></td>
+
+  </tr>
+  ";
+}foreach($data1 as $row) {
+  echo "
+  <tr>
+  <td>".$row['nome']."</td>
+  <td>".$row['cpf']."</td>
+  <td>".$row['endereco']." </td>
+  <td>".$row['bairro']."</td>
+  <td><a  href='bd/excluir.php?id=".$id."'>Excluir</a></td>
+  <td><a  href='editar.php?id=".$id."'>Editar</a></td>
+  <td><button style='color:#337ab7;'data-toggle='modal' data-target='#myModal'>Detalhes</button></td>
 
   </tr>
   ";
 }
 echo "</table>";
 ?>
+<a class="btn btn-secondary" href='armazenamento.php'>Voltar</a>
