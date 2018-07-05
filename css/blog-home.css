@@ -14,6 +14,16 @@ body {
   }
 }
 
+
+
+
+.foto{
+  width: 590px;
+  height: 700px;
+  margin-left: 2px;
+  margin-top:5px;
+}
+
 /*acesso restrito*/
 .btn{
 	font-family: 
@@ -170,10 +180,60 @@ p#titulo{
   margin-top: 20px;
 }
 
-input[type="text"], input[type="password"], input[type="mail"]{
-  width: 300px;
+input[type="text"]{
+  width: 800px;
   height: 35px;
   margin-left: 20px;
+  margin-top:20px;
+  padding-left: 10px;
+  font-size: 1.1em;
+  outline: none;
+  border:0px;
+  background-color: #dcdcdc;
+  border-radius: 5px;
+}
+
+input[type="end"]{
+  width: 380px;
+  height: 35px;
+  margin-left: 20px;
+  margin-top:20px;
+  padding-left: 10px;
+  font-size: 1.1em;
+  outline: none;
+  border:0px;
+  background-color: #dcdcdc;
+  border-radius: 5px;
+}
+input[type="bai"]{
+  width: 200px;
+  height: 30px;
+  margin-left: 2px;
+  margin-top:20px;
+  padding-left: 10px;
+  font-size: 1.1em;
+  outline: none;
+  border:0px;
+  background-color: #dcdcdc;
+  border-radius: 5px;
+}
+input[type="id"]{
+  width: 250px;
+  height: 35px;
+  margin-left: 20px;
+  margin-top:20px;
+  padding-left: 10px;
+  font-size: 1.1em;
+  outline: none;
+  border:0px;
+  background-color: #dcdcdc;
+  border-radius: 5px;
+}
+
+input[type="cpf"]{
+  width: 200px;
+  height: 30px;
+  margin-left: 2px;
   margin-top:20px;
   padding-left: 10px;
   font-size: 1.1em;
@@ -195,12 +255,13 @@ input[type="submit"]{
   font-size: 1.3em;
   border-radius: 5px;
   -webkit-box-shadow:0px 5px 0px #659dbf;
-
 }
-  input[type="number"]{
-  width: 300px;
+
+
+input[type="mae"]{
+  width: 600px;
   height: 35px;
-  margin-left: 30px;
+  margin-left: 20px;
   margin-top:20px;
   padding-left: 10px;
   font-size: 1.1em;
@@ -209,12 +270,89 @@ input[type="submit"]{
   background-color: #dcdcdc;
   border-radius: 5px;
 }
-input[type="date"]{
-  width: 350px;
+input[type="filho"]{
+  width:600px;
   height: 35px;
   margin-left: 20px;
-  margin-top:10px;
+  margin-top:20px;
   padding-left: 10px;
+  font-size: 1.1em;
+  outline: none;
+  border:0px;
+  background-color: #dcdcdc;
+  border-radius: 5px;
+}
+
+input[type="pai"]{
+  width: 600px;
+  height: 35px;
+  margin-left: 20px;
+  margin-top:20px;
+  padding-left: 10px;
+  font-size: 1.1em;
+  outline: none;
+  border:0px;
+  background-color: #dcdcdc;
+  border-radius: 5px;
+}
+
+input[type="number"]{
+  width: -250px;
+  height: 35px;
+  margin-left: 10px;
+  margin-top:20px;
+  padding-left: 5px;
+  font-size: 1.1em;
+  outline: none;
+  border:0px;
+  background-color: #dcdcdc;
+  border-radius: 5px;
+}
+input[type="date"]{
+    width: -350px;
+  height: 35px;
+  margin-left: 30px;
+  margin-top:20px;
+  padding-left: 5px;
+  font-size: 1.1em;
+  outline: none;
+  border:0px;
+  background-color: #dcdcdc;
+  border-radius: 5px;
+}
+
+input[type="org"]{
+  width: 300px;
+  height: 35px;
+  margin-left: 20px;
+  margin-top:20px;
+  padding-left: 10px;
+  font-size: 1.1em;
+  outline: none;
+  border:0px;
+  background-color: #dcdcdc;
+  border-radius: 5px;
+}
+
+input[type="inss"]{
+ width: 300px;
+  height: 35px;
+  margin-left: 10px;
+  margin-top:20px;
+  padding-left: 5px;
+  font-size: 1.1em;
+  outline: none;
+  border:0px;
+  background-color: #dcdcdc;
+  border-radius: 5px;
+
+}
+input[type="rg"]{
+ width: 300px;
+  height: 35px;
+  margin-left: 10px;
+  margin-top:20px;
+  padding-left: 5px;
   font-size: 1.1em;
   outline: none;
   border:0px;

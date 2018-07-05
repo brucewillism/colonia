@@ -44,9 +44,13 @@ require_once "cabeçalho.php";
 
           <div class="">
             <div class="card-body">
-              <h2 class="card-title">Post Title</h2>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-              <a href="#" class="btn btn-primary">Read More &rarr;</a>
+              <h2 class="card-title">Sobre a Colônia</h2>
+                  <p class="card-text">Colonia de Pescadores Z-10 é uma empresa de associações cívicas e sociais localizada no Estado de
+                  Pernambuco. A organização encontra-se na Rua Dr Jose Goncalves S/N. Esta empresa de capital privado
+                  foi fundada no ano de 1984 (30 anos atrás). Colonia de Pescadores Z-10 encontra-se em funcionamento
+                  há mais de 17 anos que a expectativa média de vida para uma empresa no Brasil, e há mais de 12 anos
+                  que a expectativa média de vida para uma empresa desse ramo de atividade.</p>
+              <a href="#" class="btn btn-primary">Veja mais &rarr;</a>
             </div>
             <div class="card-footer text-muted">
               Posted on January 1, 2017 by
@@ -55,20 +59,26 @@ require_once "cabeçalho.php";
           </div>
 
           <!-- Blog Post -->
-          <div class="card mb-4">
-            <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+          <div class="fo">
+            <img class="foto" src="img/1.jpeg" alt="Card image cap">
             <div class="card-body">
-              <h2 class="card-title">Post Title</h2>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-              <a href="#" class="btn btn-primary">Read More &rarr;</a>
+              <h2 class="card-title">A Pesca No Litoral Norte</h2>
+              <p class="card-text">Apesar da modesta participação da Região Nordeste e do Estado de Pernambuco na produção pesqueira nacional
+              – 11,7% e 0,5%, respectivamente, no período de 1980-1994 (Paiva, 1997, p.29) – a pesca desempenha importante
+              papel na sobrevivência das comunidades do Litoral e Zona da Mata Pernambucana.
+              O sistema de pesca predominante no Litoral de Pernambuco é o artesanal que, no ano de 1998, respondeu por
+              99,0% da produção total de pescado (estuarino e marítimo) do Estado (IBAMA, 1999). A maior parte dessa
+              produção provém do Litoral Norte, onde existem várias comunidades pesqueiras. À exceção de Itamaracá e
+              Ponta de Pedras onde a pesca marítima ou no mar de fora é a mais expressiva, nas demais comunidades predomina
+              a pesca em rios, estuários e águas litorâneas ou no mar de dentro (Silva e Carvalho, 1996, p. 19).</p>
+              <a href="#" class="btn btn-primary">Veja Mais &rarr;</a>
             </div>
             <div class="card-footer text-muted">
-              Posted on January 1, 2017 by
-              <a href="#">Start Bootstrap</a>
+           
             </div>
           </div>
 
-          <!-- Blog Post -->
+          <!-- Blog Post 
           <div class="card mb-4">
             <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
             <div class="card-body">
@@ -85,10 +95,10 @@ require_once "cabeçalho.php";
           <!-- Pagination -->
           <ul class="pagination justify-content-center mb-4">
             <li class="page-item">
-              <a class="page-link" href="#">&larr; Older</a>
+              <a class="page-link" href="#">&larr; Anterior</a>
             </li>
             <li class="page-item disabled">
-              <a class="page-link" href="#">Newer &rarr;</a>
+              <a class="page-link" href="#">Próxima &rarr;</a>
             </li>
           </ul>
 
