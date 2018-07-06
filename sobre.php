@@ -9,7 +9,7 @@ include"cabeçalho.php"
 
 </head>
 
-<body>
+<body style="text-align: center;">
     <br>
     <br>
     <br><b>IFPE - Instituto Federal de Educação, Ciência e Tecnologica de Pernambuco</b></br>
