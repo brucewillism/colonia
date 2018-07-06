@@ -71,7 +71,7 @@ require_once "cabeçalho.php";
             <td>"."$bairro"."</td>
             <td><a  href='bd/excluir2.php?id=".$id."'>Excluir</a></td>
             <td><a  href='formulario_editar_caicara.php?id=".$id."'>Editar</a></td>
-            <td><button id='myBtn'>Mas detalhes</button></td>
+            <td><button id='myBtn>Mas detalhes</button></td>
 
             </tr>";
         }
@@ -96,7 +96,7 @@ require_once "cabeçalho.php";
    <?php
         require_once 'bd/conexao.php';
 
-        $stmt = $conn->query("SELECT * FROM pescadores");
+        $stmt = $conn->query("SELECT * FROM pescadores WHERE id=$id");
         $cadastro = $stmt->fetchAll();
         foreach ($cadastro as $dados) {
             $id = $dados['id'];
@@ -146,6 +146,10 @@ require_once "cabeçalho.php";
             <th>assinatura_presidente</th>
             </tr>";
 
+            echo "<form method='post' action='#' >
+                    <input type='file' name='arquivo'>
+                    <a data-placement='top'></a>
+                  </form>";
             echo "<img class='imagem' src='imagem/avatar.png' height='100' width='100'>";
             echo "<tr>
             <td> "."$nome"."</td>
@@ -172,7 +176,7 @@ require_once "cabeçalho.php";
 
         }
         echo "</table>";
-        $stmt1 = $conn->query("SELECT * FROM pescadores_caicaras");
+        $stmt1 = $conn->query("SELECT * FROM pescadores_caicaras WHERE id=$id");
         $cadastro1 = $stmt1->fetchAll();
         foreach ($cadastro1 as $dados) {
             $id = $dados['id'];
@@ -214,7 +218,10 @@ require_once "cabeçalho.php";
             <th>assinatura_socio</th>
             <th>assinatura_presidente</th>
             </tr>";
-
+           echo "<form method='post' action='#'>
+                    <input type='file' name='arquivo'>
+                    <a data-placement='top'></a>
+                 </form>";
             echo "<img class='imagem' src='imagem/avatar.png' height='100' width='100'>";
             echo "<tr>
             <td> "."$nome"."</td>

@@ -12,32 +12,31 @@ include"cabeçalho.php"
 <link rel="stylesheet" type="text/css" href="css/blog-home.css">
 </head>
 <body>
-<form class="login100-form validate-form" action="bd/cadastrarUsuario.php" method="POST">   
+<form class="login100-form validate-form" action="bd/cadastrarUsuario.php" method="POST">
      <div class="login-box">
     <img src="img/1avatar.png" class="avatar">
         <h1>Cadastre-se</h1>
             <form>
             <p>Nome </p>
-            <input type="te" name="login" placeholder="Seu Nome Completo">
-			<p>Nome de Usuário</p>
-            <input type="uso" name="usuario" placeholder="Seu Login">
+            <input type="te" name="nome" placeholder="Seu Nome Completo" required>
 			<p>Email </p>
-            <input type="em" name="Email" placeholder="Seu email">
+            <input type="em" name="email" placeholder="Seu email" required>
+            <p>Nome de Usuário</p>
+            <input type="uso" name="login" placeholder="Seu Login" required>
             <p>Senha</p>
             <input type="password" name="senha" placeholder="Sua Senha">
 
 
 
-            <input type="submit" name="submit" value="Login">
-            <a href="#">Esqueçeu sua Senha?</a>    
+            <input type="submit" name="submit" value="Salvar">
             </form>
-        
-        
+
+
         </div>
 </div>
 	</div>
 		</div>
-			
+
 			</div>
 
 

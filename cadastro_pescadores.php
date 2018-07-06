@@ -17,14 +17,19 @@ include "cabeçalho.php";
         <label>Nome</label>
         <input type="text" name="nome" placeholder="Digite Seu Nome Completo" required><br><br>
         <label>Endereço</label>
-        <input type="end" name="endereco" placeholder="Digite Seu endereço" required>
+        <input type="text" class="end" name="endereco" placeholder="Digite Seu endereço" required>
+        <br>
         <label>Bairro</label>
-        <input type="bai" name="bairro" placeholder="Digite Seu Bairro" required><br><br>
-        <label>Identidade</label>
-        <input type="id" name="identidade" placeholder="Digite Sua Identidade">
+        <input type="text" class="bai" name="bairro" placeholder="Digite Seu Bairro" required><br><br>
         <label>CPF</label>
-        <input type="cpf" name="cpf" placeholder="Digite Seu CPF" required>
-        <br><br>
+        <input type="number" class="cpf" name="cpf" placeholder="Digite Seu CPF" required>
+        <label>Titulo</label>
+        <input type="number" class="cpf" name="titulo" placeholder="Digite Seu Titulo" required>
+        <label>Profissional</label>
+        <input type="number" class="cpf" name="profissional" placeholder="Digite Seu Profissional" required>
+        <br>
+        <label>PIS</label>
+        <input type="number" class="cpf" name="pis" placeholder="Digite Seu Pis" required>
         <label>Estado Civil</label>
         <select name="estado_civil">
             <option value="Solteiro(A)">Solteiro(A)</option>
@@ -33,9 +38,9 @@ include "cabeçalho.php";
             <option value="Viuva(A)">Viuva(A)</option>
         </select><br>
         <label>Nome Do Pai</label>
-        <input type="pai" name="nome_pai" placeholder="Digite o nome do pai"><br>
+        <input type="pai" class="pai" name="nome_pai" placeholder="Digite o nome do pai"><br>
         <label>Nome Da Mãe</label>
-        <input type="mae" name="nome_mae" placeholder="Digite o nome da mae"><br> 
+        <input type="mae" name="nome_mae" placeholder="Digite o nome da mae"><br>
         <label>Nome Do Filho</label>
         <input type="filho" name="dependente" placeholder="Digite Seu Dependente"><br><br>
         <p id="titulo">Dados Profissionais Dos Pescadores</p>
@@ -48,9 +53,9 @@ include "cabeçalho.php";
         <label>Data Da Inscrição</label>
         <input type="date" name="data_ins" placeholder="Digite a Data de Inscricão "><br></br>
         <label>Inscrição do INSS</label>
-        <input type="inss" name="insc_inss" placeholder="Digite a Inscrição do INSS">
+        <input type="number" class="inss" name="insc_inss" placeholder="Digite a Inscrição do INSS">
         <label>Inscrição do RG</label>
-        <input type="rg" name="rg" placeholder="Digite Seu RG"><br><br>
+        <input type="number" class="rg" name="rg" placeholder="Digite Seu RG"><br><br>
         <label>Assinatura Do Socio</label>
         <input type="text" name="assinatura_socio"><br><br>
         <label>Assinatura Do Presidente</label>

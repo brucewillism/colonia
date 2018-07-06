@@ -13,20 +13,19 @@ include"cabeçalho.php";
         <h1>Entrar</h1>
             <form>
             <p>Nome</p>
-            <input type="te" name="login" placeholder="Seu Login">
+            <input type="te" name="login" placeholder="Seu Login" required>
             <p>Senha</p>
-            <input type="password" name="senha" placeholder="Sua Senha">
+            <input type="password" name="senha" placeholder="Sua Senha" required>
             <input type="submit" name="submit" value="Login">
-            <a href="#">Esqueçeu sua Senha</a>    
             </form>
-        
-        
+
+
         </div>
-    
+
 </div>
 	</div>
 		</div>
-			
+
 			</div>
 
 </body>

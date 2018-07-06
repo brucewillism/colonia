@@ -40,6 +40,8 @@ if(!is_array($resultado_msg_contato)){
 <body>
     <h1>Editar</h1>
     <form action="editar2.php?id=<?php echo $id; ?>" method="POST">
+         <div class="container" id="corpo">
+
         <label>CADASTRO MAT. N</label>
         <input type="number" name="matricula" value="<?php echo $resultado_msg_contato['matricula']; ?>" >
 
