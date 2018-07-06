@@ -28,7 +28,7 @@ include"cabeçalho.php"
     <br>
 
 
-          <div class="col-md-4 f-contact" style="margin-left: 20px;">
+          <div style="text-align: center;">
             <h3 class="widgetheading">Entre em contato</h3>
             <h3 class="widgetheading">Colônia de Pescadores Z-10 - Itapissuma</h3>
             <p style="color: black; font-size: 11pt;"><i class="fa fa-phone"></i>Fone: 3548-1998</p>
