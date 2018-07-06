@@ -6,11 +6,13 @@ CREATE TABLE `usuario` (
   `USER_SENHA` varchar(40) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+DROP TABLE IF EXISTS `pescadores`;
+
 CREATE TABLE `pescadores` (
   `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `matricula` varchar(255) NOT NULL,
+  `matricula` int(11) NOT NULL,
   `nome` varchar(255) NOT NULL,
-  `endereco`varchar(45)NOT NULL,
+  `endereco`varchar(245)NOT NULL,
   `bairro` varchar(45)NOT NULL,
   `estado` varchar(45)NOT NULL,
   `cpf` varchar(50)NOT NULL,
@@ -30,11 +32,13 @@ CREATE TABLE `pescadores` (
   `assinatura_presidente`varchar(45)NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+DROP TABLE IF EXISTS `pescadores_caicaras`;
+
 CREATE TABLE `pescadores_caicaras` (
   `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `matricula` varchar(255) NOT NULL,
+  `matricula` int(11) NOT NULL,
   `nome` varchar(255) NOT NULL,
-  `endereco`varchar(45)NOT NULL,
+  `endereco`varchar(255)NOT NULL,
   `bairro` varchar(45)NOT NULL,
   `estado` varchar(45)NOT NULL,
   `cpf` varchar(50)NOT NULL,

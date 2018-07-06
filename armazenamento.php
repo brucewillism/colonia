@@ -14,9 +14,9 @@ require_once "cabeçalho.php";
         <div class="card-body">
             <div class="input-group">
                 <form action="pesquisar.php" method="POST">
-                    <input type="text" placeholder="Pesquise Aqui..." required>
+                    <input type="text" name="pesquisa" placeholder="Pesquise Aqui..." required>
                     <span class="input-group-btn">
-                        <input class="btn btn-secondary" type="submit" name="pesquisa" value="pesquisar"></input>
+                        <input class="btn btn-secondary" type="submit" value="pesquisar"></input>
                         <a class="btn btn-secondary" href='cadastro_pescadores.php'>Cadastro De Pescador</a>
                         <a class="btn btn-secondary" href='cadastro_pescadores_caicara.php'>Cadastro De Pescador Caicara</a>
                     </span>
@@ -24,7 +24,7 @@ require_once "cabeçalho.php";
             </div>
         </div>
     </div>
-    <table class="table" border="1px">
+    <table class="table" border="1px" style="background: skyblue;">
         <tr>
             <th>Nome </th>
             <th>CPF</th>
@@ -52,9 +52,8 @@ require_once "cabeçalho.php";
             <td>"."$endereco"."</td>
             <td>"."$bairro"."</td>
             <td><a  href='bd/excluir.php?id=".$id."'>Excluir</a></td>
-            <td><a  href='editar.php?id=".$id."'>Editar</a></td>
-            <td><button style='color:#337ab7;'data-toggle='modal' data-target='#myModal'>Detalhes</button></td>
-
+            <td><a  href='formulario_editar.php?id=".$id."'>Editar</a></td>
+            <td><button id='myBtn'>Mas detalhes</button></td>
             </tr>";
         }
         $stmt1 = $conn->query("SELECT * FROM pescadores_caicaras");
@@ -71,69 +70,209 @@ require_once "cabeçalho.php";
             <td>"."$endereco"."</td>
             <td>"."$bairro"."</td>
             <td><a  href='bd/excluir2.php?id=".$id."'>Excluir</a></td>
-            <td><a  href='editar2.php?id=".$id."'>Editar</a></td>
-            <td><button style='color:#337ab7;'data-toggle='modal' data-target='#myModal'>Detalhes</button></td>
+            <td><a  href='formulario_editar_caicara.php?id=".$id."'>Editar</a></td>
+            <td><button id='myBtn'>Mas detalhes</button></td>
 
             </tr>";
         }
         ?>
     </table>
-    <div class="container">
+<!-- -----------------modal---------------------------------------
+ -->
+ <!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/modal.css">
+</head>
+<body>
+<!-- The Modal -->
+<div id="myModal" class="modal">
 
-      <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h1 class="parag">Detalhes Do pescador</h1>
+   <?php
+        require_once 'bd/conexao.php';
 
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-          <div class="modal-body">
-            <table>
+        $stmt = $conn->query("SELECT * FROM pescadores");
+        $cadastro = $stmt->fetchAll();
+        foreach ($cadastro as $dados) {
+            $id = $dados['id'];
+            $nome=$dados['nome'];
+            $cpf = $dados['cpf'];
+            $endereco = $dados['endereco'];
+            $bairro = $dados['bairro'];
+            $estado= $dados['estado'];
+            $cpf= $dados['cpf'];
+            $titulo= $dados['titulo'];
+            $profissional= $dados['profissional'];
+            $pis= $dados['pis'];
+            $nascimento= $dados['nascimento'];
+            $rgp= $dados['rgp'];
+            $nome_pai= $dados['nome_pai'];
+            $nome_mae= $dados['nome_mae'];
+            $dependente= $dados['dependente'];
+            $data_ins= $dados['data_ins'];
+            $insc_inss= $dados['insc_inss'];
+            $rg= $dados['rg'];
+            $estado_civil= $dados['estado_civil'];
+            $assinatura_socio= $dados['assinatura_socio'];
+            $assinatura_presidente= $dados['assinatura_presidente'];
 
-                <?php
+            echo "<table class='tabela' border=1 align=center>";
+            echo"
+            <tr>
+            <th>Nome </th>
+            <th>cpf</th>
+            <th>endereco</th>
+            <th>bairro</th>
+            <th>estado</th>
+            <th>cpf</th>
+            <th>titulo</th>
+            <th>profissional</th>
+            <th>pis</th>
+            <th>nascimento</th>
+            <th>rgp</th>
+            <th>nome_pai</th>
+            <th>nome_mae</th>
+            <th>dependente</th>
+            <th>data_ins</th>
+            <th>insc_inss</th>
+            <th>rg</th>
+            <th>estado_civil</th>
+            <th>assinatura_socio</th>
+            <th>assinatura_presidente</th>
+            </tr>";
 
-                require_once 'bd/conexao.php';
+            echo "<img class='imagem' src='imagem/avatar.png' height='100' width='100'>";
+            echo "<tr>
+            <td> "."$nome"."</td>
+            <td>"."$cpf"."</td>
+            <td>"."$endereco"."</td>
+            <td>"."$bairro"."</td>
+            <td>"."$estado"."</td>
+            <td>"."$cpf"."</td>
+            <td>"."$titulo"."</td>
+            <td>"."$profissional"."</td>
+            <td>"."$pis"."</td>
+            <td>"."$nascimento"."</td>
+            <td>"."$rgp"."</td>
+            <td>"."$nome_pai"."</td>
+            <td>"."$nome_mae"."</td>
+            <td>"."$dependente"."</td>
+            <td>"."$data_ins"."</td>
+            <td>"."$insc_inss"."</td>
+            <td>"."$rg"."</td>
+            <td>"."$estado_civil"."</td>
+            <td>"."$assinatura_socio"."</td>
+            <td>"."$assinatura_presidente"."</td>
+            </tr>";
 
-                $stmt = $conn->query("SELECT * FROM pescadores");
-                $cadastro = $stmt->fetchAll();
-                foreach ($cadastro as $dados) {
-                    $id = $dados['id'];
-                    $nome=$dados['nome'];
-                    $cpf = $dados['cpf'];
-                    $endereco = $dados['endereco'];
-                    $bairro = $dados['bairro'];
-                    echo "<tr>
-                    <td> "."$nome"."</td>
-                    <td>"."$cpf"."</td>
-                    <td>"."$endereco"."</td>
-                    <td>"."$bairro"."</td>
-                    <td><a  href='bd/excluir.php?id=".$id."'>Excluir</a></td>
-                    <td><a  href='formulario_editar.php?id=".$id."'>Editar</a></td>
-                    <td><button' style='color:#337ab7;'data-toggle='modal' data-target='#myModal'></button></td>
+        }
+        echo "</table>";
+        $stmt1 = $conn->query("SELECT * FROM pescadores_caicaras");
+        $cadastro1 = $stmt1->fetchAll();
+        foreach ($cadastro1 as $dados) {
+            $id = $dados['id'];
+            $nome=$dados['nome'];
+            $cpf = $dados['cpf'];
+            $endereco = $dados['endereco'];
+            $bairro = $dados['bairro'];
+            $estado= $dados['estado'];
+            $cpf= $dados['cpf'];
+            $nascimento= $dados['nascimento'];
+            $rgp= $dados['rgp'];
+            $nome_pai= $dados['nome_pai'];
+            $nome_mae= $dados['nome_mae'];
+            $dependente= $dados['dependente'];
+            $data_ins= $dados['data_ins'];
+            $insc_inss= $dados['insc_inss'];
+            $rg= $dados['rg'];
+            $estado_civil= $dados['estado_civil'];
+            $assinatura_socio= $dados['assinatura_socio'];
+            $assinatura_presidente= $dados['assinatura_presidente'];
+            echo "<table class='tabela' border=1 align=center>";
+            echo"
+            <tr>
+            <th>Nome</th>
+            <th>cpf</th>
+            <th>endereco</th>
+            <th>bairro</th>
+            <th>estado</th>
+            <th>cpf</th>
+            <th>nascimento</th>
+            <th>rgp</th>
+            <th>nome_pai</th>
+            <th>nome_mae</th>
+            <th>dependente</th>
+            <th>data_ins</th>
+            <th>insc_inss</th>
+            <th>rg</th>
+            <th>estado_civil</th>
+            <th>assinatura_socio</th>
+            <th>assinatura_presidente</th>
+            </tr>";
 
-                    </tr>";
-                }
-                ?>
-            </table>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-  </div>
+            echo "<img class='imagem' src='imagem/avatar.png' height='100' width='100'>";
+            echo "<tr>
+            <td> "."$nome"."</td>
+            <td>"."$cpf"."</td>
+            <td>"."$endereco"."</td>
+            <td>"."$bairro"."</td>
+            <td>"."$estado"."</td>
+            <td>"."$cpf"."</td>
+
+            <td>"."$nascimento"."</td>
+            <td>"."$rgp"."</td>
+            <td>"."$nome_pai"."</td>
+            <td>"."$nome_mae"."</td>
+            <td>"."$dependente"."</td>
+            <td>"."$data_ins"."</td>
+            <td>"."$insc_inss"."</td>
+            <td>"."$rg"."</td>
+            <td>"."$estado_civil"."</td>
+            <td>"."$assinatura_socio"."</td>
+            <td>"."$assinatura_presidente"."</td>
+            </tr>";
+        }
+        echo "</table>";
+        ?>
+    </div>
 
 </div>
-</div>
 
-</div>
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
 
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
 
-</div>
-</div>
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
 
-</div>
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+    modal.style.display = "block";
+}
 
-<?php
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+<!-- //-------------------------------fim do modal -------------------------------
+ --></body>
+</html><?php
 require_once'rodape.php';
 ?>
 </body>

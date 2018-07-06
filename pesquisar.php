@@ -1,6 +1,4 @@
-<?php
-include "cabeçalho.php";
-?>
+<?php include 'cabeçalho.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,15 +6,13 @@ include "cabeçalho.php";
   <title>pesquisar</title>
 </head>
 <?php
+require_once 'bd/conexao.php';
 // Monta outra consulta MySQL para a busca
 $buscar = $_POST['pesquisa'];
 
-$data = $conn->query("SELECT * FROM pescadores WHERE ' matricula, nome, endereco, bairro, estado, cpf, titulo, profissional, pis, nascimento, rgp, nome_pai, nome_mae, dependente, data_ins, insc_inss, rg ' LIKE '%".$buscar."%'");
+$data = "SELECT * FROM pescadores WHERE 'nome' LIKE '%".$buscar."%'";
 
-$data1 = $conn->query("SELECT * FROM pescadores_caicaras WHERE ' matricula, nome, endereco, bairro, estado, cpf, nascimento, rgp, nome_pai, nome_mae, dependente, data_ins, insc_inss, rg ' LIKE '%".$buscar."%'");
-
-
-echo "<table class='table' border='1px'";
+echo "<table class='table' border='1px' style='background: skyblue;'";
 echo"
         <tr>
             <th>Nome </th>
@@ -27,7 +23,8 @@ echo"
             <th>Editar</th>
             <th>Detalhes</th>
 </tr>";
-foreach($data as $row) {
+
+foreach($conn->query($data) as $row) {
   echo "
   <tr>
   <td>".$row['nome']."</td>
@@ -41,20 +38,22 @@ foreach($data as $row) {
   </tr>
   ";
 }
-foreach($data1 as $row) {
-  echo "
-  <tr>
-  <td>".$row['nome']."</td>
-  <td>".$row['cpf']."</td>
-  <td>".$row['endereco']." </td>
-  <td>".$row['bairro']."</td>
-  <td><a  href='bd/excluir.php?id=".$id."'>Excluir</a></td>
-  <td><a  href='editar.php?id=".$id."'>Editar</a></td>
-  <td><button style='color:#337ab7;'data-toggle='modal' data-target='#myModal'>Detalhes</button></td>
+// $data1 = $conn->query("SELECT * FROM pescadores_caicaras WHERE 'nome' LIKE '%".$buscar."%'");
 
-  </tr>
-  ";
-}
+// foreach($conn->query($data1) as $row){
+//   echo "
+//   <tr>
+//   <td>".$row['nome']."</td>
+//   <td>".$row['cpf']."</td>
+//   <td>".$row['endereco']." </td>
+//   <td>".$row['bairro']."</td>
+//   <td><a  href='bd/excluir.php?id=".$id."'>Excluir</a></td>
+//   <td><a  href='editar.php?id=".$id."'>Editar</a></td>
+//   <td><button style='color:#337ab7;'data-toggle='modal' data-target='#myModal'>Detalhes</button></td>
+
+//   </tr>
+//   ";
+// }
 echo "</table>";
 ?>
 <a class="btn btn-secondary" href='armazenamento.php'>Voltar</a>
