@@ -9,9 +9,11 @@ require_once "cabeçalho.php";
 
         <!-- Blog Entries Column -->
         <div class="col-md-8">
-
-          <h1 class="my-4">Programas & Noticias
-
+          <br>
+          <br>
+          <br>
+          <br>
+         <h2 class="card-title">Últimas Notícias</h2>
           </h1>
 
           <!-- Blog Post -->
@@ -97,7 +99,7 @@ require_once "cabeçalho.php";
             <li class="page-item">
               <a class="page-link" href="#">&larr; Anterior</a>
             </li>
-            <li class="page-item disabled">
+            <li class="page-item ">
               <a class="page-link" href="#">Próxima &rarr;</a>
             </li>
           </ul>
@@ -108,14 +110,17 @@ require_once "cabeçalho.php";
         <div class="col-md-4">
 
           <!-- Categories Widget -->
+          <br>
+          <br>
+          <br>
           <div class="card my-4">
-            <h5 class="card-header">Institucional</h5>
+            <button class="btn btn-blue">Institucional</button>
             <div class="card-body">
               <div class="row">
                 <div class="col-lg-6">
                   <ul class="list-unstyled mb-0">
                     <li>
-                      <a href="#">Historia</a>
+                      <a href="#">História</a>
                     </li>
                     <li>
                       <a href="#">Infraestrutura</a>
@@ -145,7 +150,7 @@ require_once "cabeçalho.php";
           <!-- Side Widget -->
 
           <div class="card my-4">
-            <button class="btn btn-blue">Area Restrita</button>
+            <button class="btn btn-blue">Área Restrita</button>
             <div class="card-body">
               <?php if($_SESSION['logado'] == True): ?>
                     <li><a href="cadastro_pescadores.php">Cadastro Dos Pescadores</a></li>

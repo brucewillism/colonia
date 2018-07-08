@@ -24,7 +24,7 @@ require_once "cabeçalho.php";
             </div>
         </div>
     </div>
-    <table class="table" border="1px" style="background: skyblue;">
+    <table class="table" border="1px" style="background: #75b6dc;">
         <tr>
             <th>Nome </th>
             <th>CPF</th>
@@ -278,9 +278,7 @@ window.onclick = function(event) {
 }
 </script>
 <!-- //-------------------------------fim do modal -------------------------------
- --></body>
-</html><?php
-require_once'rodape.php';
-?>
+ -->
+ 
 </body>
 </html>

@@ -12,7 +12,10 @@ include"cabeçalho.php"
 <body style="text-align: center;">
     <br>
     <br>
-    <br><b>IFPE - Instituto Federal de Educação, Ciência e Tecnologica de Pernambuco</b></br>
+    <br>
+    <br>
+    <img src="img/ifpe-nova.png">
+    <br><br>IFPE - Instituto Federal de Educação, Ciência e Tecnologica de Pernambuco</b></br>
     Curso Técnico de Informática para Internet<br>
     Projeto Pibex<br>
     <hr>

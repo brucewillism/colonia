@@ -172,7 +172,11 @@ h1{
 {
     color: #39dc79;
 }
+/*institucional*/
+div#card-body{
 
+
+}
 
 /*acesso restrito*/
 .btn{
@@ -184,6 +188,7 @@ h1{
 	padding: 10px;
 	cursor:pointer;
 	display:inline-block;
+
 }
 
 .btn-blue:houver{
@@ -274,10 +279,12 @@ h3#cont{
 /*cor do rodape*/
 .last-div {
 	margin-top:40px;
-    background: black;
+    background: #343a42;
     padding: 20px 0;
     position: relative;
+    background-color: #343a40!important;
 }
+
 
 .copyright {
     font-size: 14px;
@@ -509,3 +516,5 @@ input[type="rg"]{
   background-color: #dcdcdc;
   border-radius: 5px;
 }
+
+/*armazenamento*/

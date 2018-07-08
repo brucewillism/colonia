@@ -29,13 +29,13 @@ body {
 .tabela {
     display: table;
     display: table-cell;
-    background: #e5e5e5;
+    background: #75b6dc;
     vertical-align: top;
     background: #e5e5e5;
     border: 1px solid black;
     width: 170%;
     text-align: center;
-    background: skyblue;
+    background:#75b6dc;
     margin-top: 1%;
     width: auto;
 }

@@ -10,6 +10,9 @@ include "cabeçalho.php";
 <body>
    <form action="bd/cadastrar_pescadores.php" method="POST">
          <div class="container" id="corpo">
+         <br>
+         <br>
+         <br>
         <p id="titulo">Dados Pessoais Dos Pescadores</p>
         <p id ="mat">CADASTRO MAT. N</p>
         <input type="number" name="matricula">
