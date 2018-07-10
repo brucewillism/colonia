@@ -1,12 +1,5 @@
 <?php
-session_start();
-$host = "localhost";
-$banco = "colonia";
-$user = "root";
-$pass = "lucy";
-$conexao = mysqli_connect($host, $user, $pass) or die(mysqli_error());
-mysqli_select_db($conexao, $banco) or die(mysqli_error());
-?>
+require_once 'bd/conexao.php';?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,21 +19,21 @@ mysqli_select_db($conexao, $banco) or die(mysqli_error());
 <?php
 $login = $_POST['login'];
 $senha = $_POST['senha'];
-$sql = mysqli_query($conexao,"SELECT * FROM usuario WHERE USER_LOGIN = '$login' and USER_SENHA = '$senha'") or die(mysql_error('Login ou senha errado'));
-$row = mysqli_num_rows($sql);
-$dados = mysqli_fetch_array($sql);
-if($row > 0){
-	$_SESSION['login'] = $login;
+$stmt = $conn->prepare("SELECT * FROM usuario WHERE USER_LOGIN = '$login' and USER_SENHA = '$senha'");
+$stmt->bindParam(1,$login);
+$stmt->bindParam(2,$senha);
+$stmt->execute();
+$dados = $stmt->fetch(PDO::FETCH_ASSOC);
+if ($dados == NULL){
+    header('location:../login.php');
+}
+else {
+    $_SESSION['login'] = $login;
 	$_SESSION['senha'] = $senha;
 	$_SESSION['logado'] = True;
 	$_SESSION['user_id'] = $dados['id'];
-	echo "<script>loginsucess()</script>";
-
-}
-else{
-	echo "<script>loginfailed()</script>";
+	    header('location:index.php');
 }
 ?>
-
 </body>
 </html>
