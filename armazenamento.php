@@ -37,7 +37,6 @@ require_once "cabeçalho.php";
         <?php
 
         require_once 'bd/conexao.php';
-
         $stmt = $conn->query("SELECT * FROM pescadores");
         $cadastro = $stmt->fetchAll();
         foreach ($cadastro as $dados) {
@@ -53,7 +52,7 @@ require_once "cabeçalho.php";
             <td>"."$bairro"."</td>
             <td><a  href='bd/excluir.php?id=".$id."'>Excluir</a></td>
             <td><a  href='formulario_editar.php?id=".$id."'>Editar</a></td>
-            <td><button id='myBtn'>Mas detalhes</button></td>
+            <td><a id='myBtn' href='#?id=".$id."' >Mais detalhes</a></td>
             </tr>";
         }
         $stmt1 = $conn->query("SELECT * FROM pescadores_caicaras");
@@ -71,7 +70,7 @@ require_once "cabeçalho.php";
             <td>"."$bairro"."</td>
             <td><a  href='bd/excluir2.php?id=".$id."'>Excluir</a></td>
             <td><a  href='formulario_editar_caicara.php?id=".$id."'>Editar</a></td>
-            <td><button id='myBtn>Mas detalhes</button></td>
+            <td><a id='myBtn href='#?id=".$id."' >Mas detalhes</a></td>
 
             </tr>";
         }
@@ -92,11 +91,11 @@ require_once "cabeçalho.php";
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
-    <h1 class="parag">Detalhes Do pescador</h1>
+    <h1 class="parag">Detalhes Do Pescador</h1>
    <?php
-        require_once 'bd/conexao.php';
 
-        $stmt = $conn->query("SELECT * FROM pescadores WHERE id=$id");
+        require_once 'bd/conexao.php';
+        $stmt = $conn->query("SELECT * FROM pescadores WHERE id = $id");
         $cadastro = $stmt->fetchAll();
         foreach ($cadastro as $dados) {
             $id = $dados['id'];
@@ -176,7 +175,7 @@ require_once "cabeçalho.php";
 
         }
         echo "</table>";
-        $stmt1 = $conn->query("SELECT * FROM pescadores_caicaras WHERE id=$id");
+        $stmt1 = $conn->query("SELECT * FROM pescadores_caicaras WHERE id = $id");
         $cadastro1 = $stmt1->fetchAll();
         foreach ($cadastro1 as $dados) {
             $id = $dados['id'];
@@ -279,6 +278,5 @@ window.onclick = function(event) {
 </script>
 <!-- //-------------------------------fim do modal -------------------------------
  -->
- 
 </body>
 </html>

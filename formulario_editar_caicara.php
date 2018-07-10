@@ -1,17 +1,6 @@
 <?php
 include 'cabeçalho.php';
-
-$host = "localhost";
-$usuario = "root";
-$senha = "123";
-$bd = "pibex";
-try {
-    $conn = new PDO("mysql:host=localhost;dbname=$bd", $usuario, $senha);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-    echo 'ERROR: ' . $e->getMessage();
-}
-
+require_once 'bd/conexao.php';
 // pega o ID da URL
 $id = isset($_GET['id']) ? (int) $_GET['id'] : null;
 
