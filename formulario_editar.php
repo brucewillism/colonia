@@ -10,7 +10,7 @@ if (empty($id)){
     echo "ID para alteração não definido";
     exit;
 }
-$stmt = $conn->prepare = "SELECT id,  matricula, nome, endereco, bairro, estado, cpf, titulo, profissional, pis, nascimento, rgp, nome_pai, nome_mae, dependente, data_ins, insc_inss, rg, estado_civil, assinatura_socio, assinatura_presidente FROM pescadores WHERE id='$id'";
+$stmt = $conn->prepare = "SELECT id,  matricula, nome, endereco, bairro, estado, cpf, titulo, profissional, pis, nascimento, rgp, nome_pai, nome_mae, dependente, data_ins, insc_inss, rg, orgao, assinatura_socio, assinatura_presidente, id_categoria, id_estado FROM pescadores WHERE id='$id'";
 $stmt = $conn->prepare($stmt);
 $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 $stmt->execute();
@@ -30,64 +30,82 @@ if(!is_array($resultado_msg_contato)){
 <body>
     <h1>Editar</h1>
     <form action="editar.php?id=<?php echo $id; ?>" method="POST">
-        <div class="container" id="corpo">
-        <label>CADASTRO MAT. N</label>
-        <input type="number" name="matricula" value="<?php echo $resultado_msg_contato['matricula']; ?>" >
-
-        <h1>Dados Pessoais e Profissionais</h1>
-        <label>Nome</label>
-        <input type="text" name="nome" placeholder="Digite seu Nome" value="<?php echo $resultado_msg_contato['nome']; ?>" >
-        <label>Endereço</label>
-        <input type="text" name="endereco" placeholder="Digite seu endereço" value="<?php echo $resultado_msg_contato['endereco']; ?>" >
-        <label>Bairro</label>
-        <input type="text" name="bairro" placeholder="Digite seu Bairro" value="<?php echo $resultado_msg_contato['bairro']; ?>" >
-        <br>
-        <label>Estado</label>
-        <input type="text" name="estado" placeholder="Digite seu Estado" value="<?php echo $resultado_msg_contato['estado']; ?>" >
-        <label>CPF</label>
-        <input type="number" name="cpf" placeholder="Digite seu Cpf" value="<?php echo $resultado_msg_contato['cpf']; ?>" >
-        <br>
-        <label>Titulo</label>
-        <input type="number" name="titulo" placeholder="Digite seu Titulo" value="<?php echo $resultado_msg_contato['titulo']; ?>" >
-        <label>Profissional</label>
-        <input type="number" name="profissional" placeholder="Digite sua Profissional" value="<?php echo $resultado_msg_contato['profissional']; ?>" >
-        <label>Pis</label>
-        <input type="number" name="pis" placeholder="Digite seu Pis" value="<?php echo $resultado_msg_contato['pis']; ?>" >
-        <br>
-        <label>Data De Nascimento</label>
-        <input type="date" name="nascimento" placeholder="Digite sua Data de nascimento"value="<?php echo $resultado_msg_contato['nascimento']; ?>">
-        <label>RGP</label>
-        <input type="number" name="rgp" placeholder="Digite seu Rgp" value="<?php echo $resultado_msg_contato['rgp']; ?>" >
-        <label>Nome Do Pai</label>
-        <input type="text" name="nome_pai" placeholder="Digite seu Nome do pai " value="<?php echo $resultado_msg_contato['nome_pai']; ?>" >
-        <br>
-        <label>Nome Da Mãe</label>
-        <input type="text" name="nome_mae" placeholder="Digite seu Nome da mae "value="<?php echo $resultado_msg_contato['nome_mae']; ?>" >
-        <label>Nome Do Filho</label>
-        <input type="text" name="dependente" placeholder="Digite seu Dependente" value="<?php echo $resultado_msg_contato['dependente']; ?>" >
-        <label>Data Da Inscrição</label>
-        <input type="date" name="data_ins" placeholder="Digite a Data de Inscricão "value="<?php echo $resultado_msg_contato['data_ins']; ?>">
-        <label>Inscrição do INSS</label>
-        <input type="number" name="insc_inss" placeholder="Digite a Inscrição do INSS"value="<?php echo $resultado_msg_contato['insc_inss']; ?>">
-        <label>RG</label>
-        <input type="number" name="rg" placeholder="Digite seu RG" value="<?php echo $resultado_msg_contato['rg']; ?>" >
-        <label>Estado Civil</label>
-        <select name="estado_civil" value="<?php echo $resultado_msg_contato['estado_civil']; ?>" >
-            <option value="Solteiro(A)">Solteiro(A)</option>
-            <option value="Casado(A)">Casado(A)</option>
-            <option value="Divorciado(A)">Divorciado(A)</option>
-            <option value="Viuva(A)">Viuva(A)</option>
+       <div id="div">
+           <br>
+           <br>
+           <br>
+           <p id="titulo">Dados Pessoais Dos Pescadores</p>
+           <p id ="mat">CADASTRO MAT. N</p>
+           <input type="number" name="matricula"  value="<?php echo $resultado_msg_contato['matricula']; ?>" >
+           <br></br>
+           <label>Nome</label>
+           <input type="text" name="nome" placeholder="Digite Seu Nome Completo"  value="<?php echo $resultado_msg_contato['nome']; ?>" ><br><br>
+           <label>Endereço</label>
+           <input type="text"  name="endereco" placeholder="Digite Seu endereço"  value="<?php echo $resultado_msg_contato['endereco']; ?>" >
+           <br>
+           <label>Bairro</label>
+           <input type="text"  name="bairro" placeholder="Digite Seu Bairro"  value="<?php echo $resultado_msg_contato['bairro']; ?>" >
+           <br><br><label>estado</label>
+           <input type="text"  name="estado" placeholder="Digite Seu Bairro"  value="<?php echo $resultado_msg_contato['estado']; ?>" >
+           <br>
+           <label>CPF</label>
+           <input type="number"  name="cpf" placeholder="Digite Seu CPF"  value="<?php echo $resultado_msg_contato['cpf']; ?>" >
+           <label>Categoria</label>
+           <select name="categoria" >
+            <?php
+            include 'bd/conexao.php';
+            $sql = "SELECT * FROM categorias";
+            foreach ($conn->query($sql) as $registro) {
+                $id = $registro['id'];
+                $nome = $registro['nome_cat'];
+                echo "<option value='".$id."'>".$nome."</option>";
+            }
+            ?>
         </select>
-        <br>
-        <label>Assinatura Do Socio</label>
-        <input type="text" name="assinatura_socio" value="<?php echo $resultado_msg_contato['assinatura_socio']; ?>"  >
-        <label>Assinatura Do Presidente</label>
-        <input type="text" name="assinatura_presidente" value="<?php echo $resultado_msg_contato['assinatura_presidente']; ?>"  >
 
+        <label>Titulo</label>
+        <input type="number"  name="titulo" placeholder="Digite Seu Titulo">
+        <label>Profissional</label>
+        <input type="number"  name="profissional" placeholder="Digite Seu Profissional">
+        <br>
+        <label>PIS</label>
+        <input type="number"  name="pis" placeholder="Digite Seu Pis">
+        <label>Estado Civil</label>
+        <select name="estado_civil" >
+            <?php
+            include 'bd/conexao.php';
+            $sql = "SELECT * FROM estado_civil";
+            foreach ($conn->query($sql) as $registro) {
+                $id = $registro['id'];
+                $nome = $registro['nome_est'];
+                echo "<option value='".$id."'>".$nome."</option>";
+            }
+            ?>
+        </select><br>
+        <label>Nome Do Pai</label>
+        <input type="pai"  name="nome_pai" placeholder="Digite o nome do pai"  value="<?php echo $resultado_msg_contato['nome_pai']; ?>" ><br>
+        <label>Nome Da Mãe</label>
+        <input type="mae" name="nome_mae" placeholder="Digite o nome da mae"  value="<?php echo $resultado_msg_contato['nome_mae']; ?>" ><br>
+        <label>Nome Do Filho</label>
+        <input type="filho" name="dependente" placeholder="Digite Seu Dependente" value="<?php echo $resultado_msg_contato['dependente']; ?>" ><br><br>
+        <p id="titulo">Dados Profissionais Dos Pescadores</p>
+        <label>Data De Nascimento</label>
+        <input type="date" name="nascimento" placeholder="Digite Sua Data de nascimento" value="<?php echo $resultado_msg_contato['nascimento']; ?>" ><br></br>
+        <label>Órgão Exp</label>
+        <input type="org" name="orgao" placeholder="Digite seu Órgão Expedidor" value="<?php echo $resultado_msg_contato['orgao']; ?>" ><br></br>
+        <label>RGP</label>
+        <input type="number" name="rgp" placeholder="Digite Seu RGP" value="<?php echo $resultado_msg_contato['rgp']; ?>" >
+        <label>Data Da Inscrição</label>
+        <input type="date" name="data_ins" placeholder="Digite a Data de Inscricão" value="<?php echo $resultado_msg_contato['data_ins']; ?>" ><br></br>
+        <label>Inscrição do INSS</label>
+        <input type="number"  name="insc_inss" placeholder="Digite a Inscrição do INSS" value="<?php echo $resultado_msg_contato['insc_inss']; ?>" >
+        <label>Inscrição do RG</label>
+        <input type="number" name="rg" placeholder="Digite Seu RG" value="<?php echo $resultado_msg_contato['rg']; ?>" >
         <input type="submit" name="enviar" value="Salvar Cadastro">
 
     </form>
-    </div>
+</section>
+</div>
 <?php
-    require_once 'rodape.php';
-    ?>
+require_once 'rodape.php';
+?> 

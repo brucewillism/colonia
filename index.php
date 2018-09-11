@@ -153,8 +153,7 @@ require_once "cabeçalho.php";
             <button class="btn btn-blue">Área Restrita</button>
             <div class="card-body">
               <?php if($_SESSION['logado'] == True): ?>
-                    <li><a href="cadastro_pescadores.php">Cadastro Dos Pescadores</a></li>
-                    <li><a href="cadastro_pescadores_caicara.php">Cadastro Dos Pescadores Caiçaras</a></li>
+                    <li><a href="cadastro_pescadores.php">Cadastre Um Novo Pescador</a></li>
                     <li><a href="armazenamento.php">Listar Todos Pescadores</a></li>
               <?php endif ?>
               </ul>

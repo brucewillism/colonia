@@ -10,7 +10,10 @@ require_once 'bd/conexao.php';
 // Monta outra consulta MySQL para a busca
 $buscar = $_POST['pesquisa'];
 
-$data = "SELECT * FROM pescadores WHERE 'nome' LIKE '%".$buscar."%'";
+$data =("SELECT *
+FROM pescadores
+INNER JOIN categorias ON pescadores.id = categorias.id
+ WHERE 'nome' LIKE '%".$buscar."%'");
 
 echo "<table class='table' border='1px' style='background: skyblue;'";
 echo"

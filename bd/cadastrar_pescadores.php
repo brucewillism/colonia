@@ -1,5 +1,6 @@
 <?php
 include 'conexao.php';
+
 $matricula = htmlspecialchars($_POST["matricula"]);
 $nome = htmlspecialchars($_POST["nome"]);
 $endereco = htmlspecialchars($_POST["endereco"]);
@@ -17,12 +18,15 @@ $dependente = htmlspecialchars($_POST["dependente"]);
 $data_ins = htmlspecialchars($_POST["data_ins"]);
 $insc_inss = htmlspecialchars($_POST["insc_inss"]);
 $rg = htmlspecialchars($_POST["rg"]);
-$estado_civil = htmlspecialchars($_POST["estado_civil"]);
+$orgao = htmlspecialchars($_POST["orgao"]); 
 $assinatura_socio = htmlspecialchars($_POST["assinatura_socio"]);
 $assinatura_presidente = htmlspecialchars($_POST["assinatura_presidente"]);
+$categoria = htmlspecialchars($_POST["categoria"]);
+$estado_civil = htmlspecialchars($_POST["estado_civil"]);
 
-$sql ="INSERT INTO pescadores (id, matricula, nome, endereco, bairro, estado, cpf, titulo, profissional, pis, nascimento, rgp, nome_pai, nome_mae, dependente, data_ins, insc_inss, rg, estado_civil, assinatura_socio, assinatura_presidente)
-VALUES (:id, :matricula, :nome, :endereco, :bairro, :estado, :cpf, :titulo, :profissional, :pis, :nascimento,:rgp,:nome_pai,:nome_mae,:dependente,:data_ins,:insc_inss,:rg,:estado_civil,:assinatura_socio, :assinatura_presidente)";
+$sql ="INSERT INTO pescadores (id, matricula, nome, endereco, bairro, estado, cpf, titulo, profissional, pis, nascimento, rgp, nome_pai, nome_mae, dependente, data_ins, insc_inss, rg, orgao, assinatura_socio, assinatura_presidente, id_categoria, id_estado)
+
+VALUES (:id, :matricula, :nome, :endereco, :bairro, :estado, :cpf, :titulo, :profissional, :pis, :nascimento,:rgp,:nome_pai,:nome_mae,:dependente,:data_ins,:insc_inss, :rg, :orgao, :assinatura_socio, :assinatura_presidente, :categoria, :estado_civil)";
 
 $stmt = $conn->prepare( $sql );
 $stmt->bindParam( ':id', $id);
@@ -43,9 +47,11 @@ $stmt->bindParam( ':dependente', $dependente);
 $stmt->bindParam( ':data_ins', $data_ins);
 $stmt->bindParam( ':insc_inss', $insc_inss);
 $stmt->bindParam( ':rg', $rg);
-$stmt->bindParam( ':estado_civil', $estado_civil);
+$stmt->bindParam( ':orgao', $orgao);
 $stmt->bindParam( ':assinatura_socio', $assinatura_socio);
 $stmt->bindParam( ':assinatura_presidente', $assinatura_presidente);
+$stmt->bindParam( ':categoria', $categoria);
+$stmt->bindParam( ':estado_civil', $estado_civil);
 $result = $stmt->execute();
 if ( ! $result ){
 	var_dump( $stmt->errorInfo() );
