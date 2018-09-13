@@ -18,10 +18,7 @@ if (!isset($_FILES['foto']))
 
 // Recupera os dados dos campos
 // pega o ID da URL e Valida a variavel da URL
-if (isset($_GET['id'])){
 $id = $_GET['id'];
-}
-
 $foto = $_FILES['foto'];
 $nome = $foto['name'];
 $tipo = $foto['type'];
