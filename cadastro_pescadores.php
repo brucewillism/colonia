@@ -16,72 +16,30 @@ include "cabeçalho.php";
 
     </style>
 </head>
-<br>
-<br>
-<br>
-<br/>
 <body>
     <form action="bd/cadastrar_pescadores.php" method="POST">
-     <main>
-
-  <div class="container">
-      <div class="form-row">
-        <div class="form-group col-md-12">
-          <h2>Cadastro dos Pescadores</h2>
-        </div>
-      </div>
-      <main>
-
-      <div class="form-row">
-        <div class="form-group col-md-8">
-          <label for="nomeFan">Nome Completo:</label>
-          <input type="text" class="form-control" id="nomeFan" placeholder="Nome Completo" name="nomeFan" required>
-        </div>
-
-        <div class="form-group col-md-4">
-          <label for="mat">Matricula:</label>
-          <input type="number" class="form-control" id="mat" placeholder="Digite sua matricula" name="matricula" required>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group col-md-4">
-          <label for="end">Endereço:</label>
-          <input type="text" class="form-control" id="fone" placeholder="Digite seu endereço" name="end">
-        </div>
-
-        <div class="form-group col-md-4">
-          <label for="CPF">CPF:</label>
-          <input type="text" class="form-control" id="cel" placeholder="Digite seu cpf" name="cpf" required>
-        </div>
-
-        <div class="form-group col-md-4">
-          <label for="es">Estado:</label>
-          <input type="text" class="form-control" id="es" placeholder="Digite seu estado" name="es">
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group col-md-8">
-          <label for="rua">Rua:</label>
-          <input type="text" class="form-control" id="rua" placeholder="Digite sua rua" name="rua">
-        </div>
-
-        <div class="form-group col-md-4">
-          <label for="bairro">Bairro:</label>
-          <input type="text" class="form-control" id="bairro" placeholder="Bairro" name="bairro" required>
-        </div>
-
-        <div class="form-group col-md-4">
-          <label for="cidade">Cidade:</label>
-          <input type="text" class="form-control" id="cidade" placeholder="Cidade" name="cidade">
-
-        </div>
-      </div><br>
-      <div class="form-row">
-        <div class="form-group col-md-2">
-        <label>Categoria</label><br>
-          <select name="categoria" required>
+       <div id="div">
+           <br>
+           <br>
+           <br>
+           <p id="titulo">Dados Pessoais Dos Pescadores</p>
+           <p id ="mat">CADASTRO MAT. N</p>
+           <input type="number" name="matricula">
+           <br></br>
+           <label>Nome</label>
+           <input type="text" name="nome" placeholder="Digite Seu Nome Completo" required><br><br>
+           <label>Endereço</label>
+           <input type="text"  name="endereco" placeholder="Digite Seu endereço" required>
+           <br>
+           <label>Bairro</label>
+           <input type="text"  name="bairro" placeholder="Digite Seu Bairro" required>
+           <br><br><label>estado</label>
+           <input type="text"  name="estado" placeholder="Digite Seu Bairro" required>
+           <br>
+           <label>CPF</label>
+           <input type="number"  name="cpf" placeholder="Digite Seu CPF" required>
+           <label>Categoria</label>
+           <select name="categoria" required>
             <?php
             include 'bd/conexao.php';
             $sql = "SELECT * FROM categorias";
@@ -92,35 +50,16 @@ include "cabeçalho.php";
             }
             ?>
         </select>
-      </div>
 
-
-        <div class="form-group col-md-4"> 
-          <label for="email">Titulo:</label>
-          <input type="text" class="form-control" id="email" placeholder="Digite seu titulo" name="titulo">
-        </div>
-     
-      <div class="form-group col-md-4"> 
-          <label for="Car">Carteira Profissional:</label>
-          <input type="text" class="form-control" id="car" placeholder="Digite sua carteira" name="car">
-
-        </div>
-
-        <div class="form-row"> 
-        <div class="form-group col-md-10"> 
-          <label for="end">PIS:</label>
-          <input type="text" class="form-control" id="fone" placeholder="Digite seu pis" name="end">
-        
-
-
-
-
-        </div>
-      </div>
-          <div class="form-row"> <br>
-        <div class="form-group col-md-6"> 
-        <label>Categoria</label><br> <br>
-      <select name="estado_civil">
+        <label>Titulo</label>
+        <input type="number"  name="titulo" placeholder="Digite Seu Titulo">
+        <label>Profissional</label>
+        <input type="number"  name="profissional" placeholder="Digite Seu Profissional">
+        <br>
+        <label>PIS</label>
+        <input type="number"  name="pis" placeholder="Digite Seu Pis">
+        <label>Estado Civil</label>
+        <select name="estado_civil" required>
             <?php
             include 'bd/conexao.php';
             $sql = "SELECT * FROM estado_civil";
@@ -130,29 +69,36 @@ include "cabeçalho.php";
                 echo "<option value='".$id."'>".$nome."</option>";
             }
             ?>
-        </div>
-        </select>
-        </div>
+        </select><br>
+        <label>Nome Do Pai</label>
+        <input type="pai"  name="nome_pai" placeholder="Digite o nome do pai" required><br>
+        <label>Nome Da Mãe</label>
+        <input type="mae" name="nome_mae" placeholder="Digite o nome da mae" required><br>
+        <label>Nome Do Filho</label>
+        <input type="filho" name="dependente" placeholder="Digite Seu Dependente"required><br><br>
+        <p id="titulo">Dados Profissionais Dos Pescadores</p>
+        <label>Data De Nascimento</label>
+        <input type="date" name="nascimento" placeholder="Digite Sua Data de nascimento"required><br></br>
+        <label>Órgão Exp</label>
+        <input type="org" name="orgao" placeholder="Digite seu Órgão Expedidor"required><br></br>
+        <label>RGP</label>
+        <input type="number" name="rgp" placeholder="Digite Seu RGP"required>
+        <label>Data Da Inscrição</label>
+        <input type="date" name="data_ins" placeholder="Digite a Data derequired Inscricão"required><br></br>
+        <label>Inscrição do INSS</label>
+        <input type="number"  name="insc_inss" placeholder="Digite a Inscrição dorequired INSS"required>
+        <label>Inscrição do RG</label>
+        <input type="number" name="rg" placeholder="Digite Seu RG"required><br><br>
+        <label>Assinatura Do Socio</label>
+        <input type="text" name="assinatura_socio"><br><br>
+        <label>Assinatura Do Presidente</label>
+        <input type="text" name="assinatura_presidente">
 
+        <input type="submit" name="enviar" value="Salvar Cadastro">
 
-
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-2"><br>
-         <ul class="pagination justify-content-center mb-4">
-            <li class="page-item ">
-              <a class="page-link" href="cadastro_pescadores2.php">Próxima &rarr;</a>
-            </li>
-          </ul>
-
-        </div>
-        </div>
-      </div>
     </form>
-  </div>
-
-</main>
+</section>
+</div>
 <?php
 include "rodape.php"
 ?>

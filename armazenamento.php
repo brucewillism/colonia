@@ -30,28 +30,34 @@ require_once "cabeçalho.php";
             <th>CPF</th>
             <th>Endereco</th>
             <th>Bairro</th>
+            <th>Categoria</th>
             <th>Deletar</th>
             <th>Editar</th>
             <th>Detalhes</th>
         </tr>
-        <?php
-        require_once 'bd/conexao.php';
-        
-        $stmt = $conn->query("SELECT *
-            FROM pescadores
-            INNER JOIN categorias ON pescadores.id = categorias.id");
-        $cadastro = $stmt->fetchAll();
-        foreach ($cadastro as $dados) {
-            $id = $dados['id'];
-            $nome=$dados['nome'];
-            $cpf = $dados['cpf'];
-            $endereco = $dados['endereco'];
-            $bairro = $dados['bairro'];
+            <?php
+    require_once 'bd/conexao.php';
+    
+
+    $stmt = $conn->query("SELECT *
+FROM pescadores
+INNER JOIN categorias ON pescadores.id = categorias.id");
+
+    $cadastro = $stmt->fetchAll();
+    foreach ($cadastro as $dados) {
+
+        $id = $dados['id'];
+        $nome=$dados['nome'];
+        $cpf = $dados['cpf'];
+        $endereco = $dados['endereco'];
+        $bairro = $dados['bairro'];
+        $categoria = $dados['nome_cat'];
             echo "<tr>
             <td>"."$nome"."</td>
             <td>"."$cpf"."</td>
             <td>"."$endereco"."</td>
             <td>"."$bairro"."</td>
+            <td>"."$categoria"."</td>
             <td><a  href='bd/excluir.php?id=".$id."'>Excluir</a></td>
             <td><a  href='formulario_editar.php?id=".$id."'>Editar</a></td>
             <td><a  href='detalhes_pescador.php?id=".$id."' >Mais detalhes</a></td>
@@ -59,5 +65,6 @@ require_once "cabeçalho.php";
         }
         ?>
     </table>
+    <?php include 'rodape.php'; ?>
 </body>
 </html>
