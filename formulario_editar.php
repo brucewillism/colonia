@@ -45,7 +45,7 @@ if(!is_array($resultado_msg_contato)){
            <br>
            <label>Bairro</label>
            <input type="text"  name="bairro" placeholder="Digite Seu Bairro"  value="<?php echo $resultado_msg_contato['bairro']; ?>" >
-           <br><br><label>estado</label>
+           <br><br><label>Estado</label>
            <input type="text"  name="estado" placeholder="Digite Seu Bairro"  value="<?php echo $resultado_msg_contato['estado']; ?>" >
            <br>
            <label>CPF</label>

@@ -23,8 +23,8 @@ require_once "cabeçalho.php";
             </div>
         </div>
     </div>
-  
-  <table class="table" border="1px" style="background: #C0C0C0;">
+    
+    <table class="table" border="1px" style="background: #C0C0C0;">
         <tr>
             <th>Nome </th>
             <th>CPF</th>
@@ -34,15 +34,13 @@ require_once "cabeçalho.php";
             <th>Editar</th>
             <th>Detalhes</th>
         </tr>
-    <?php
-    require_once 'bd/conexao.php';
-    
-    // $id_user = $_SESSION['UsuarioID'];
-
-    $stmt = $conn->query("SELECT *
-FROM pescadores
-INNER JOIN categorias ON pescadores.id = categorias.id");
-     $cadastro = $stmt->fetchAll();
+        <?php
+        require_once 'bd/conexao.php';
+        
+        $stmt = $conn->query("SELECT *
+            FROM pescadores
+            INNER JOIN categorias ON pescadores.id = categorias.id");
+        $cadastro = $stmt->fetchAll();
         foreach ($cadastro as $dados) {
             $id = $dados['id'];
             $nome=$dados['nome'];
@@ -59,7 +57,7 @@ INNER JOIN categorias ON pescadores.id = categorias.id");
             <td><a  href='detalhes_pescador.php?id=".$id."' >Mais detalhes</a></td>
             </tr>";
         }
-    ?>
-</table>
+        ?>
+    </table>
 </body>
 </html>
