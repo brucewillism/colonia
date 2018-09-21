@@ -6,15 +6,16 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <body class="w3-light-grey">
-  <div>
+  <div style="margin-top:5%;">
    <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stockager</title>
+
+    <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -23,22 +24,20 @@
     jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/
     bootstrap.min.js"></script>
-    <title>Colonia De Pescadores Z-10</title>
+
   </head>
+
   <body>
 
     <?php
-    if (isset($_GET['id'])){
-      $id = $_GET['id'];
-    }
     require 'cabeçalho.php';
     require_once 'bd/conexao.php';
     ?>
     <!-- Page Container -->
-    <div class="w3-content w3-margin-top" style="max-width:1400px;">
+    <div class="w3-content w3-margin-top" style="max-width:1400px;margin-top:200%;">
 
       <!-- The Grid -->
-      
+      <div class="w3-row-padding">
 
         <!-- Left Column -->
         <div class="w3-third">
@@ -48,94 +47,117 @@
 
 <!--               ----------------------------------------foto---------------------------------------------------------------
 -->              
-<?php
-// Incluindo arquivo de conexão
-require_once('config/conn.php');
-include 'cadastro.php';
-// Selecionando fotos
-if (isset($_GET['id'])){
-  $id = $_GET['id'];
-}
-
-$stmt = $pdo->query("SELECT id, nome, tipo, tamanho FROM fotos WHERE 'id_pescador' = '$id'");
-
-$cadastro = $stmt->fetchAll();
-
-foreach ($cadastro as $dados) {
-  $id = $dados['id'];
-  $nome=$dados['nome'];
-  $tipo = $dados['tipo'];
-  $tamanho = $dados['tamanho'];
-
-}
-
-echo "<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
+
 <head>
-<meta charset='utf-8'>
-<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
-<link rel='stylesheet' type='text/css' media='all' href='css/main.css'/>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" media="all" href="css/main.css"/>
 </head>
 
 <body>
-<div class='container'>
-<div class='row'>
+  <div class="container">
+    <div class="row">
 
+      <?php 
+      require_once('config/conn.php');
+      include 'cadastro.php';
+// Selecionando fotos
+      if (isset($_GET['id'])){
+        $id = $_GET['id'];
+      }
 
-<div class='col-sm-6 col-md-4'>
+      $stmt = $conn->query("SELECT id, nome, tipo, tamanho FROM fotos WHERE 'id_pescador' = '$id'");
+      $foto = $stmt->fetchAll();
+      var_dump($foto);
+      
+      foreach ($foto as $dados) {
+        $id = $dados['id'];  
+        $nome = $dados['nome'];  
+        $tipo = $dados['tipo'];  
+        $tamanho = $dados['tamanho']; 
 
-<div class='thumbnail'>
+        echo "<div class='col-sm-6 col-md-4'>
 
-<img src='imagem.php?id=<?php echo $id ?>' />
+        <div class='thumbnail'>
 
-<div class='caption'>";
-?>
+        <img src='imagem.php?id=<?php echo $foto->id ?>' />
 
-<?php
-if (isset($_GET['id'])){
-  $id = $_GET['id'];
-}
+        </div>
+        </div> 
+        ";
+      }
+      ?>
 
-$stmt = $conn->query("SELECT *
-  FROM pescadores
-  INNER JOIN categorias ON pescadores.id = categorias.id");
-$cadastro = $stmt->fetchAll();
-foreach ($cadastro as $dados) {
-  $id = $dados['id'];
-  $nome=$dados['nome'];
-  $cpf = $dados['cpf'];
-  $endereco = $dados['endereco'];
-  $bairro = $dados['bairro'];
+      <div class='caption'>
 
-  echo "<div class='w3-container'>
-  <strong>Nome:</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $cadastro->nome ?></p>
-  <strong>Endereço:</strong><p><i class='fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $cadastro->edereco ?></p>
-  <strong>Cidade:</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $cadastro->cidade ?></p>
-  <strong>Rgp:</strong><p><i class='fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $cadastro->rgp ?></p>
-  <strong>Categoria:</strong><p><i class='fa fa-home fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $cadastro->categoria ?></p>
-  <p class='w3-large'><b><i class='fa fa-asterisk fa-fw w3-margin-right w3-text-teal'></i>Resumo</b></p>
-  <p>Apresentações</p>
-  <div class='w3-light-grey w3-round-xlarge w3-small'>
-  <div class='w3-container w3-center w3-round-xlarge w3-teal' style='width:90%'>90%</div>
+        <div class="w3-container">
+          <?php
+          if (isset($_GET['id'])){
+            $pescador_id = $_GET['id'];
+          }
+
+          $stmt = $conn->query("SELECT *
+            FROM pescadores
+            INNER JOIN estado_civil ON pescadores.id_estado = estado_civil.id_estado
+            INNER JOIN fotos ON fotos.id_pescador = $pescador_id");
+          $pescadores = $stmt->fetchAll();
+          foreach ($pescadores as $dados) {
+            $id = $dados['id'];
+            $nome=$dados['nome'];
+            $cpf = $dados['cpf'];
+            $endereco = $dados['endereco'];
+            $bairro = $dados['bairro'];
+
+            echo "<div class='w3-container'>
+            <strong>Matricula:</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->matricula ?></p>
+            <strong>Nome:</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->nome ?></p>
+            <strong>Endereço:</strong><p><i class='fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->edereco ?></p>
+            <strong>Bairro:</strong><p><i class='fa fa-home fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->bairro ?></p>
+            <strong>Estado:</strong><p><i class='fa fa-home fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->estado ?></p>
+            <strong>CPF:</strong><p><i class='fa fa-home fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->cpf ?></p>
+            <strong>Titulo:</strong><p><i class='fa fa-home fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->titulo ?></p>
+            <strong>Profissional:</strong><p><i class='fa fa-home fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->profissional ?></p>
+            <strong>Pis:</strong><p><i class='fa fa-home fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->pis ?></p>
+            <strong>Nascimento:</strong><p><i class='fa fa-home fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->nascimento ?></p>
+            <strong>Cidade:</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->cidade ?></p>
+            <strong>Rgp:</strong><p><i class='fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->rgp ?></p>
+            <strong>Nome Do Pai:</strong><p><i class='fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->nome_pai ?></p>
+            <strong>Nome Da Mãe:</strong><p><i class='fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->nome_mae ?></p>
+            <strong>Dependete:</strong><p><i class='fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->dependete ?></p>
+            <strong>Data Da Inscrição:</strong><p><i class='fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->data_ins ?></p>
+            <strong>Incrição Do INSS:</strong><p><i class='fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->insc_inss ?></p>
+            <strong>RG:</strong><p><i class='fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->rg ?></p>
+            <strong>Orgão:</strong><p><i class='fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->orgao ?></p>
+            <strong>RG:</strong><p><i class='fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->rg ?></p>
+            <strong>RG:</strong><p><i class='fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->rg ?></p>
+            ";
+          }
+          ?>
+          <p class='w3-large'><b><i class='fa fa-asterisk fa-fw w3-margin-right w3-text-teal'></i>Resumo</b></p>
+          <p>Apresentações</p>
+          <div class='w3-light-grey w3-round-xlarge w3-small'>
+            <div class='w3-container w3-center w3-round-xlarge w3-teal' style='width:90%'>90%</div>
+          </div>
+          <p class='w3-large w3-text-theme'><b><i class='fa fa-globe fa-fw w3-margin-right w3-text-teal'></i>Experiência</b></p>
+          <p>Pesca</p>
+          <div class='w3-light-grey w3-round-xlarge'>
+            <div class='w3-round-xlarge w3-teal' style='height:24px;width:100%'></div>
+          </div>
+          <p>Vendas</p>
+          <div class='w3-light-grey w3-round-xlarge'>
+            <div class='w3-round-xlarge w3-teal' style='height:24px;width:55%'></div>
+          </div>
+          <p>pescadores</p>
+          <div class='w3-light-grey w3-round-xlarge'>
+            <div class='w3-round-xlarge w3-teal' style='height:24px;width:25%'></div>
+          </div>";
+        }
+        ?>
+      </div>
+    </div>
   </div>
-  <p class='w3-large w3-text-theme'><b><i class='fa fa-globe fa-fw w3-margin-right w3-text-teal'></i>Experiência</b></p>
-  <p>Pesca</p>
-  <div class='w3-light-grey w3-round-xlarge'>
-  <div class='w3-round-xlarge w3-teal' style='height:24px;width:100%'></div>
-  </div>
-  <p>Vendas</p>
-  <div class='w3-light-grey w3-round-xlarge'>
-  <div class='w3-round-xlarge w3-teal' style='height:24px;width:55%'></div>
-  </div>
-  <p>Produtos</p>
-  <div class='w3-light-grey w3-round-xlarge'>
-  <div class='w3-round-xlarge w3-teal' style='height:24px;width:25%'></div>
-  </div>";
-}
-?>
-</div>
-</div>
-</div>
 
 </div>
 

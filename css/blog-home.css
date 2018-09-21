@@ -1,9 +1,3 @@
-/*!
- * Start Bootstrap - Blog Home (https://startbootstrap.com/template-overviews/blog-home)
- * Copyright 2013-2017 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-blog-home/blob/master/LICENSE)
- */
-
 body {
   padding-top: 54px;
 }
@@ -314,17 +308,6 @@ html,body{
   background-color: #e2e2e2;
 }
 
-section#formulario{
-  position: absolute;
-  top:50%;
-  left: 50%;
-  margin-left: -200px;
-  margin-top: -300px;
-  width:900px;
-  height: 1000px;
-  background-color: white;
- 
- }
  div#corpo{
    text-align:center;
    background-color: white;
@@ -338,59 +321,9 @@ p#titulo{
 }
 
 input[type="text"]{
-  width: 800px;
+  width: 850px;
   height: 35px;
   margin-left: 20px;
-  margin-top:20px;
-  padding-left: 10px;
-  font-size: 1.1em;
-  outline: none;
-  border:0px;
-  background-color: #dcdcdc;
-  border-radius: 5px;
-}
-
-input[type="end"]{
-  width: 380px;
-  height: 35px;
-  margin-left: 20px;
-  margin-top:20px;
-  padding-left: 10px;
-  font-size: 1.1em;
-  outline: none;
-  border:0px;
-  background-color: #dcdcdc;
-  border-radius: 5px;
-}
-input[type="bai"]{
-  width: 200px;
-  height: 30px;
-  margin-left: 2px;
-  margin-top:20px;
-  padding-left: 10px;
-  font-size: 1.1em;
-  outline: none;
-  border:0px;
-  background-color: #dcdcdc;
-  border-radius: 5px;
-}
-input[type="id"]{
-  width: 250px;
-  height: 35px;
-  margin-left: 20px;
-  margin-top:20px;
-  padding-left: 10px;
-  font-size: 1.1em;
-  outline: none;
-  border:0px;
-  background-color: #dcdcdc;
-  border-radius: 5px;
-}
-
-input[type="cpf"]{
-  width: 200px;
-  height: 30px;
-  margin-left: 2px;
   margin-top:20px;
   padding-left: 10px;
   font-size: 1.1em;
@@ -415,46 +348,8 @@ input[type="submit"]{
 }
 
 
-input[type="mae"]{
-  width: 600px;
-  height: 35px;
-  margin-left: 20px;
-  margin-top:20px;
-  padding-left: 10px;
-  font-size: 1.1em;
-  outline: none;
-  border:0px;
-  background-color: #dcdcdc;
-  border-radius: 5px;
-}
-input[type="filho"]{
-  width:600px;
-  height: 35px;
-  margin-left: 20px;
-  margin-top:20px;
-  padding-left: 10px;
-  font-size: 1.1em;
-  outline: none;
-  border:0px;
-  background-color: #dcdcdc;
-  border-radius: 5px;
-}
-
-input[type="pai"]{
-  width: 600px;
-  height: 35px;
-  margin-left: 20px;
-  margin-top:20px;
-  padding-left: 10px;
-  font-size: 1.1em;
-  outline: none;
-  border:0px;
-  background-color: #dcdcdc;
-  border-radius: 5px;
-}
-
 input[type="number"]{
-  width: -250px;
+  width: 500px;
   height: 35px;
   margin-left: 10px;
   margin-top:20px;
@@ -477,44 +372,3 @@ input[type="date"]{
   background-color: #dcdcdc;
   border-radius: 5px;
 }
-
-input[type="org"]{
-  width: 300px;
-  height: 35px;
-  margin-left: 20px;
-  margin-top:20px;
-  padding-left: 10px;
-  font-size: 1.1em;
-  outline: none;
-  border:0px;
-  background-color: #dcdcdc;
-  border-radius: 5px;
-}
-
-input[type="inss"]{
- width: 300px;
-  height: 35px;
-  margin-left: 10px;
-  margin-top:20px;
-  padding-left: 5px;
-  font-size: 1.1em;
-  outline: none;
-  border:0px;
-  background-color: #dcdcdc;
-  border-radius: 5px;
-
-}
-input[type="rg"]{
- width: 300px;
-  height: 35px;
-  margin-left: 10px;
-  margin-top:20px;
-  padding-left: 5px;
-  font-size: 1.1em;
-  outline: none;
-  border:0px;
-  background-color: #dcdcdc;
-  border-radius: 5px;
-}
-
-/*armazenamento*/

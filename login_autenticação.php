@@ -31,7 +31,7 @@ else {
     $_SESSION['login'] = $login;
 	$_SESSION['senha'] = $senha;
 	$_SESSION['logado'] = True;
-	$_SESSION['user_id'] = $dados['id'];
+	$_SESSION['user_id'] = $dados['id_usuario'];
 	    header('location:index.php');
 }
 ?>

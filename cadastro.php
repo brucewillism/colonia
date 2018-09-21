@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+
     <meta charset="utf-8">
     <title>Cadastro de Foto</title>
+
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="http://malsup.github.io/min/jquery.form.min.js"></script>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
     <script type="text/javascript">
 
         // Quando carregado a página

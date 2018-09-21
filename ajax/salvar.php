@@ -17,8 +17,7 @@ if (!isset($_FILES['foto']))
 }
 
 // Recupera os dados dos campos
-// pega o ID da URL e Valida a variavel da URL
-$id = $_GET['id'];
+$pescador_id = $_GET['id'];
 $foto = $_FILES['foto'];
 $nome = $foto['name'];
 $tipo = $foto['type'];
@@ -43,14 +42,14 @@ if ($tamanho > TAMANHO_MAXIMO)
 $conteudo = file_get_contents($foto['tmp_name']);
 
 // Preparando comando
-$stmt = $pdo->prepare('INSERT INTO fotos (nome, conteudo, tipo, tamanho, id_pescador) VALUES (:nome, :conteudo, :tipo, :tamanho, :id)');
+$stmt = $pdo->prepare('INSERT INTO fotos (nome, conteudo, tipo, tamanho, `id_pescador`) VALUES (:nome, :conteudo, :tipo, :tamanho, :pescador_id)');
 
 // Definindo parâmetros
 $stmt->bindParam(':nome', $nome, PDO::PARAM_STR);
 $stmt->bindParam(':conteudo', $conteudo, PDO::PARAM_LOB);
 $stmt->bindParam(':tipo', $tipo, PDO::PARAM_STR);
 $stmt->bindParam(':tamanho', $tamanho, PDO::PARAM_INT);
-$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+$stmt->bindParam(':pescador_id', $pescador_id, PDO::PARAM_INT);
 
 // Executando e exibindo resultado
 echo ($stmt->execute()) ? retorno('Foto cadastrada com sucesso', true) : retorno($stmt->errorInfo());

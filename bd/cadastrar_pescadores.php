@@ -21,15 +21,13 @@ $rg = htmlspecialchars($_POST["rg"]);
 $orgao = htmlspecialchars($_POST["orgao"]); 
 $assinatura_socio = htmlspecialchars($_POST["assinatura_socio"]);
 $assinatura_presidente = htmlspecialchars($_POST["assinatura_presidente"]);
-$categoria = htmlspecialchars($_POST["categoria"]);
 $estado_civil = htmlspecialchars($_POST["estado_civil"]);
 
-$sql ="INSERT INTO pescadores (id, matricula, nome, endereco, bairro, estado, cpf, titulo, profissional, pis, nascimento, rgp, nome_pai, nome_mae, dependente, data_ins, insc_inss, rg, orgao, assinatura_socio, assinatura_presidente, id_categoria, id_estado)
+$sql ="INSERT INTO pescadores (matricula, nome, endereco, bairro, estado, cpf, titulo, profissional, pis, nascimento, rgp, nome_pai, nome_mae, dependente, data_ins, insc_inss, rg, orgao, assinatura_socio, assinatura_presidente, id_estado)
 
-VALUES (:id, :matricula, :nome, :endereco, :bairro, :estado, :cpf, :titulo, :profissional, :pis, :nascimento,:rgp,:nome_pai,:nome_mae,:dependente,:data_ins,:insc_inss, :rg, :orgao, :assinatura_socio, :assinatura_presidente, :categoria, :estado_civil)";
+VALUES (:matricula, :nome, :endereco, :bairro, :estado, :cpf, :titulo, :profissional, :pis, :nascimento,:rgp,:nome_pai,:nome_mae,:dependente,:data_ins,:insc_inss, :rg, :orgao, :assinatura_socio, :assinatura_presidente, :estado_civil)";
 
 $stmt = $conn->prepare( $sql );
-$stmt->bindParam( ':id', $id);
 $stmt->bindParam( ':matricula', $matricula);
 $stmt->bindParam( ':nome', $nome);
 $stmt->bindParam( ':endereco', $endereco);
@@ -50,7 +48,6 @@ $stmt->bindParam( ':rg', $rg);
 $stmt->bindParam( ':orgao', $orgao);
 $stmt->bindParam( ':assinatura_socio', $assinatura_socio);
 $stmt->bindParam( ':assinatura_presidente', $assinatura_presidente);
-$stmt->bindParam( ':categoria', $categoria);
 $stmt->bindParam( ':estado_civil', $estado_civil);
 $result = $stmt->execute();
 if ( ! $result ){

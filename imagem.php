@@ -5,8 +5,8 @@ require_once('config/conn.php');
 $id = (int) $_GET['id'];
 
 // Selecionando fotos
-$stmt = $pdo->prepare('SELECT conteudo, tipo FROM fotos WHERE id = :id');
-$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+$stmt = $pdo->prepare('SELECT conteudo, tipo FROM fotos WHERE fotos_id = :id');
+$stmt->bindParam(':fotos_id', $id, PDO::PARAM_INT);
 
 // Se executado
 if ($stmt->execute())
