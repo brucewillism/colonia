@@ -26,7 +26,7 @@ require_once "cabeçalho.php";
     
     <table class="table" border="1px" style="background: #C0C0C0;">
         <tr>
-            <th>Nome </th>
+            <th>Nome</th>
             <th>CPF</th>
             <th>Endereco</th>
             <th>Bairro</th>
@@ -34,22 +34,20 @@ require_once "cabeçalho.php";
             <th>Editar</th>
             <th>Detalhes</th>
         </tr>
-            <?php
-    require_once 'bd/conexao.php';
-    
+        <?php
+        require_once 'bd/conexao.php';
+        $stmt = $conn->query("SELECT *
+            FROM pescadores
+            INNER JOIN estado_civil ON pescadores.pescador_id = estado_civil.id_estado");
 
-    $stmt = $conn->query("SELECT *
-FROM pescadores
-INNER JOIN estado_civil ON pescadores.pescador_id = estado_civil.id_estado");
+        $cadastro = $stmt->fetchAll();
+        foreach ($cadastro as $dados) {
 
-    $cadastro = $stmt->fetchAll();
-    foreach ($cadastro as $dados) {
-
-        $pescador_id = $dados['pescador_id'];
-        $nome=$dados['nome'];
-        $cpf = $dados['cpf'];
-        $endereco = $dados['endereco'];
-        $bairro = $dados['bairro'];
+            $pescador_id = $dados['pescador_id'];
+            $nome=$dados['nome'];
+            $cpf = $dados['cpf'];
+            $endereco = $dados['endereco'];
+            $bairro = $dados['bairro'];
             echo "<tr>
             <td>"."$nome"."</td>
             <td>"."$cpf"."</td>

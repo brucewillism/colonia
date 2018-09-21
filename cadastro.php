@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 
     <meta charset="utf-8">
@@ -97,7 +96,7 @@
             <input class="form-control" type="file" name="foto"/ style="width:350px";>
         </div>
 
-        <input id="salvar" class="btn btn-primary" type="submit" value="Atualizar Foto" data-loading-text="Salvando..."/>
+        <input id="salvar" class="btn btn-primary" type="submit" value="Adicionar Foto" data-loading-text="Salvando..."/>
 
     </form>
 

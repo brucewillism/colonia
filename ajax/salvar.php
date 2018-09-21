@@ -42,7 +42,7 @@ if ($tamanho > TAMANHO_MAXIMO)
 $conteudo = file_get_contents($foto['tmp_name']);
 
 // Preparando comando
-$stmt = $pdo->prepare('INSERT INTO fotos (nome, conteudo, tipo, tamanho, `id_pescador`) VALUES (:nome, :conteudo, :tipo, :tamanho, :pescador_id)');
+$stmt = $pdo->prepare('INSERT INTO fotos (nome, conteudo, tipo, tamanho, id_pescador ) VALUES (:nome, :conteudo, :tipo, :tamanho, :pescador_id)');
 
 // Definindo parâmetros
 $stmt->bindParam(':nome', $nome, PDO::PARAM_STR);

@@ -31,185 +31,193 @@
 
     <?php
     require 'cabeçalho.php';
-    require_once 'bd/conexao.php';
     ?>
-    <!-- Page Container -->
-    <div class="w3-content w3-margin-top" style="max-width:1400px;margin-top:200%;">
+    <?php 
+// Incluindo arquivo de conexão
+    require_once('config/conn.php');
+    require_once 'bd/conexao.php';
 
-      <!-- The Grid -->
-      <div class="w3-row-padding">
+    if (isset($_GET['id'])){
+      $id = $_GET['id'];
+    }
+    $stmt = $conn->query("SELECT id, nome, tipo, tamanho FROM fotos where id_pescador = 'id'");
+    $foto = $stmt->fetchAll();
+    var_dump($foto);
 
-        <!-- Left Column -->
-        <div class="w3-third">
+    foreach ($foto as $dados) {
+      $id = $dados['id'];  
+      $nome = $dados['nome'];  
+      $tipo = $dados['tipo'];  
+      $tamanho = $dados['tamanho']; 
 
-          <div class="w3-white w3-text-grey w3-card-4">
-            <div class="w3-display-container" >
+      echo "<div class='col-sm-6 col-md-4'>
 
-<!--               ----------------------------------------foto---------------------------------------------------------------
--->              
-<!DOCTYPE html>
-<html>
+      <div class='thumbnail'>
 
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" media="all" href="css/main.css"/>
-</head>
+      <img src='imagem.php?id=<?php echo $foto->id ?>' />
 
-<body>
-  <div class="container">
-    <div class="row">
+      </div>
+      </div> 
+      ";
+    }
+    ?>
 
-      <?php 
-      require_once('config/conn.php');
-      include 'cadastro.php';
-// Selecionando fotos
-      if (isset($_GET['id'])){
-        $id = $_GET['id'];
-      }
+    <div class="caption">        
 
-      $stmt = $conn->query("SELECT id, nome, tipo, tamanho FROM fotos WHERE 'id_pescador' = '$id'");
-      $foto = $stmt->fetchAll();
-      var_dump($foto);
-      
-      foreach ($foto as $dados) {
-        $id = $dados['id'];  
-        $nome = $dados['nome'];  
-        $tipo = $dados['tipo'];  
-        $tamanho = $dados['tamanho']; 
+      <div class="w3-container">
 
-        echo "<div class='col-sm-6 col-md-4'>
+        <?php 
+        require_once('config/conn.php');
+        include 'cadastro.php';
+        if (isset($_GET['id'])){
+          $id = $_GET['id'];
+        }
+        $stmt = $conn->query("SELECT *
+          FROM pescadores
+          INNER JOIN estado_civil ON pescadores.pescador_id = estado_civil.id_estado");
 
-        <div class='thumbnail'>
+        $pescadores = $stmt->fetchAll();
+        foreach ($pescadores as $dados) {
 
-        <img src='imagem.php?id=<?php echo $foto->id ?>' />
-
+          $pescador_id = $dados['pescador_id'];
+          $matricula=$dados['matricula'];
+          $nome=$dados['nome'];
+          $cpf = $dados['cpf'];
+          $endereco = $dados['endereco'];
+          $bairro = $dados['bairro'];
+          $estado = $dados['estado'];
+          $cpf = $dados['cpf'];
+          $titulo = $dados['titulo'];
+          $profissional = $dados['profissional'];
+          $pis = $dados['pis'];
+          $rg = $dados['rg'];
+          $orgao = $dados['orgao'];
+          $nascimento = $dados['nascimento'];
+          $rgp = $dados['rgp'];
+          $nome_pai = $dados['nome_pai'];
+          $nome_mae = $dados['nome_mae'];
+          $dependete = $dados['dependente'];
+          $data_ins = $dados['data_ins'];
+          $insc_inss = $dados['insc_inss'];
+          echo "
+          <strong>matricula
+          </strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+          $matricula</p>
+          <strong>
+          nome</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+          $nome</p>
+          <strong>
+          endereco</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+          $endereco</p>
+          <strong>
+          bairro</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+          $bairro</p>
+          <strong>
+          estado</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+          $estado</p>
+          <strong>
+          cpf</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+          $cpf</p>
+          <strong>
+          titulo</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+          $titulo</p>
+          <strong>
+          profissional</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+          $profissional</p>
+          <strong>
+          pis</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+          $pis</p>
+          <strong>
+          rg</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+          $rg</p>
+          <strong>
+          orgao</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+          $orgao</p>
+          <strong>
+          nascimento</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+          $nascimento</p>
+          <strong>
+          rgp</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+          $rgp</p>
+          <strong>
+          nome_pai</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+          $nome_pai</p>
+          <strong>
+          nome_mae</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+          $nome_mae</p>
+          <strong>
+          dependete</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+          $dependete</p>
+          <strong>
+          data_ins</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+          $data_ins</p>
+          <strong>
+          insc_inss</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+          $insc_inss</p>
+          ";
+        }
+        ?>   
+        <p class='w3-large'><b><i class='fa fa-asterisk fa-fw w3-margin-right w3-text-teal'></i>Resumo</b></p>
+        <p>Apresentações</p>
+        <div class='w3-light-grey w3-round-xlarge w3-small'>
+          <div class='w3-container w3-center w3-round-xlarge w3-teal' style='width:90%'>90%</div>
         </div>
-        </div> 
-        ";
+        <p class='w3-large w3-text-theme'><b><i class='fa fa-globe fa-fw w3-margin-right w3-text-teal'></i>Experiência</b></p>
+        <p>Pesca</p>
+        <div class='w3-light-grey w3-round-xlarge'>
+          <div class='w3-round-xlarge w3-teal' style='height:24px;width:100%'></div>
+        </div>
+        <p>Vendas</p>
+        <div class='w3-light-grey w3-round-xlarge'>
+          <div class='w3-round-xlarge w3-teal' style='height:24px;width:55%'></div>
+        </div>
+        <p>pescadores</p>
+        <div class='w3-light-grey w3-round-xlarge'>
+          <div class='w3-round-xlarge w3-teal' style='height:24px;width:25%'></div>
+        </div>
       }
       ?>
+    </div>
+  </div>
 
-      <div class='caption'>
+  <!-- Right Column -->
+  <div class="w3-twothird" style="max-width:1400px; margin-left: 35%;">
 
-        <div class="w3-container">
-          <?php
-          if (isset($_GET['id'])){
-            $pescador_id = $_GET['id'];
-          }
+    <div class="w3-container w3-card w3-white w3-margin-bottom">
+      <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Detalhes Do Pescador</h2>
 
-          $stmt = $conn->query("SELECT *
-            FROM pescadores
-            INNER JOIN estado_civil ON pescadores.id_estado = estado_civil.id_estado
-            INNER JOIN fotos ON fotos.id_pescador = $pescador_id");
-          $pescadores = $stmt->fetchAll();
-          foreach ($pescadores as $dados) {
-            $id = $dados['id'];
-            $nome=$dados['nome'];
-            $cpf = $dados['cpf'];
-            $endereco = $dados['endereco'];
-            $bairro = $dados['bairro'];
-
-            echo "<div class='w3-container'>
-            <strong>Matricula:</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->matricula ?></p>
-            <strong>Nome:</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->nome ?></p>
-            <strong>Endereço:</strong><p><i class='fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->edereco ?></p>
-            <strong>Bairro:</strong><p><i class='fa fa-home fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->bairro ?></p>
-            <strong>Estado:</strong><p><i class='fa fa-home fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->estado ?></p>
-            <strong>CPF:</strong><p><i class='fa fa-home fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->cpf ?></p>
-            <strong>Titulo:</strong><p><i class='fa fa-home fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->titulo ?></p>
-            <strong>Profissional:</strong><p><i class='fa fa-home fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->profissional ?></p>
-            <strong>Pis:</strong><p><i class='fa fa-home fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->pis ?></p>
-            <strong>Nascimento:</strong><p><i class='fa fa-home fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->nascimento ?></p>
-            <strong>Cidade:</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->cidade ?></p>
-            <strong>Rgp:</strong><p><i class='fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->rgp ?></p>
-            <strong>Nome Do Pai:</strong><p><i class='fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->nome_pai ?></p>
-            <strong>Nome Da Mãe:</strong><p><i class='fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->nome_mae ?></p>
-            <strong>Dependete:</strong><p><i class='fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->dependete ?></p>
-            <strong>Data Da Inscrição:</strong><p><i class='fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->data_ins ?></p>
-            <strong>Incrição Do INSS:</strong><p><i class='fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->insc_inss ?></p>
-            <strong>RG:</strong><p><i class='fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->rg ?></p>
-            <strong>Orgão:</strong><p><i class='fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->orgao ?></p>
-            <strong>RG:</strong><p><i class='fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->rg ?></p>
-            <strong>RG:</strong><p><i class='fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal'></i><?php echo $pescadores->rg ?></p>
-            ";
-          }
-          ?>
-          <p class='w3-large'><b><i class='fa fa-asterisk fa-fw w3-margin-right w3-text-teal'></i>Resumo</b></p>
-          <p>Apresentações</p>
-          <div class='w3-light-grey w3-round-xlarge w3-small'>
-            <div class='w3-container w3-center w3-round-xlarge w3-teal' style='width:90%'>90%</div>
+      <div class="container">    
+        <form method="post">
+          <div class="form-group">
+            <label for="comment">Descrição:</label>
+            <textarea class="form-control" rows="5" id="comment" style="width: 50%;"></textarea>
           </div>
-          <p class='w3-large w3-text-theme'><b><i class='fa fa-globe fa-fw w3-margin-right w3-text-teal'></i>Experiência</b></p>
-          <p>Pesca</p>
-          <div class='w3-light-grey w3-round-xlarge'>
-            <div class='w3-round-xlarge w3-teal' style='height:24px;width:100%'></div>
-          </div>
-          <p>Vendas</p>
-          <div class='w3-light-grey w3-round-xlarge'>
-            <div class='w3-round-xlarge w3-teal' style='height:24px;width:55%'></div>
-          </div>
-          <p>pescadores</p>
-          <div class='w3-light-grey w3-round-xlarge'>
-            <div class='w3-round-xlarge w3-teal' style='height:24px;width:25%'></div>
-          </div>";
-        }
-        ?>
+          <a  target='_blank' href="index.php" data-placement="top" title="Enviar"><i class="fa fa-check-circle fa-1x"></i></a>
+
+          <a  target='_blank' href="index.php" data-placement="top" title="Editar"><i class="fa fa-edit fa-1x"></i></a>
+        </form>
+      </div>
+
+
+      <div class="w3-container">
+        <h5 class="w3-opacity"><b>Em definição</b></h5>
+        <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2015 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
+        <p>Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
+        <hr>
+      </div>
+      <div class="w3-container">
+        <h5 class="w3-opacity"><b>Em definição</b></h5>
+        <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2012 - Dec 2014</h6>
+        <p>Consectetur adipisicing elit. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
+        <hr>
+      </div>
+      <div class="w3-container">
+        <h5 class="w3-opacity"><b>Em definição</b></h5>
+        <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jun 2010 - Mar 2012</h6>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p><br>
       </div>
     </div>
-  </div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-</div>
-<!-- End Left Column -->
-</div>
-
-<!-- Right Column -->
-<div class="w3-twothird" style="max-width:1400px; margin-left: 35%;">
-
-  <div class="w3-container w3-card w3-white w3-margin-bottom">
-    <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Detalhes Do Pescador</h2>
-
-    <div class="container">    
-      <form method="post">
-        <div class="form-group">
-          <label for="comment">Descrição:</label>
-          <textarea class="form-control" rows="5" id="comment" style="width: 50%;"></textarea>
-        </div>
-        <a  target='_blank' href="index.php" data-placement="top" title="Enviar"><i class="fa fa-check-circle fa-1x"></i></a>
-
-        <a  target='_blank' href="index.php" data-placement="top" title="Editar"><i class="fa fa-edit fa-1x"></i></a>
-      </form>
-    </div>
-
-
-    <div class="w3-container">
-      <h5 class="w3-opacity"><b>Em definição</b></h5>
-      <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2015 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
-      <p>Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
-      <hr>
-    </div>
-    <div class="w3-container">
-      <h5 class="w3-opacity"><b>Em definição</b></h5>
-      <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2012 - Dec 2014</h6>
-      <p>Consectetur adipisicing elit. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
-      <hr>
-    </div>
-    <div class="w3-container">
-      <h5 class="w3-opacity"><b>Em definição</b></h5>
-      <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jun 2010 - Mar 2012</h6>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p><br>
-    </div>
-  </div>
-
-</div>
-
-</div>  
+  </div> 
 </div>
 <?php include 'rodape'; ?>
 </body>
