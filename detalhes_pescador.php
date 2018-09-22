@@ -69,7 +69,6 @@
 
       $stmt = $conn->query("SELECT id, nome, tipo, tamanho FROM fotos WHERE 'id_pescador' = '$id'");
       $foto = $stmt->fetchAll();
-      var_dump($foto);
       
       foreach ($foto as $dados) {
         $id = $dados['id'];  
@@ -194,25 +193,18 @@
           <div class='w3-light-grey w3-round-xlarge'>
             <div class='w3-round-xlarge w3-teal' style='height:24px;width:55%'></div>
           </div>
-          <p>pescadores</p>
+          <p>Produtos</p>
           <div class='w3-light-grey w3-round-xlarge'>
             <div class='w3-round-xlarge w3-teal' style='height:24px;width:25%'></div>
           </div>
         </div>
       </div>
     </div>
-
   </div>
-
 </div>
 </div>
-
-</div>
-</div>
-<!-- End Left Column -->
 </div>
 
-<!-- Right Column -->
 <div class="w3-twothird" style="max-width:1400px; margin-left: 35%;">
 
   <div class="w3-container w3-card w3-white w3-margin-bottom">
@@ -251,9 +243,10 @@
   </div>
 
 </div>
-
-</div>  
 </div>
+</div>
+</div>
+
 <?php include 'rodape.php'; ?>
 </body>
 </html>

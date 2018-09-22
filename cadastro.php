@@ -85,22 +85,26 @@
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <form id="formulario" action="ajax/salvar.php" method="post">
+        <form id="formulario" action="ajax/salvar.php" method="post">
 
-        <div id="mensagem" style="width:350px";></div>
+            <div id="mensagem" style="width:350px";></div>
 
-        <div class="form-group">
-            <label>Foto</label>
-            <input class="form-control" type="file" name="foto"/ style="width:350px";>
-        </div>
+            <div class="form-group">
+                <label>Foto</label>
+                <input class="form-control" type="file" name="foto"/ style="width:350px";>
+                <?php if (isset($_GET['id'])){
+                    $pescador_id = $_GET['id'];
+                } 
+                ?>
+            </div>
 
-        <input id="salvar" class="btn btn-primary" type="submit" value="Adicionar Foto" data-loading-text="Salvando..."/>
+            <input id="salvar" class="btn btn-primary" type="submit" value="Adicionar Foto" data-loading-text="Salvando..."/>
 
-    </form>
+        </form>
 
-</div>
+    </div>
 
 </body>
 </html>

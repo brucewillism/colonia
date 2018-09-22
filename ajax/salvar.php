@@ -12,12 +12,14 @@ define('TAMANHO_MAXIMO', (2 * 1024 * 1024));
 // Verificando se selecionou alguma imagem
 if (!isset($_FILES['foto']))
 {
-    echo retorno('Selecione uma imagem');
-    exit;
+	echo retorno('Selecione uma imagem');
+	exit;
 }
 
 // Recupera os dados dos campos
-$pescador_id = $_GET['id'];
+if (isset($_GET['id'])){
+	$pescador_id = $_GET['id'];
+}
 $foto = $_FILES['foto'];
 $nome = $foto['name'];
 $tipo = $foto['type'];
@@ -27,15 +29,15 @@ $tamanho = $foto['size'];
 // Formato
 if(!preg_match('/^image\/(pjpeg|jpeg|png|gif|bmp)$/', $tipo))
 {
-    echo retorno('Isso não é uma imagem válida');
-    exit;
+	echo retorno('Isso não é uma imagem válida');
+	exit;
 }
 
 // Tamanho
 if ($tamanho > TAMANHO_MAXIMO)
 {
-    echo retorno('A imagem deve possuir no máximo 2 MB');
-    exit;
+	echo retorno('A imagem deve possuir no máximo 2 MB');
+	exit;
 }
 
 // Transformando foto em dados (binário)
