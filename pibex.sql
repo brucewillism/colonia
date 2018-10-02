@@ -51,14 +51,26 @@ CREATE TABLE `pescadores` (
    FOREIGN KEY (id_estado) REFERENCES estado_civil(id_estado)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-
-CREATE TABLE `fotos` (
- `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
- `nome` varchar(60) NOT NULL,
- `conteudo` mediumblob NOT NULL,
- `tipo` varchar(20) NOT NULL,
- `tamanho` int(10) unsigned NOT NULL,
- `id_pescador` int(11) NOT NULL,
-PRIMARY KEY (`id`),
-FOREIGN KEY (id_pescador) REFERENCES pescadores(pescador_id)
+DROP TABLE IF EXISTS `TB_NOTICIAS`;
+CREATE TABLE `TB_NOTICIAS` (
+  `ID_NOT` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `CATEGORIA` varchar(255) NOT NULL,
+  `TITULO` varchar(255) NOT NULL,
+  `SUBTITULO` varchar(255) DEFAULT NULL,
+  `TEXTO` text NOT NULL,
+  `ARQUIVO` longblob,
+  `PUBLICADO` tinyint(1) DEFAULT NULL,
+  `DATA` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `DATA_ED` datetime DEFAULT NULL,
+  `id_usuario` int(11) NOT NULL,
+  FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+DROP TABLE IF EXISTS `TB_COMENTARIO`;
+CREATE TABLE `TB_COMENTARIO` (
+  `COM_ID` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `COM_NOME` varchar(255) NOT NULL,
+  `COM_COMENTARIO` varchar(255) NOT NULL,
+  `ID_NOT` int(11) NOT NULL,
+FOREIGN KEY (ID_NOT) REFERENCES TB_NOTICIAS(ID_NOT)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
