@@ -4,174 +4,175 @@ require_once "cabeçalho.php";
 <!-- Page Content -->
 <div class="container">
 
-  <div class="row">
+ <?php
+ require_once "cabeçalho.php";
+ ?>
+ <!-- Page Content -->
+ <div class="container">
+  <div class="col-md-8">
+    <br>
+    <br>
+    <br>
+    <br>
+    <h2 class="card-title">Últimas Notícias</h2>
+  </h1>
 
-    <?php
-    $sql = "SELECT ARQUIVO, TITULO, ID_NOT FROM TB_NOTICIAS WHERE PUBLICADO = '1' ORDER BY DATA DESC LIMIT 1";
 
-    $stmt = $conn->prepare($sql);
-    $res = $stmt->execute();
-    $rows = $stmt->rowCount();
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="img/20.jpeg" class="img-responsive" style="width:100%;height:400px";>
+      </div>
 
-    if ($rows <=0) {
-      echo "<h1>NÃO EXISTE NOTICIAS PLUBLICADAS :(</h1>";
-    } else{         
-
-      ?>
-      <?php 
-
-      while ($campos = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        $id = $campos['ID_NOT'];
-        $titulo = $campos['TITULO'];
-        $arquivo = $campos['ARQUIVO'];
-
-        $rest = substr($texto, 0, 300);
-
-        $entry = base64_encode($arquivo);
-
-        ?>
-        <!-- Blog Entries Column -->
-        <div class="col-md-8">
-          <br>
-          <br>
-          <br>
-          <br>
-          <h2 class="card-title">Últimas Notícias</h2>
-        </h1>
-
-        <!-- Blog Post -->
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <a href="not.php?id=<?=$id?>"><img src="data:image/jpeg;base64,<?= $entry ?>" class="img-responsive" style="width:100%;height:400px;"></a>                    
-              <h3 style="font-size: 25px"><?php echo $titulo ?></h3> 
-            </div>
-            <div class="carousel-item">
-              <a href="not.php?id=<?=$id?>"><img src="data:image/jpeg;base64,<?= $entry ?>" class="img-responsive" style="width:100%;height:400px;"></a>                    
-              <h3 style="font-size: 25px"><?php echo $titulo ?></h3> 
-            </div>
-            <div class="carousel-item">
-              <a href="not.php?id=<?=$id?>"><img src="data:image/jpeg;base64,<?= $entry ?>" class="img-responsive" style="width:100%;height:400px;"></a>                    
-              <h3 style="font-size: 25px"><?php echo $titulo ?></h3> 
-            </div>
-          </div>
-        </div>
-        <?php
-      }
-    }
-    ?>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-
-    <?php
-    $sql = "SELECT ARQUIVO, TITULO, TEXTO, ID_NOT, SUBTITULO FROM TB_NOTICIAS WHERE PUBLICADO = '1' ORDER BY DATA DESC LIMIT 6";
-
-    $stmt = $conn->prepare($sql);
-    $res = $stmt->execute();
-    $rows = $stmt->rowCount();
-
-    if ($rows <=0) {
-      echo "<h1>NÃO EXISTE NOTICIAS PLUBLICADAS :(</h1>";
-    } else{         
-
-      ?>
       <div class="row">
-        <?php 
-        while ($campos = $stmt->fetch(PDO::FETCH_ASSOC)) {
-          $id = $campos['ID_NOT'];
-          $titulo = $campos['TITULO'];
-          $arquivo = $campos['ARQUIVO'];
-          $texto = $campos['TEXTO'];
-          $subtitulo = $campos['SUBTITULO'];
 
-          $rest = substr($texto, 0, 300);
+        <?php
+        $sql = "SELECT ARQUIVO, TITULO, ID_NOT FROM TB_NOTICIAS WHERE PUBLICADO = '1' ORDER BY DATA DESC LIMIT 3";
 
-          $entry = base64_encode($arquivo);
+        $stmt = $conn->prepare($sql);
+        $res = $stmt->execute();
+        $rows = $stmt->rowCount();
+
+        if ($rows <=0) {
+          echo "<h1>NÃO EXISTE NOTICIAS PLUBLICADAS :(</h1>";
+        } else{         
 
           ?>
+          <?php 
 
+          while ($campos = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $id = $campos['ID_NOT'];
+            $titulo = $campos['TITULO'];
+            $arquivo = $campos['ARQUIVO'];
 
-          <!-- <div class="not"> -->
-            <div class="col-md-4">
-              <div>
-                <h4 class="titulo-h4"><?php echo $titulo ?></h4>
-                <p class="text-index"><?php echo $subtitulo ?></p>
-              </div>
-              <div>
-                <a href="not.php?id=<?=$id?>"><img src="data:image/jpeg;base64,<?= $entry ?>" class="img-responsive" style="width:100%;height:200px;" alt="Image"></a>
-                <p class="text-index"><?php echo $rest ?><a href="not.php?id=<?=$id?>"> Saiba mais...</a></p>
-                <hr>
-              </div>
-            </div>
+            $rest = substr($texto, 0, 300);
 
-            <!-- </div> -->
+            $entry = base64_encode($arquivo);
+
+            ?>
+            <div class="carousel-item">
+              <a href="not.php?id=<?=$id?>"><img src="data:image/jpeg;base64,<?= $entry ?>" class="img-responsive" style="width:100%;height:400px;"></a>
+              <h3 style="font-size: 25px margin-right:0;"><?php echo $titulo ?></h3>            
+            </div>       
+
             <?php
           }
-          echo "</div>";
         }
         ?>
-
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
+      <br>
+      <br>
+      <?php
+      $sql = "SELECT ARQUIVO, TITULO, TEXTO, ID_NOT, SUBTITULO FROM TB_NOTICIAS WHERE PUBLICADO = '1' ORDER BY DATA DESC LIMIT 6";
+
+      $stmt = $conn->prepare($sql);
+      $res = $stmt->execute();
+      $rows = $stmt->rowCount();
+
+      if ($rows <=0) {
+        echo "<h1>NÃO EXISTE NOTICIAS PLUBLICADAS :(</h1>";
+      } else{         
+
+        ?>
+        <div class="row">
+          <?php 
+          while ($campos = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $id = $campos['ID_NOT'];
+            $titulo = $campos['TITULO'];
+            $arquivo = $campos['ARQUIVO'];
+            $texto = $campos['TEXTO'];
+            $subtitulo = $campos['SUBTITULO'];
+
+            $rest = substr($texto, 0, 300);
+
+            $entry = base64_encode($arquivo);
+
+            ?>
 
 
+            <!-- <div class="not"> -->
+              <div class="col-md-4">
+                <div>
+                  <h4 class="titulo-h4"><?php echo $titulo ?></h4>
+                  <p class="text-index"><?php echo $subtitulo ?></p>
+                </div>
+                <div>
+                  <a href="not.php?id=<?=$id?>"><img src="data:image/jpeg;base64,<?= $entry ?>" class="img-responsive" style="width:100%;height:200px;" alt="Image"></a>
+                  <p class="text-index"><?php echo $rest ?><a href="not.php?id=<?=$id?>"> Saiba mais...</a></p>
+                  <hr>
+                </div>
+              </div>
 
+              <!-- </div> -->
+              <?php
+            }
+            echo "</div>";
+          }
+          ?>
 
-
-
-
-
-
-
-
-
-
-
-      <div class="">
-        <div class="card-body">
-          <h2 class="card-title">Sobre a Colônia</h2>
-          <p class="card-text">Colonia de Pescadores Z-10 é uma empresa de associações cívicas e sociais localizada no Estado de
-            Pernambuco. A organização encontra-se na Rua Dr Jose Goncalves S/N. Esta empresa de capital privado
-            foi fundada no ano de 1984 (30 anos atrás). Colonia de Pescadores Z-10 encontra-se em funcionamento
-            há mais de 17 anos que a expectativa média de vida para uma empresa no Brasil, e há mais de 12 anos
-          que a expectativa média de vida para uma empresa desse ramo de atividade.</p>
-          <a href="#" class="btn btn-primary">Veja mais &rarr;</a>
         </div>
-        <div class="card-footer text-muted">
-          Posted on January 1, 2017 by
-          <a href="#">Start Bootstrap</a>
-        </div>
-      </div>
 
-      <!-- Blog Post -->
-      <div class="fo">
-        <img class="foto" src="img/1.jpeg" alt="Card image cap">
-        <div class="card-body">
-          <h2 class="card-title">A Pesca No Litoral Norte</h2>
-          <p class="card-text">Apesar da modesta participação da Região Nordeste e do Estado de Pernambuco na produção pesqueira nacional
-            – 11,7% e 0,5%, respectivamente, no período de 1980-1994 (Paiva, 1997, p.29) – a pesca desempenha importante
-            papel na sobrevivência das comunidades do Litoral e Zona da Mata Pernambucana.
-            O sistema de pesca predominante no Litoral de Pernambuco é o artesanal que, no ano de 1998, respondeu por
-            99,0% da produção total de pescado (estuarino e marítimo) do Estado (IBAMA, 1999). A maior parte dessa
-            produção provém do Litoral Norte, onde existem várias comunidades pesqueiras. À exceção de Itamaracá e
-            Ponta de Pedras onde a pesca marítima ou no mar de fora é a mais expressiva, nas demais comunidades predomina
-          a pesca em rios, estuários e águas litorâneas ou no mar de dentro (Silva e Carvalho, 1996, p. 19).</p>
-          <a href="#" class="btn btn-primary">Veja Mais &rarr;</a>
-        </div>
-        <div class="card-footer text-muted">
 
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="">
+          <div class="card-body">
+            <h2 class="card-title">Sobre a Colônia</h2>
+            <p class="card-text">Colonia de Pescadores Z-10 é uma empresa de associações cívicas e sociais localizada no Estado de
+              Pernambuco. A organização encontra-se na Rua Dr Jose Goncalves S/N. Esta empresa de capital privado
+              foi fundada no ano de 1984 (30 anos atrás). Colonia de Pescadores Z-10 encontra-se em funcionamento
+              há mais de 17 anos que a expectativa média de vida para uma empresa no Brasil, e há mais de 12 anos
+            que a expectativa média de vida para uma empresa desse ramo de atividade.</p>
+            <a href="#" class="btn btn-primary">Veja mais &rarr;</a>
+          </div>
+          <div class="card-footer text-muted">
+            Posted on January 1, 2017 by
+            <a href="#">Start Bootstrap</a>
+          </div>
         </div>
-      </div>
+
+        <!-- Blog Post -->
+        <div class="fo">
+          <img class="foto" src="img/1.jpeg" alt="Card image cap">
+          <div class="card-body">
+            <h2 class="card-title">A Pesca No Litoral Norte</h2>
+            <p class="card-text">Apesar da modesta participação da Região Nordeste e do Estado de Pernambuco na produção pesqueira nacional
+              – 11,7% e 0,5%, respectivamente, no período de 1980-1994 (Paiva, 1997, p.29) – a pesca desempenha importante
+              papel na sobrevivência das comunidades do Litoral e Zona da Mata Pernambucana.
+              O sistema de pesca predominante no Litoral de Pernambuco é o artesanal que, no ano de 1998, respondeu por
+              99,0% da produção total de pescado (estuarino e marítimo) do Estado (IBAMA, 1999). A maior parte dessa
+              produção provém do Litoral Norte, onde existem várias comunidades pesqueiras. À exceção de Itamaracá e
+              Ponta de Pedras onde a pesca marítima ou no mar de fora é a mais expressiva, nas demais comunidades predomina
+            a pesca em rios, estuários e águas litorâneas ou no mar de dentro (Silva e Carvalho, 1996, p. 19).</p>
+            <a href="#" class="btn btn-primary">Veja Mais &rarr;</a>
+          </div>
+          <div class="card-footer text-muted">
+
+          </div>
+        </div>
 
           <!-- Blog Post 
           <div class="card mb-4">
@@ -260,6 +261,7 @@ require_once "cabeçalho.php";
     <!-- /.row -->
 
   </div>
+</div>
   <!-- /.container -->
 
   <!-- Footer -->
@@ -270,6 +272,5 @@ require_once "cabeçalho.php";
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>
