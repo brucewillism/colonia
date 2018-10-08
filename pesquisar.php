@@ -5,7 +5,11 @@
   <meta charset="utf-8">
   <title>pesquisar</title>
 </head>
-
+<body>
+<br>
+<br>
+<br>
+<br>
 <table class="table" border="1px" style="background: #C0C0C0;">
   <tr>
     <th>Nome </th>
@@ -23,10 +27,10 @@
 
   $stmt = $conn->query("SELECT *
     FROM pescadores
-    INNER JOIN categorias ON pescadores.id = categorias.id WHERE nome LIKE '%".$buscar."%'");
+    INNER JOIN estado_civil ON pescadores.id_estado = estado_civil.id_estado  WHERE nome LIKE '%".$buscar."%'");
   $cadastro = $stmt->fetchAll();
   foreach ($cadastro as $dados) {
-    $id = $dados['id'];
+    $pescador_id = $dados['pescador_id'];
     $nome=$dados['nome'];
     $cpf = $dados['cpf'];
     $endereco = $dados['endereco'];
@@ -36,10 +40,14 @@
     <td>"."$cpf"."</td>
     <td>"."$endereco"."</td>
     <td>"."$bairro"."</td>
-    <td><a  href='bd/excluir.php?id=".$id."'>Excluir</a></td>
-    <td><a  href='formulario_editar.php?id=".$id."'>Editar</a></td>
-    <td><a  href='detalhes_pescador.php?id=".$id."' >Mais detalhes</a></td>
+    <td><a  href='bd/excluir.php?id=".$pescador_id."'>Excluir</a></td>
+    <td><a  href='formulario_editar.php?id=".$pescador_id."'>Editar</a></td>
+    <td><a  href='detalhes_pescador.php?id=".$pescador_id."' >Mais detalhes</a></td>
     </tr>";
   }
   ?>
 </table><a class="btn btn-secondary" href='armazenamento.php'>Voltar</a>
+<?php 
+include 'rodape.php'; 
+?>
+</body>
