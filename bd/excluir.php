@@ -1,12 +1,12 @@
 <?php
 require_once 'conexao.php';
 
-$id = $_GET['id'];
-    $sql = "DELETE FROM pescadores WHERE id = :id";
+$pescador_id = $_GET['id'];
+    $sql = "DELETE FROM pescadores WHERE pescador_id = :pescador_id";
 
     $stmt = $conn->prepare($sql);
 
-    $stmt->bindParam(":id",$id);
+    $stmt->bindParam(":pescador_id",$pescador_id);
     $result = $stmt->execute();
         if ( ! $result ){
             var_dump( $stmt->errorInfo() );
@@ -14,4 +14,4 @@ $id = $_GET['id'];
         }
 
     header('location: ../armazenamento.php');
-?>
+?> 

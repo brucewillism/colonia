@@ -22,10 +22,14 @@ $orgao = htmlspecialchars($_POST["orgao"]);
 // $assinatura_socio = htmlspecialchars($_POST["assinatura_socio"]);
 // $assinatura_presidente = htmlspecialchars($_POST["assinatura_presidente"]);
 $estado_civil = htmlspecialchars($_POST["estado_civil"]);
+$file_path= addslashes($_FILES['file']['tmp_name']);
 
-$sql ="INSERT INTO pescadores (matricula, nome, endereco, bairro, estado, cpf, titulo, profissional, pis, nascimento, rgp, nome_pai, nome_mae, dependente, data_ins, insc_inss, rg, orgao, id_estado)
+$file = file_get_contents($file_path);
 
-VALUES (:matricula, :nome, :endereco, :bairro, :estado, :cpf, :titulo, :profissional, :pis, :nascimento, :rgp, :nome_pai, :nome_mae, :dependente, :data_ins, :insc_inss, :rg, :orgao, :estado_civil)";
+
+$sql ="INSERT INTO pescadores (matricula, nome, endereco, bairro, estado, cpf, titulo, profissional, pis, nascimento, rgp, nome_pai, nome_mae, dependente, data_ins, insc_inss, rg, orgao, id_estado, ARQUIVO)
+
+VALUES (:matricula, :nome, :endereco, :bairro, :estado, :cpf, :titulo, :profissional, :pis, :nascimento, :rgp, :nome_pai, :nome_mae, :dependente, :data_ins, :insc_inss, :rg, :orgao, :estado_civil, :file)";
 
 $stmt = $conn->prepare( $sql );
 $stmt->bindParam( ':matricula', $matricula);
@@ -47,6 +51,7 @@ $stmt->bindParam( ':insc_inss', $insc_inss);
 $stmt->bindParam( ':rg', $rg);
 $stmt->bindParam( ':orgao', $orgao);
 $stmt->bindParam( ':estado_civil', $estado_civil);
+$stmt->bindParam( ':file', $file);
 $result = $stmt->execute();
 if ( ! $result ){
 	var_dump( $stmt->errorInfo() );

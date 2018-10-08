@@ -112,31 +112,40 @@ include "cabeçalho.php";
   <form action="bd/cadastrar_pescadores.php" method="POST">
    <div class="ola">  
      <h1>Dados Pessoais Dos Pescadores</h1>
-     <label>CADASTRO MAT. N</label>
-     <input type="number" name="matricula" placeholder="Digite o Numero Da Matricula">
+    <label>Foto</label>
+     <div class="form-row">
+      <div class="form-group col-md-12">
+        <input type="file"  class="form-control-file" name="file" id="imgInp">
+        <br>
+        <img id='img-upload'/>
+      </div>
+    </div>
 
-     <label>Nome</label>
-     <input type="text" name="nome" placeholder="Digite Seu Nome Completo" required>
-     <label>Endereço</label>
-     <input type="text"  name="endereco" placeholder="Digite Seu endereço" required>
+    <label>CADASTRO MAT. N</label>
+    <input type="number" name="matricula" placeholder="Digite o Numero Da Matricula">
 
-     <label>Bairro</label>
-     <input type="text"  name="bairro" placeholder="Digite Seu Bairro" required>
-     <label>estado</label>
-     <input type="text"  name="estado" placeholder="Digite Seu Bairro" required>
+    <label>Nome</label>
+    <input type="text" name="nome" placeholder="Digite Seu Nome Completo" required>
+    <label>Endereço</label>
+    <input type="text"  name="endereco" placeholder="Digite Seu endereço" required>
 
-     <label>CPF</label>
-     <input id="cpf" type="text" name="cpf" placeholder="Digite Seu CPF" required>
+    <label>Bairro</label>
+    <input type="text"  name="bairro" placeholder="Digite Seu Bairro" required>
+    <label>estado</label>
+    <input type="text"  name="estado" placeholder="Digite Seu Bairro" required>
 
-     <label>Titulo</label>
-     <input type="text" id="titulo"  name="titulo" placeholder="Digite Seu Titulo">
-     <label>Profissional</label>
-     <input type="number"  name="profissional" placeholder="Digite Seu Profissional">
+    <label>CPF</label>
+    <input id="cpf" type="text" name="cpf" placeholder="Digite Seu CPF" required>
 
-     <label>PIS</label>
-     <input type="text" id="pis"  name="pis" placeholder="Digite Seu Pis">
-     <label>Estado Civil</label>
-     <select name="estado_civil" required>
+    <label>Titulo</label>
+    <input type="text" id="titulo"  name="titulo" placeholder="Digite Seu Titulo">
+    <label>Profissional</label>
+    <input type="number"  name="profissional" placeholder="Digite Seu Profissional">
+
+    <label>PIS</label>
+    <input type="text" id="pis"  name="pis" placeholder="Digite Seu Pis">
+    <label>Estado Civil</label>
+    <select name="estado_civil" required>
       <?php
       include 'bd/conexao.php';
       $sql = "SELECT * FROM estado_civil";
@@ -178,5 +187,22 @@ include "cabeçalho.php";
 <?php
 include "rodape.php"
 ?>
+ <script type="text/javascript" >
+    $(document).ready( function() {
+      function readURL(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+            $('#img-upload').attr('src', e.target.result);
+          }
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+      $("#imgInp").change(function(){
+        readURL(this);
+      });   
+    });
+
+  </script>
 </body>
 </html>

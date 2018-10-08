@@ -49,9 +49,6 @@ require_once "cabeçalho.php";
             $id = $campos['ID_NOT'];
             $titulo = $campos['TITULO'];
             $arquivo = $campos['ARQUIVO'];
-
-            $rest = substr($texto, 0, 300);
-
             $entry = base64_encode($arquivo);
 
             ?>

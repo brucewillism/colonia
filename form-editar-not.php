@@ -233,5 +233,3 @@ include 'rodape.php';
 
 </body>
 </html>
-
-s

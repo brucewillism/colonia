@@ -48,7 +48,8 @@ CREATE TABLE `pescadores` (
   -- `assinatura_socio` varchar(255)NOT NULL,
   -- `assinatura_presidente`varchar(255)NOT NULL,
   `id_estado` int(11) NOT NULL,
-   FOREIGN KEY (id_estado) REFERENCES estado_civil(id_estado)
+  `ARQUIVO` longblob,
+  FOREIGN KEY (id_estado) REFERENCES estado_civil(id_estado)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS `TB_NOTICIAS`;
@@ -72,5 +73,5 @@ CREATE TABLE `TB_COMENTARIO` (
   `COM_NOME` varchar(255) NOT NULL,
   `COM_COMENTARIO` varchar(255) NOT NULL,
   `ID_NOT` int(11) NOT NULL,
-FOREIGN KEY (ID_NOT) REFERENCES TB_NOTICIAS(ID_NOT)
+  FOREIGN KEY (ID_NOT) REFERENCES TB_NOTICIAS(ID_NOT)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;

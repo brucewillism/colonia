@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Stockager</title>
+  <title>Detalhes Do Pescador</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="css/font-awesome.min.css">
 </head>
 <body>
-
   <?php
   require 'cabeçalho.php';
   require_once 'bd/conexao.php';
@@ -26,7 +25,6 @@
 
         <div class="w3-white w3-text-grey w3-card-4">
           <div class="w3-display-container" >
-
 <!--               ----------------------------------------foto---------------------------------------------------------------
 -->              
 <body>
@@ -49,7 +47,11 @@
         $stmt = $conn->query("SELECT *
           FROM pescadores
           INNER JOIN estado_civil ON pescadores.id_estado = estado_civil.id_estado WHERE pescador_id ='$pescador_id'");
+
         $pescadores = $stmt->fetchAll();
+        $stmt = $conn->prepare($sql);
+        $res = $stmt->execute();
+        $rows = $stmt->rowCount();
         foreach ($pescadores as $dados) {
 
           $pescador_id = $dados['pescador_id'];
@@ -72,7 +74,19 @@
           $dependete = $dados['dependente'];
           $data_ins = $dados['data_ins'];
           $insc_inss = $dados['insc_inss'];
-          echo "
+          $arquivo = $dados['ARQUIVO'];
+
+          $entry = base64_encode($arquivo);
+          ?>
+
+          <div class='col-sm-6 col-md-4'>
+
+            <div class='thumbnail'>
+
+              <img src="data:image/jpeg;base64,<?= $entry ?>" class="img-responsive" style="width:100%;height:400px;">            
+            </div>
+          </div>
+          <br>
           <strong>matricula
           </strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
           $matricula</p>
@@ -126,7 +140,8 @@
           $data_ins</p>
           <strong>
           insc_inss</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
-          $insc_inss</p>";
+          $insc_inss</p>
+          <?php
         }
         ?>
         <p class='w3-large'><b><i class='fa fa-asterisk fa-fw w3-margin-right w3-text-teal'></i>Resumo</b></p>
