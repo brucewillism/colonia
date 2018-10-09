@@ -25,7 +25,7 @@ $estado_civil = htmlspecialchars($_POST["estado_civil"]);
 $file_path= addslashes($_FILES['file']['tmp_name']);
 
 $file = file_get_contents($file_path);
-
+ // var_dump($file);
 
 $sql ="INSERT INTO pescadores (matricula, nome, endereco, bairro, estado, cpf, titulo, profissional, pis, nascimento, rgp, nome_pai, nome_mae, dependente, data_ins, insc_inss, rg, orgao, id_estado, ARQUIVO)
 

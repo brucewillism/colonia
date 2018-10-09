@@ -109,7 +109,7 @@ include "cabeçalho.php";
 </style>
 </head>
 <body>
-  <form action="bd/cadastrar_pescadores.php" method="POST">
+  <form action="bd/cadastrar_pescadores.php" method="POST" enctype="multipart/form-data">
    <div class="ola">  
      <h1>Dados Pessoais Dos Pescadores</h1>
     <label>Foto</label>
