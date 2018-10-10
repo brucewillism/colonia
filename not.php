@@ -1,6 +1,6 @@
 <?php 
 include "cabeçalho.php";
-include 'bd/conexao.php';
+require_once 'bd/conexao.php';
 ?>
 <main>
 
@@ -13,21 +13,18 @@ include 'bd/conexao.php';
       echo "ID para alteração não definido";
     exit;
     }
-    $sql = ("SELECT * FROM TB_NOTICIAS, usuario WHERE 'ID_NOT'='$id' AND 'id_usuario' = '$id_usuario'");
+    $sql = ("SELECT * FROM TB_NOTICIAS, usuario WHERE ID_NOT='$id'");
   
     $result = $conn->prepare($sql);
     $result->bindParam(':id', $id, PDO::PARAM_INT);
     $result->execute();
-
     $resultado = $result->fetch(PDO::FETCH_ASSOC);
     if(!is_array($resultado)){
     echo "Nunhum dado encontrado";
     exit;
     }
-
     $text = nl2br($resultado['TEXTO']);
     $result = str_replace( array("\r\n", "\r", "\n"), '<br />', $text ); 
-
     $date = $resultado['DATA_ED'];
     $data_publ= date_create($resultado['DATA']);
     
@@ -46,12 +43,12 @@ include 'bd/conexao.php';
       </div>
       
       <div>
-        <img src="data:image/jpeg;base64,<?= $entry ?>" class="img-responsive" alt="Image">
+        <img src="data:image/jpeg;base64,<?= $entry ?>" class="img-responsive" style="width:100%;height:500px;">
         <hr>
         <p class="text"><?php echo $result; ?></p>
       </div>
       
-      <div class="panel-footer"><?php echo $resultado['USER_NOME']; ?></div>
+      <div class="panel-footer"><?php echo $resultado['TITULO']; ?></div>
     </div>
 
 
@@ -60,19 +57,19 @@ include 'bd/conexao.php';
   <div class="container">
     <div class="col-sm-12"> 
       <div> 
-   		
-      	<h1 class="titulo-not"><?php echo $resultado['TITULO']; ?></h1>
+      
+        <h1 class="titulo-not"><?php echo $resultado['TITULO']; ?></h1>
         <p class="text-not"><?php echo $resultado['SUBTITULO']; ?></p>
         <small><?php echo date_format($data_publ, 'd/m/Y H:i:s'); ?> - Atualizado em: <?php echo date_format($date, 'd/m/Y H:i:s'); ?></small>
-   	    <hr>
-      </div>
-    	
-    	<div>
-    		<img src="data:image/jpeg;base64,<?= $entry ?>" class="img-responsive" style="width:100%;" alt="Image">
         <hr>
-				<p class="text"><?php echo $result; ?></p>
-    	</div>
-			<div class="panel-footer"><?php echo $resultado['USER_NOME']; ?></div>
+      </div>
+      
+      <div>
+        <img src="data:image/jpeg;base64,<?= $entry ?>" class="img-responsive" style="width:100%;" alt="Image">
+        <hr>
+        <p class="text"><?php echo $result; ?></p>
+      </div>
+      <div class="panel-footer"><?php echo $resultado['TITULO']; ?></div>
     </div>
   </div>
       
@@ -82,7 +79,6 @@ include 'bd/conexao.php';
     <!-- formulário comentário -->
 
   <?php 
-
   
     $id = isset($_GET['id']) ? (int) $_GET['id'] : null;
   
@@ -90,7 +86,6 @@ include 'bd/conexao.php';
       echo "ID para alteração não definido";
     exit;
     }
-
   ?>
     <div class="container">
   
@@ -122,14 +117,14 @@ include 'bd/conexao.php';
 <div class="container">
 <p>COMENTÁRIOS</p>
   <?php
+  $id = $_GET['id'];
 
-    $query = "SELECT * FROM TB_COMENTARIO, TB_NOTICIAS WHERE TB_NOTICIAS.ID_NOT = TB_COMENTARIO.id_usuario AND 'ID_NOT'='$id' ORDER BY COM_ID DESC LIMIT 6";
+    $query = "SELECT * FROM TB_COMENTARIO, TB_NOTICIAS WHERE TB_NOTICIAS.ID_NOT = TB_COMENTARIO.ID_NOT AND TB_COMENTARIO.ID_NOT = $id ORDER BY COM_ID DESC LIMIT 6";
     $stmt = $conn->prepare($query);
     $res = $stmt->execute();
     $rows = $stmt->rowCount();
     if($rows <= 0){
       echo"<div>Seja o primeiro a comentar!</div>";
-
     } else {
       ?>
 
@@ -137,12 +132,12 @@ include 'bd/conexao.php';
       while($campos = $stmt->fetch(PDO::FETCH_ASSOC)){
            $id=$campos['COM_ID'];
            $name=$campos['COM_NOME'];
-           $comentario=$campos['COM_COMENTARIO'];
+           $_comentario=$campos['COM_COMENTARIO'];
       ?>
            <div class="form-row" id="div-comentario">
               <div class="form-group col-sm-7">
                 <p>NOME: <?php echo $name; ?></p>
-                <p>COMENTÁRIO: <?php echo $comentario; ?></p>
+                <p>COMENTÁRIO: <?php echo $_comentario; ?></p>
               </div>
             </div>
            <?php

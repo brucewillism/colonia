@@ -209,64 +209,62 @@
                                   <div class="container">
                                     <p>COMENTÁRIOS</p>
                                     <?php
+                                    $id = $_GET['id'];
 
-                                    $query = "SELECT * FROM TB_COMENTARIO_p, pescadores WHERE pescadores.pescador_id = TB_COMENTARIO.pescador_id AND 'pescador_id'='$id' ORDER BY COM_ID DESC LIMIT 6";
+                                    $query = "SELECT * FROM TB_COMENTARIO_p, pescadores WHERE pescadores.pescador_id = '$id' AND TB_COMENTARIO_p.pescador_id = $id ORDER BY COM_ID DESC LIMIT 6";
+                                    $stmt = $conn->prepare($query);
                                     $res = $stmt->execute();
                                     $rows = $stmt->rowCount();
                                     if($rows <= 0){
                                       echo"<div>Seja o primeiro a comentar!</div>";
-
                                     } else {
                                       ?>
 
                                       <?php
-                                      $cadastro = $stmt->fetchAll();
-                                      foreach ($cadastro as $dados) {
-
-                                        $id=$dados['COM_ID'];
-                                        $nome=$dados['COM_NOME'];
-                                        $comentario=$dados['COM_COMENTARIO'];
-                                        ?>
-                                        <div class="form-row" id="div-comentario">
-                                          <div class="form-group col-sm-7">
-                                            <textarea class="form-control" rows="1">NOME <?php echo $nome; ?></textarea>
-
-                                            <textarea class="form-control" rows="2">COMENTÁRIO <?php echo $comentario; ?></textarea>
-                                          </div>
+                                      while($campos = $stmt->fetch(PDO::FETCH_ASSOC)){
+                                       $id=$campos['COM_ID'];
+                                       $name=$campos['COM_NOME'];
+                                       $_comentario=$campos['COM_COMENTARIO'];
+                                       ?>
+                                       <div class="form-row" id="div-comentario">
+                                        <div class="form-group col-sm-7">
+                                          <p>NOME: <?php echo $name; ?></p>
+                                          <p>COMENTÁRIO: <?php echo $_comentario; ?></p>
                                         </div>
-                                        <?php
-                                      }
+                                      </div>
+                                      <?php
                                     }
-                                    ?>
+                                  }
+                                  ?>
 
-                                  </div>
-
-                                  <br>
-
-                                  <div class="w3-container">
-                                    <h5 class="w3-opacity"><b>Em definição</b></h5>
-                                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2015 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
-                                    <p>Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
-                                    <hr>
-                                  </div>
-                                  <div class="w3-container">
-                                    <h5 class="w3-opacity"><b>Em definição</b></h5>
-                                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2012 - Dec 2014</h6>
-                                    <p>Consectetur adipisicing elit. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
-                                    <hr>
-                                  </div>
-                                  <div class="w3-container">
-                                    <h5 class="w3-opacity"><b>Em definição</b></h5>
-                                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jun 2010 - Mar 2012</h6>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p><br>
-                                  </div>
                                 </div>
 
+                                <br>
+
+                                <div class="w3-container">
+                                  <h5 class="w3-opacity"><b>Em definição</b></h5>
+                                  <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2015 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
+                                  <p>Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
+                                  <hr>
+                                </div>
+                                <div class="w3-container">
+                                  <h5 class="w3-opacity"><b>Em definição</b></h5>
+                                  <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2012 - Dec 2014</h6>
+                                  <p>Consectetur adipisicing elit. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
+                                  <hr>
+                                </div>
+                                <div class="w3-container">
+                                  <h5 class="w3-opacity"><b>Em definição</b></h5>
+                                  <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jun 2010 - Mar 2012</h6>
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p><br>
+                                </div>
                               </div>
+
                             </div>
                           </div>
                         </div>
+                      </div>
 
-                        <?php include 'rodape.php'; ?>
-                      </body>
-                      </html>
+                      <?php include 'rodape.php'; ?>
+                    </body>
+                    </html>

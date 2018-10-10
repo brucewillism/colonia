@@ -17,7 +17,7 @@ $id = isset($_GET['id']) ? (int) $_GET['id'] : null;
         $coment = addslashes($_POST['coment']);
         $acao = addslashes($_POST['acao']);
 
-$sql = "INSERT INTO TB_COMENTARIO (COM_NOME,COM_COMENTARIO,pescador_id) VALUES(:nomeComent, :coment, :id)";
+$sql = "INSERT INTO TB_COMENTARIO (COM_NOME,COM_COMENTARIO,ID_NOT) VALUES(:nomeComent, :coment, :id)";
 $stmt = $conn->prepare( $sql );
 
 $stmt->bindParam( ':nomeComent', $nomeComent);
@@ -30,7 +30,7 @@ if ( ! $result ){
   exit;
 }
 unset($_POST['acao']);
-header('location:detalhes_pescador.php?id=' . $id);
+header('location:not.php?id=' . $id);
 } 
 
 ?>

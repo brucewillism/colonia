@@ -34,4 +34,3 @@ header('location:detalhes_pescador.php?id=' . $id);
 } 
 
 ?>
-
