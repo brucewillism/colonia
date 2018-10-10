@@ -27,8 +27,8 @@ $estado_civil = isset($_POST['estado_civil']) ? $_POST['estado_civil'] : null;
 $ARQUIVO = isset($_POST['ARQUIVO']) ? $_POST['ARQUIVO'] : null;
 
  // validação para evitar dados vazios
-if (empty($matricula) || empty($nome) || empty($endereco) || empty($bairro) || empty($estado) || empty($cpf) || empty($titulo) || empty($profissional) || empty($pis) || empty($nascimento) || empty($rgp)|| empty($nome_pai) || empty($nome_mae) || empty($dependente) || empty($data_ins) || empty($insc_inss) ||
-    empty($rg) || empty($orgao)|| empty($estado_civil) || empty($ARQUIVO))
+if (($matricula) || ($nome) || ($endereco) || ($bairro) || ($estado) || ($cpf) || ($titulo) || ($profissional) || ($pis) || ($nascimento) || ($rgp)|| ($nome_pai) || ($nome_mae) || ($dependente) || ($data_ins) || ($insc_inss) ||
+    ($rg) || ($orgao)|| ($estado_civil) || ($ARQUIVO))
 {
     echo "Volte e preencha todos os campos";
     exit;

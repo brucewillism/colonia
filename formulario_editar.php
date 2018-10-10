@@ -9,7 +9,7 @@ if (empty($id)){
   exit;
 }
 
-$stmt = $conn->prepare = "SELECT pescador_id,  matricula, nome, endereco, bairro, estado, cpf, titulo, profissional, pis, nascimento, rgp, nome_pai, nome_mae, dependente, data_ins, insc_inss, rg, orgao, id_estado, ARQUIVO FROM pescadores WHERE pescador_id='$id'";
+$stmt = "SELECT pescador_id,  matricula, nome, endereco, bairro, estado, cpf, titulo, profissional, pis, nascimento, rgp, nome_pai, nome_mae, dependente, data_ins, insc_inss, rg, orgao, id_estado, ARQUIVO FROM pescadores WHERE pescador_id='$id'";
 $stmt = $conn->prepare($stmt);
 $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 $stmt->execute();

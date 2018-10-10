@@ -43,16 +43,12 @@
         if (isset($_GET['id'])){
           $pescador_id = $_GET['id'];
         }
-
         $stmt = $conn->query("SELECT *
           FROM pescadores
-          INNER JOIN estado_civil ON pescadores.id_estado = estado_civil.id_estado WHERE pescador_id ='$pescador_id'");
+          INNER JOIN estado_civil ON pescadores.pescador_id = estado_civil.id_estado WHERE pescador_id = '$pescador_id'");
 
-        $pescadores = $stmt->fetchAll();
-        $stmt = $conn->prepare($sql);
-        $res = $stmt->execute();
-        $rows = $stmt->rowCount();
-        foreach ($pescadores as $dados) {
+        $cadastro = $stmt->fetchAll();
+        foreach ($cadastro as $dados) {
 
           $pescador_id = $dados['pescador_id'];
           $matricula=$dados['matricula'];
@@ -83,64 +79,64 @@
 
             <div class='thumbnail'>
 
-              <img src="data:image/jpeg;base64,<?= $entry ?>" class="img-responsive" style="width:100%;height:400px;">            
+              <img src="data:image/jpeg;base64,<?= $entry ?>" class="img-responsive" style="width:300%;height:400px;">            
             </div>
           </div>
           <br>
           <strong>matricula
           </strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
-          $matricula</p>
+          <?php  echo($matricula);?></p>
           <strong>
           nome</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
-          $nome</p>
+          <?php  echo($nome);?></p>
           <strong>
           endereco</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
-          $endereco</p>
+          <?php echo ($endereco); ?></p>
           <strong>
           bairro</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
-          $bairro</p>
+          <?php echo ($bairro); ?></p>
           <strong>
           estado</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
-          $estado</p>
+          <?php echo ($estado); ?></p>
           <strong>
           cpf</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
-          $cpf</p>
+          <?php echo ($cpf); ?></p>
           <strong>
           titulo</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
-          $titulo</p>
+          <?php echo ($titulo); ?></p>
           <strong>
           profissional</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
-          $profissional</p>
+          <?php echo ($profissional); ?></p>
           <strong>
           pis</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
-          $pis</p>
+          <?php echo ($pis); ?></p>
           <strong>
           rg</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
-          $rg</p>
+          <?php echo ($rg); ?></p>
           <strong>
           orgao</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
-          $orgao</p>
+          <?php echo ($orgao); ?></p>
           <strong>
           nascimento</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
-          $nascimento</p>
+          <?php echo ($nascimento); ?></p>
           <strong>
           rgp</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
-          $rgp</p>
+          <?php echo ($rgp); ?></p>
           <strong>
           nome_pai</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
-          $nome_pai</p>
+          <?php echo ($nome_pai); ?></p>
           <strong>
           nome_mae</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
-          $nome_mae</p>
+          <?php echo ($nome_mae); ?></p>
           <strong>
           dependete</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
-          $dependete</p>
+          <?php echo ($dependete); ?></p>
           <strong>
           data_ins</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
-          $data_ins</p>
+          <?php echo ($data_ins); ?></p>
           <strong>
           insc_inss</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
-          $insc_inss</p>
+          <?php echo ($insc_inss); ?></p>
           <?php
         }
         ?>
