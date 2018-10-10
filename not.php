@@ -1,6 +1,5 @@
 <?php 
-session_start();
-include "cabecalho.php";
+include "cabeçalho.php";
 include 'bd/conexao.php';
 ?>
 <main>
@@ -8,12 +7,13 @@ include 'bd/conexao.php';
 <?php
 // pega o ID da URL
     $id = isset($_GET['id']) ? (int) $_GET['id'] : null;
+    $id_usuario = $_SESSION['user_id'];
     //Valida a variavel da URL
     if (empty($id)){
       echo "ID para alteração não definido";
     exit;
     }
-    $sql = "SELECT * FROM TB_NOTICIAS, TB_ASSOCIACOES WHERE ID_NOT='$id' AND ID_ASSOC = NOT_ASSOC_FK";
+    $sql = ("SELECT * FROM TB_NOTICIAS, usuario WHERE 'ID_NOT'='$id' AND 'id_usuario' = '$id_usuario'");
   
     $result = $conn->prepare($sql);
     $result->bindParam(':id', $id, PDO::PARAM_INT);
@@ -51,7 +51,7 @@ include 'bd/conexao.php';
         <p class="text"><?php echo $result; ?></p>
       </div>
       
-      <div class="panel-footer"><?php echo $resultado['NOME_FANTASIA']; ?></div>
+      <div class="panel-footer"><?php echo $resultado['USER_NOME']; ?></div>
     </div>
 
 
@@ -72,7 +72,7 @@ include 'bd/conexao.php';
         <hr>
 				<p class="text"><?php echo $result; ?></p>
     	</div>
-			<div class="panel-footer"><?php echo $resultado['NOME_FANTASIA']; ?></div>
+			<div class="panel-footer"><?php echo $resultado['USER_NOME']; ?></div>
     </div>
   </div>
       
@@ -123,7 +123,7 @@ include 'bd/conexao.php';
 <p>COMENTÁRIOS</p>
   <?php
 
-    $query = "SELECT * FROM TB_COMENTARIO, TB_NOTICIAS WHERE TB_NOTICIAS.ID_NOT = TB_COMENTARIO.FK_ID_NOT AND ID_NOT='$id' ORDER BY COM_ID DESC LIMIT 6";
+    $query = "SELECT * FROM TB_COMENTARIO, TB_NOTICIAS WHERE TB_NOTICIAS.ID_NOT = TB_COMENTARIO.id_usuario AND 'ID_NOT'='$id' ORDER BY COM_ID DESC LIMIT 6";
     $stmt = $conn->prepare($query);
     $res = $stmt->execute();
     $rows = $stmt->rowCount();
@@ -137,12 +137,12 @@ include 'bd/conexao.php';
       while($campos = $stmt->fetch(PDO::FETCH_ASSOC)){
            $id=$campos['COM_ID'];
            $name=$campos['COM_NOME'];
-           $_comentario=$campos['COM_COMENTARIO'];
+           $comentario=$campos['COM_COMENTARIO'];
       ?>
            <div class="form-row" id="div-comentario">
               <div class="form-group col-sm-7">
                 <p>NOME: <?php echo $name; ?></p>
-                <p>COMENTÁRIO: <?php echo $_comentario; ?></p>
+                <p>COMENTÁRIO: <?php echo $comentario; ?></p>
               </div>
             </div>
            <?php
