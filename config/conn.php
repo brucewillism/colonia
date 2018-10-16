@@ -3,8 +3,8 @@
 // Informações para conexão
 $host = 'localhost';
 $usuario = 'root';
-$senha = '0301HEX@';
-$banco = 'stockager';
+$senha = 'lucy';
+$banco = 'colonia';
 $dsn = "mysql:host={$host};port=3306;dbname={$banco}";
 
 try 

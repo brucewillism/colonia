@@ -6,6 +6,7 @@ require_once "cabeçalho.php";
 <head>
     <title>Colonia</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="css/armazenamento.css">
 </head>
 <body>
 
@@ -20,9 +21,9 @@ require_once "cabeçalho.php";
                         <a class="btn btn-secondary" href='cadastro_pescadores.php'>Cadastre Um Novo Pescador</a>
                     </span>
                 </form>
-            </div>
-        </div>
-    </div>
+          
+   
+  
     
     <table class="table" border="1px" style="background: #C0C0C0;">
         <tr>
@@ -60,6 +61,9 @@ require_once "cabeçalho.php";
         }
         ?>
     </table>
-    <?php include 'rodape.php'; ?>
+  </div>
+  </div>
+  </div>
 </body>
+    <?php include 'rodape.php'; ?>
 </html>

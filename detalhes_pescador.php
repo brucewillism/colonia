@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/detalhes.css">
 </head>
 <body>
   <?php
@@ -18,33 +19,27 @@
   <div class="w3-content w3-margin-top" style="max-width:1400px;margin-top:200%;">
 
     <!-- The Grid -->
-    <div class="w3-row-padding">
+  
 
       <!-- Left Column -->
       <div class="w3-third">
 
-        <div class="w3-white w3-text-grey w3-card-4">
-          <div class="w3-display-container" >
+         
 <!--               ----------------------------------------foto---------------------------------------------------------------
 -->              
 <body>
-  <div class="container">
-    <div class="row">
-
-     <div class='caption'>
-      <br>
       <br>
       <br>
       <br>
       <h1>Detalhes Do Pescador</h1>
 
-      <div class="w3-container">
+     
         <?php
         if (isset($_GET['id'])){
           $pescador_id = $_GET['id'];
         }
         $stmt = $conn->query("SELECT *
-          FROM pescadores
+           FROM pescadores
           INNER JOIN estado_civil ON pescadores.pescador_id = estado_civil.id_estado WHERE pescador_id = '$pescador_id'");
 
         $cadastro = $stmt->fetchAll();
@@ -84,92 +79,76 @@
           </div>
           <br>
           <strong>matricula
-          </strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+          </strong><p><i class="fa fa-check"></i>
             <?php  echo($matricula);?></p>
             <strong>
-            nome</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+            nome</strong><p><i class="fa fa-user"></i>
               <?php  echo($nome);?></p>
               <strong>
-              endereco</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+              endereco</strong><p><i class="fa fa-home"></i>
                 <?php echo ($endereco); ?></p>
                 <strong>
-                bairro</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+                bairro</strong><p><i class="fa fa-flag"></i>
                   <?php echo ($bairro); ?></p>
                   <strong>
-                  estado</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+                  estado</strong><p><i class="fa fa-globe"></i>
                     <?php echo ($estado); ?></p>
                     <strong>
-                    cpf</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+                    cpf</strong><p><i class="fa fa-lock"></i>
                       <?php echo ($cpf); ?></p>
                       <strong>
-                      titulo</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+                      titulo</strong><p><i class="fa fa-credit-card"></i>
                         <?php echo ($titulo); ?></p>
                         <strong>
-                        profissional</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+                        profissional</strong><p><i class="fa fa-book"></i>
                           <?php echo ($profissional); ?></p>
                           <strong>
-                          pis</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+                          pis</strong><p><i class="fa fa-book"></i>
                             <?php echo ($pis); ?></p>
                             <strong>
-                            rg</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
-                              <?php echo ($rg); ?></p>
+                            rg</strong><p><i class="fa fa-lock"></i>
                               <strong>
-                              orgao</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+                              orgao</strong><p><i class="fa fa-flag"></i>
                                 <?php echo ($orgao); ?></p>
                                 <strong>
-                                nascimento</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+                                nascimento</strong><p><i class="fa fa-heart"></i>
                                   <?php echo ($nascimento); ?></p>
                                   <strong>
-                                  rgp</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
-                                    <?php echo ($rgp); ?></p>
+                                  rgp</strong><p>
+                                    <?php echo ($rgp); ?></p><i class="fa fa-book"></i>
+                            <?php echo ($pis); ?></p>
                                     <strong>
-                                    nome_pai</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
-                                      <?php echo ($nome_pai); ?></p>
+                                    nome_pai</strong><p>
+                                      <?php echo ($nome_pai); ?></p><i class="fa fa-user"></i>
                                       <strong>
-                                      nome_mae</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+                                      nome_mae</strong><p><i class="fa fa-user"></i>
                                         <?php echo ($nome_mae); ?></p>
                                         <strong>
-                                        dependete</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
-                                          <?php echo ($dependete); ?></p>
+                                        dependete</strong><p><i class="fa fa-user"></i>
+                                          <?php echo ($dependete); ?></p><i class="fa fa-book"></i>
                                           <strong>
-                                          data_ins</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
-                                            <?php echo ($data_ins); ?></p>
+                                          data_ins</strong><p>
+                                            <?php echo ($data_ins); ?></p><i class="fa fa-book"></i>
                                             <strong>
-                                            insc_inss</strong><p><i class='fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal'></i>
+                                            insc_inss</strong><p>
                                               <?php echo ($insc_inss); ?></p>
                                               <?php
                                             }
                                             ?>
-                                            <p class='w3-large'><b><i class='fa fa-asterisk fa-fw w3-margin-right w3-text-teal'></i>Resumo</b></p>
-                                            <p>Apresentações</p>
-                                            <div class='w3-light-grey w3-round-xlarge w3-small'>
-                                              <div class='w3-container w3-center w3-round-xlarge w3-teal' style='width:90%'>90%</div>
-                                            </div>
-                                            <p class='w3-large w3-text-theme'><b><i class='fa fa-globe fa-fw w3-margin-right w3-text-teal'></i>Experiência</b></p>
-                                            <p>Pesca</p>
-                                            <div class='w3-light-grey w3-round-xlarge'>
-                                              <div class='w3-round-xlarge w3-teal' style='height:24px;width:100%'></div>
-                                            </div>
-                                            <p>Vendas</p>
-                                            <div class='w3-light-grey w3-round-xlarge'>
-                                              <div class='w3-round-xlarge w3-teal' style='height:24px;width:55%'></div>
-                                            </div>
-                                            <p>Produtos</p>
-                                            <div class='w3-light-grey w3-round-xlarge'>
-                                              <div class='w3-round-xlarge w3-teal' style='height:24px;width:25%'></div>
-                                            </div>
-                                          </div>
+                                            
+                                         
+                                        </div>
                                         </div>
                                       </div>
                                     </div>
                                   </div>
                                 </div>
-                              </div>
+                               </div>
 
-                              <div class="w3-twothird" style="max-width:1400px; margin-left: 35%;">
+                              
 
-                                <div class="w3-container w3-card w3-white w3-margin-bottom">
-                                  <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Detalhes Do Pescador</h2>
+                                <div class="w3-container w3-card w3-white w3-margin-bottom"><br>
+                                  <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-pencil-square-o"></i>Anotações sobre o Pescador</h2>
 
 
                                   <div class="container">
