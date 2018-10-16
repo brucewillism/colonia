@@ -78,65 +78,166 @@
             </div>
           </div>
           <br>
-          <strong>matricula
-          </strong><p><i class="fa fa-check"></i>
-            <?php  echo($matricula);?></p>
-            <strong>
-            nome</strong><p><i class="fa fa-user"></i>
-              <?php  echo($nome);?></p>
-              <strong>
-              endereco</strong><p><i class="fa fa-home"></i>
-                <?php echo ($endereco); ?></p>
-                <strong>
-                bairro</strong><p><i class="fa fa-flag"></i>
-                  <?php echo ($bairro); ?></p>
-                  <strong>
-                  estado</strong><p><i class="fa fa-globe"></i>
-                    <?php echo ($estado); ?></p>
-                    <strong>
-                    cpf</strong><p><i class="fa fa-lock"></i>
-                      <?php echo ($cpf); ?></p>
-                      <strong>
-                      titulo</strong><p><i class="fa fa-credit-card"></i>
-                        <?php echo ($titulo); ?></p>
-                        <strong>
-                        profissional</strong><p><i class="fa fa-book"></i>
-                          <?php echo ($profissional); ?></p>
-                          <strong>
-                          pis</strong><p><i class="fa fa-book"></i>
-                            <?php echo ($pis); ?></p>
-                            <strong>
-                            rg</strong><p><i class="fa fa-lock"></i>
-                              <strong>
-                              orgao</strong><p><i class="fa fa-flag"></i>
-                                <?php echo ($orgao); ?></p>
-                                <strong>
-                                nascimento</strong><p><i class="fa fa-heart"></i>
-                                  <?php echo ($nascimento); ?></p>
-                                  <strong>
-                                  rgp</strong><p>
-                                    <?php echo ($rgp); ?></p><i class="fa fa-book"></i>
-                            <?php echo ($pis); ?></p>
-                                    <strong>
-                                    nome_pai</strong><p>
-                                      <?php echo ($nome_pai); ?></p><i class="fa fa-user"></i>
-                                      <strong>
-                                      nome_mae</strong><p><i class="fa fa-user"></i>
-                                        <?php echo ($nome_mae); ?></p>
-                                        <strong>
-                                        dependete</strong><p><i class="fa fa-user"></i>
-                                          <?php echo ($dependete); ?></p><i class="fa fa-book"></i>
-                                          <strong>
-                                          data_ins</strong><p>
-                                            <?php echo ($data_ins); ?></p><i class="fa fa-book"></i>
-                                            <strong>
-                                            insc_inss</strong><p>
-                                              <?php echo ($insc_inss); ?></p>
-                                              <?php
-                                            }
-                                            ?>
-                                            
-                                         
+          <div class="form-group">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-user fa text-info"></i> Numero Da Matricula</div>
+              </div>
+              <?php echo ($matricula); ?>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Nome</div>
+              </div>
+              <?php echo ($nome); ?> 
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i cl text-infoass="fa fa-user fa" ></i>Endereço</div>
+              </div>
+              <?php echo ($endereco); ?>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Bairro</div>
+              </div>
+              <?php echo ($bairro); ?>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Estado</div>
+              </div>
+              <?php echo ($estado); ?>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Data De Nascimento</div>
+              </div>
+              <?php echo ($nascimento); ?>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-user fa text-info"></i>RG</div>
+              </div>
+              <?php echo ($rg); ?>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Órgão Expedidor</div>
+              </div>
+              <?php echo ($orgao); ?>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>CPF</div>
+              </div>
+              <?php echo ($cpf); ?>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Titulo</div>
+              </div>
+              <?php echo ($titulo); ?>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Carteira Profissional</div>
+              </div>
+              <?php echo ($profissional); ?>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Estado Civil</div>
+              </div>
+              <?php echo ($dados['nome_est']); ?>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Nome Do Pai</div>
+              </div>
+              <?php echo ($nome_pai); ?> 
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Nome Da Mae</div>
+              </div>
+              <?php echo ($nome_mae); ?>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Nomes Dos Filhos</div>
+              </div>
+              <?php echo ($dependete); ?>            
+            </div>
+          </div>
+          <div class="bg-info text-white text-center py-2">
+            <p class="m-0">Dados Profissionais Dos Pescadores</p>
+          </div>
+          <div class="form-group">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>PIS</div>
+              </div>
+              <?php echo ($pis); ?>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-user fa text-info"></i>RGP</div>
+              </div>
+              <?php echo ($rgp); ?>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Data De Inscricão</div>
+              </div>
+              <?php echo ($data_ins); ?>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Inscrição Do INSS</div>
+              </div>
+              <?php echo ($insc_inss); ?>
+            </div>
+          </div>
+          <?php
+        }
+        ?>                               
                                         </div>
                                         </div>
                                       </div>

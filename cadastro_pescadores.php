@@ -8,6 +8,15 @@ include "cabeçalho.php";
   <title>Document</title>
   <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
   <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!------ Include the above in your HEAD tag ---------->
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   <script type="text/javascript">
 
     $(document).ready(function(){  
@@ -23,171 +32,236 @@ include "cabeçalho.php";
       $("#inss").mask("99.999.99999/99");
     });
   </script>
-  <style>
-  *{ margin:0; padding:0;}
-
-  body{ font:100% normal Arial, Helvetica, sans-serif; background:#ccc;}
-
-  form,input,textarea{margin:0; padding:0; color:black;}
-
-  select{
-    width: 300px;
-    height: 35px;
-    margin-left: 20px;
-    margin-top:20px;
-    padding-left: 10px;
-    font-size: 1.1em;
-    outline: none;
-    background-color: #dcdcdc;
-    border-radius: 5px;
-
-  }
-  div.ola {
-    margin:0 auto;
-    width:100%;
-    background:#fff;
-    position:relative;
-    top:50px;
-  }
-
-  div.ola h1 { 
-    color:black;
-    font-size: 2.5em;
-    text-transform:uppercase;
-    padding:5px 0 5px 5px; 
-    margin-top:50px;
-
-  }
-
-  div.ola label {
-    width:100%;
-    display: block;
-    background:#fff;
-    padding:10px 0 10px 0;
-    font-size: 1.5em;
-
-  }
-
-  div.ola .input_text {
-    padding:10px 10px;
-    width:200px;
-    background:#262626;
-    border-bottom: 1px double #171717;
-    border-top: 1px double #171717;
-    border-left:1px double #333333;
-    border-right:1px double #333333;
-  }
-
-  div.ola .message{
-    padding:7px 7px;
-    width:350px;
-    background:#262626;
-    border-bottom: 1px double #171717;
-    border-top: 1px double #171717;
-    border-left:1px double #333333;
-    border-right:1px double #333333;
-    overflow:hidden;
-    height:150px;
-  }
-
-  div.ola .button{
-    margin:0 0 10px 0;
-    padding:4px 7px;
-    background:#660000;
-    border:0px;
-    position: relative;
-    top:10px;
-    left:382px;
-    width:100px;
-    border-bottom: 1px double #660000;
-    border-top: 1px double #660000;
-    border-left:1px double #FF0033;
-    border-right:1px double #FF0033;
-  }
-
-
-</style>
 </head>
 <body>
-  <form action="bd/cadastrar_pescadores.php" method="POST" enctype="multipart/form-data">
-   <div class="ola">  
-     <h1>Dados Pessoais Dos Pescadores</h1>
-    <label>Foto</label>
-     <div class="form-row">
-      <div class="form-group col-md-12">
-        <input type="file"  class="form-control-file" name="file" id="imgInp">
+  <div class="container">
+    <h2 class="text-center">Cadastro De Pescadores</h2>
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6 pb-5">
+
+        <!--Form with header-->
         <br>
-        <img id='img-upload'/>
-      </div>
+        <br>
+        <br>
+        <form action="bd/cadastrar_pescadores.php" method="post">
+          <div class="card border-primary rounded-0">
+            <div class="card-header p-0">
+              <div class="bg-info text-white text-center py-2">
+                <h3><i class="fa fa-envelope"></i> Cadastro De Pescadores</h3>
+                <p class="m-0">Dados Pessoais Dos Pescadores</p>
+              </div>
+            </div>
+            <div class="card-body p-3">
+
+              <!--Body-->
+              <div class="form-group">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-user fa text-info"></i> Foto</div>
+                  </div>
+                  <input type="file"  class="form-control-file" name="file" id="imgInp">
+                  <br>
+                  <img id='img-upload' style="width:300%;height:400px;" class="hidden">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-user fa text-info"></i> CADASTRO MAT. N</div>
+                  </div>
+                  <input class="form-control" name="matricula" placeholder="Digite o Numero Da Matricula">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Nome</div>
+                  </div>
+                  <input class="form-control"  name="nome" placeholder="Digite Seu Nome Completo" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i cl text-infoass="fa fa-user fa" ></i>Endereço</div>
+                  </div>
+                  <input class="form-control" name="endereco" placeholder="Digite Seu endereço" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Bairro</div>
+                  </div>
+                  <input class="form-control" name="bairro" placeholder="Digite Seu Bairro" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Estado</div>
+                  </div>
+                  <input class="form-control" name="estado" placeholder="Digite Seu Estado" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Data De Nascimento</div>
+                  </div>
+                  <input class="form-control" name="nascimento"  placeholder="Digite Sua Data de nascimento"required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-user fa text-info"></i>RG</div>
+                  </div>
+                  <input class="form-control" id="rg" class="form-control" name="rg" placeholder="Digite Seu RG"required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Órgão Expedidor</div>
+                  </div>
+                  <input class="form-control" name="orgao" placeholder="Digite seu Órgão Expedidor"required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>CPF</div>
+                  </div>
+                  <input class="form-control" id="cpf" name="cpf" placeholder="Digite Seu CPF" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Titulo</div>
+                  </div>
+                  <input class="form-control" id="titulo" name="titulo" placeholder="Digite Seu Titulo">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Carteira Profissional</div>
+                  </div>
+                  <input class="form-control" name="profissional" placeholder="Digite Seu Profissional">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Estado Civil</div>
+                  </div>
+                  <select name="estado_civil" required>
+                    <?php
+                    include 'bd/conexao.php';
+                    $sql = "SELECT * FROM estado_civil";
+                    foreach ($conn->query($sql) as $registro) {
+                      $id_estado = $registro['id_estado'];
+                      $nome = $registro['nome_est'];
+                      echo "<option value='".$id_estado."'>".$nome."</option>";
+                    }
+                    ?>
+                  </select>                
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Nome Do Pai</div>
+                  </div>
+                  <input class="form-control" name="nome_pai" placeholder="Digite o nome do pai" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Nome Da Mae</div>
+                  </div>
+                  <input class="form-control" name="nome_mae" placeholder="Digite o nome da mae" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Nomes Dos Filhos</div>
+                  </div>
+                  <input class="form-control" name="dependente" placeholder="Digite Os Nomes Dos Seus Dependentes"required>
+                </div>
+              </div>
+              <div class="bg-info text-white text-center py-2">
+                <h3><i class="fa fa-envelope"></i> Cadastro De Pescadores</h3>
+                <p class="m-0">Dados Profissionais Dos Pescadores</p>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>PIS</div>
+                  </div>
+                  <input class="form-control" id="pis" class="form-control" name="pis" placeholder="Digite Seu Pis">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-user fa text-info"></i>RGP</div>
+                  </div>
+                  <input class="form-control" name="rgp" placeholder="Digite Seu RGP"required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Data De Inscricão</div>
+                  </div>
+                  <input class="form-control" name="data_ins" placeholder="Digite a Data de Inscricão"required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Inscrição Do INSS</div>
+                  </div>
+                  <input class="form-control" id="inss" name="insc_inss" placeholder="Digite a Inscrição do INSS"required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Assinatura Do Socio</div>
+                  </div>
+                  <input class="form-control">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Assinatura Do Presidente</div>
+                  </div>
+                  <input class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="text-center">
+              <input type="submit" value="REGISTRAR" >
+            </div>
+          </div>
+        </div>
+      </form>
+      <!--Form with header-->
     </div>
-
-    <label>CADASTRO MAT. N</label>
-    <input type="number" name="matricula" placeholder="Digite o Numero Da Matricula">
-
-    <label>Nome</label>
-    <input type="text" name="nome" placeholder="Digite Seu Nome Completo" required>
-    <label>Endereço</label>
-    <input type="text"  name="endereco" placeholder="Digite Seu endereço" required>
-
-    <label>Bairro</label>
-    <input type="text"  name="bairro" placeholder="Digite Seu Bairro" required>
-    <label>estado</label>
-    <input type="text"  name="estado" placeholder="Digite Seu Bairro" required>
-
-    <label>CPF</label>
-    <input id="cpf" type="text" name="cpf" placeholder="Digite Seu CPF" required>
-
-    <label>Titulo</label>
-    <input type="text" id="titulo"  name="titulo" placeholder="Digite Seu Titulo">
-    <label>Profissional</label>
-    <input type="number"  name="profissional" placeholder="Digite Seu Profissional">
-
-    <label>PIS</label>
-    <input type="text" id="pis"  name="pis" placeholder="Digite Seu Pis">
-    <label>Estado Civil</label>
-    <select name="estado_civil" required>
-      <?php
-      include 'bd/conexao.php';
-      $sql = "SELECT * FROM estado_civil";
-      foreach ($conn->query($sql) as $registro) {
-        $id_estado = $registro['id_estado'];
-        $nome = $registro['nome_est'];
-        echo "<option value='".$id_estado."'>".$nome."</option>";
-      }
-      ?>
-    </select>
-    <label>Nome Do Pai</label>
-    <input type="text"  name="nome_pai" placeholder="Digite o nome do pai" required>
-    <label>Nome Da Mãe</label>
-    <input type="text" name="nome_mae" placeholder="Digite o nome da mae" required>
-    <label>Nome Do Filho</label>
-    <input type="text" name="dependente" placeholder="Digite Seu Dependente"required>
-    <h1>Dados Profissionais Dos Pescadores</h1>
-    <label>Data De Nascimento</label>
-    <input type="date" name="nascimento"  placeholder="Digite Sua Data de nascimento"required>
-    <label>Órgão Exp</label>
-    <input type="text" name="orgao" placeholder="Digite seu Órgão Expedidor"required>
-    <label>RGP</label>
-    <input type="number" name="rgp" placeholder="Digite Seu RGP"required>
-    <label>Data Da Inscrição</label>
-    <input type="date" name="data_ins" placeholder="Digite a Data derequired Inscricão"required>
-    <label>Inscrição do INSS</label>
-    <input type="text" id="inss" name="insc_inss" placeholder="Digite a Inscrição dorequired INSS"required>
-    <label>RG</label>
-    <input type="text" id="rg" name="rg" placeholder="Digite Seu RG"required>
-    <label>Assinatura Do Socio</label>
-    <input type="text" name="assinatura_socio">
-    <label>Assinatura Do Presidente</label>
-    <input type="text" name="assinatura_presidente">
-
-    <input type="submit" name="enviar" value="Salvar Cadastro">
-
-  </form>
-</div>
-<?php
-include "rodape.php"
-?>
- <script type="text/javascript" >
+  </div>
+  </div>  <?php
+  include "rodape.php"
+  ?>
+  <script type="text/javascript" >
     $(document).ready( function() {
       function readURL(input) {
         if (input.files && input.files[0]) {
