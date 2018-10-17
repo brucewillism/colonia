@@ -75,8 +75,8 @@
             <div class='thumbnail'>
 
               <img src="data:image/jpeg;base64,<?= $entry ?>" class="img-responsive" style="width:300%;height:400px;">            
-            </div>
           </div>
+            </div>
           <br>
           <div class="form-group">
             <div class="input-group mb-2">

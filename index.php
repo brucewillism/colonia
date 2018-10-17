@@ -1,14 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
 <?php
 require_once "cabeçalho.php";
 ?>
-<!-- Page Content -->
-<div class="container">
-
- <?php
- require_once "cabeçalho.php";
- ?>
+<body>
  <!-- Page Content -->
- <div class="container">
+        <div class="col-md-4">
+
+          <!-- Categories Widget -->
+          <br>
+          <br>
+          <br>
+          <div class="card my-4">
+            <button class="btn btn-blue">Institucional</button>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-6">
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a href="#">História</a>
+                    </li>
+                    <li>
+                      <a href="#">Infraestrutura</a>
+                    </li>
+                    <li>
+                      <a href="#">Nossa equipe</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-lg-6">
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a href="#">Diretoria Atual</a>
+                    </li>
+                    <li>
+                      <a href="#">Regimento</a>
+                    </li>
+                    <li>
+                      <a href="#">Estatuto</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Side Widget -->
+
+          <div class="card my-4">
+            <button class="btn btn-blue">Área Restrita</button>
+            <div class="card-body">
+              <?php if($_SESSION['logado'] == True): ?>
+                <li><a href="cadastro_pescadores.php">Cadastre Um Novo Pescador</a></li>
+                <li><a href="armazenamento.php">Listar Todos Pescadores</a></li>
+                <li><a href="escrever-noticias.php">Cadastre Uma Nova Noticia</a></li>
+                <li><a href="index-assoc.php">Listar Todas As Noticias</a></li>
+              <?php endif ?>
+            </ul>
+  </div>
+</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+ 
   <div class="col-md-8">
     <br>
     <br>
@@ -29,7 +90,7 @@ require_once "cabeçalho.php";
         <img class="d-block w-100" src="img/20.jpeg" class="img-responsive" style="width:100%;height:400px";>
       </div>
 
-      <div class="row">
+     
 
         <?php
         $sql = "SELECT ARQUIVO, TITULO, ID_NOT FROM TB_NOTICIAS WHERE PUBLICADO = '1' ORDER BY DATA DESC LIMIT 3";
@@ -69,6 +130,8 @@ require_once "cabeçalho.php";
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
+
+        </div>
       </div>
       <br>
       <br>
@@ -101,7 +164,7 @@ require_once "cabeçalho.php";
 
 
             <!-- <div class="not"> -->
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <div>
                   <h4 class="titulo-h4"><?php echo $titulo ?></h4>
                   <p class="text-index"><?php echo $subtitulo ?></p>
@@ -119,20 +182,6 @@ require_once "cabeçalho.php";
             echo "</div>";
           }
           ?>
-
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         <div class="">
@@ -197,68 +246,8 @@ require_once "cabeçalho.php";
         </div>
 
         <!-- Sidebar Widgets Column -->
-        <div class="col-md-4">
-
-          <!-- Categories Widget -->
-          <br>
-          <br>
-          <br>
-          <div class="card my-4">
-            <button class="btn btn-blue">Institucional</button>
-            <div class="card-body">
-              <div class="row">
-                <div class="col-lg-6">
-                  <ul class="list-unstyled mb-0">
-                    <li>
-                      <a href="#">História</a>
-                    </li>
-                    <li>
-                      <a href="#">Infraestrutura</a>
-                    </li>
-                    <li>
-                      <a href="#">Nossa equipe</a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-lg-6">
-                  <ul class="list-unstyled mb-0">
-                    <li>
-                      <a href="#">Diretoria Atual</a>
-                    </li>
-                    <li>
-                      <a href="#">Regimento</a>
-                    </li>
-                    <li>
-                      <a href="#">Estatuto</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Side Widget -->
-
-          <div class="card my-4">
-            <button class="btn btn-blue">Área Restrita</button>
-            <div class="card-body">
-              <?php if($_SESSION['logado'] == True): ?>
-                <li><a href="cadastro_pescadores.php">Cadastre Um Novo Pescador</a></li>
-                <li><a href="armazenamento.php">Listar Todos Pescadores</a></li>
-                <li><a href="escrever-noticias.php">Cadastre Uma Nova Noticia</a></li>
-                <li><a href="index-assoc.php">Listar Todas As Noticias</a></li>
-              <?php endif ?>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
     <!-- /.row -->
 
-  </div>
-</div>
   <!-- /.container -->
 
   <!-- Footer -->
