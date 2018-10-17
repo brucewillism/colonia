@@ -1,90 +1,113 @@
 <?php
- require_once 'bd/functions.php';
-require_once 'bd/conexao.php';
- // pega os dados do formuário
-             
-$pescador_id = isset($_GET['id']) ? (int) $_GET['id'] : null;
+include 'bd/conexao.php'
+?>
+<?php
 
-$matricula = isset($_POST['matricula']) ? $_POST['matricula'] : null;
-$nome = isset($_POST['nome']) ? $_POST['nome'] : null;
-$endereco = isset($_POST['endereco']) ? $_POST['endereco'] : null;
-$bairro = isset($_POST['bairro']) ? $_POST['bairro'] : null;
-$estado = isset($_POST['estado']) ? $_POST['estado'] : null;
-$cpf = isset($_POST['cpf']) ? $_POST['cpf'] : null;
-$titulo = isset($_POST['titulo']) ? $_POST['titulo'] : null;
-$profissional = isset($_POST['profissional']) ? $_POST['profissional'] : null;
-$pis = isset($_POST['pis']) ? $_POST['pis'] : null;
-$nascimento = isset($_POST['nascimento']) ? $_POST['nascimento'] : null;
-$rgp = isset($_POST['rgp']) ? $_POST['rgp'] : null;
-$nome_pai = isset($_POST['nome_pai']) ? $_POST['nome_pai'] : null;
-$nome_mae = isset($_POST['nome_mae']) ? $_POST['nome_mae'] : null;
-$dependente = isset($_POST['dependente']) ? $_POST['dependente'] : null;
-$data_ins = isset($_POST['data_ins']) ? $_POST['data_ins'] : null;
-$insc_inss = isset($_POST['insc_inss']) ? $_POST['insc_inss'] : null;
-$rg = isset($_POST['rg']) ? $_POST['rg'] : null;
-$orgao = isset($_POST['orgao']) ? $_POST['orgao'] : null;
-$estado_civil = isset($_POST['estado_civil']) ? $_POST['estado_civil'] : null;
-$ARQUIVO = isset($_POST['ARQUIVO']) ? $_POST['ARQUIVO'] : null;
+$pescador_id = isset($_GET['id']);
+
+$matricula = addslashes($_POST['matricula']);
+$nome = addslashes($_POST['nome']);
+$endereco = addslashes($_POST['endereco']) ;
+$bairro = addslashes($_POST['bairro']) ;
+$estado = addslashes($_POST['estado']) ;
+$cpf = addslashes($_POST['cpf']) ;
+$titulo = addslashes($_POST['titulo']) ;
+$profissional = addslashes($_POST['profissional']) ;
+$pis = addslashes($_POST['pis']) ;
+$nascimento = addslashes($_POST['nascimento']) ;
+$rgp = addslashes($_POST['rgp']) ;
+$nome_pai = addslashes($_POST['nome_pai']) ;
+$nome_mae = addslashes($_POST['nome_mae']) ;
+$dependente = addslashes($_POST['dependente']) ;
+$data_ins = addslashes($_POST['data_ins']) ;
+$insc_inss = addslashes($_POST['insc_inss']) ;
+$rg = addslashes($_POST['rg']) ;
+$orgao = addslashes($_POST['orgao']) ;
+$estado_civil = addslashes($_POST['estado_civil']) ;
+$file_path= addslashes($_FILES['file']['tmp_name']);
+
+$file = file_get_contents($file_path);
+
 
  // validação para evitar dados vazios
 if (($matricula) || ($nome) || ($endereco) || ($bairro) || ($estado) || ($cpf) || ($titulo) || ($profissional) || ($pis) || ($nascimento) || ($rgp)|| ($nome_pai) || ($nome_mae) || ($dependente) || ($data_ins) || ($insc_inss) ||
-    ($rg) || ($orgao)|| ($estado_civil) || ($ARQUIVO))
+	($rg) || ($orgao)|| ($estado_civil) || ($file_path))
 {
-    echo "Volte e preencha todos os campos";
-    exit;
+	echo "Volte e preencha todos os campos";
+	exit;
 }
- // insere no banco
-$PDO = db_connect();
-$sql_msg_contatos = ("UPDATE pescadores SET
-:matricula = matricula,
-:nome = nome,
-:endereco = endereco,
-:bairro = bairro,
-:estado = estado,
-:cpf = cpf,
-:titulo = titulo,
-:profissional = profissional,
-:pis = pis,
-:nascimento = nascimento,
-:rgp = rgp,
-:nome_pai = nome_pai,
-:nome_mae = nome_mae,
-:dependente = dependente,
-:data_ins = data_ins,
-:insc_inss = insc_inss,
-:rg = rg,
-:orgao = orgao,
-:id_estado = estado_civil, 
-:ARQUIVO = ARQUIVO WHERE pescador_id = :pescador_id");
 
-$insert_msg_contato = $PDO->prepare($sql_msg_contatos);
-$insert_msg_contato->bindParam(':pescador_id', $pescador_id, PDO::PARAM_INT);
-$insert_msg_contato->bindParam(':matricula', $matricula);
-$insert_msg_contato->bindParam(':nome', $nome);
-$insert_msg_contato->bindParam(':endereco', $endereco);
-$insert_msg_contato->bindParam(':bairro', $bairro);
-$insert_msg_contato->bindParam(':estado', $estado);
-$insert_msg_contato->bindParam(':cpf', $cpf);
-$insert_msg_contato->bindParam(':titulo', $titulo);
-$insert_msg_contato->bindParam(':profissional', $profissional);
-$insert_msg_contato->bindParam(':pis', $pis);
-$insert_msg_contato->bindParam(':nascimento', $nascimento);
-$insert_msg_contato->bindParam(':rgp', $rgp);
-$insert_msg_contato->bindParam(':nome_pai', $nome_pai);
-$insert_msg_contato->bindParam(':nome_mae', $nome_mae);
-$insert_msg_contato->bindParam(':dependente', $dependente);
-$insert_msg_contato->bindParam(':data_ins', $data_ins);
-$insert_msg_contato->bindParam(':insc_inss', $insc_inss);
-$insert_msg_contato->bindParam(':rg', $rg);
-$insert_msg_contato->bindParam(':orgao', $orgao);
-$insert_msg_contato->bindParam(':estado_civil', $estado_civil);
-$insert_msg_contato->bindParam(':ARQUIVO', $ARQUIVO);
- if ($insert_msg_contato->execute()){
-    header('Location:../armazenamento.php');
-}else{
-    echo "Erro ao cadastrar";
-    print_r($insert_msg_contato->errorInfo());
+$sql_msg_contatos = ("UPDATE pescadores SET
+	:matricula = ?
+	:nome = ?
+	:endereco = ?
+	:bairro = ?
+	:estado = ?
+	:cpf = ?
+	:titulo = ?
+	:profissional = ?
+	:pis = ?
+	:nascimento = ?
+	:rgp = ?
+	:nome_pai = ?
+	:nome_mae = ?
+	:dependente = ?
+	:data_ins = ?
+	:insc_inss = ?
+	:rg = ?
+	:orgao = ?
+	:id_estado = ?
+	WHERE pescador_id = ?");
+
+$stmt = $conn->prepare($sql);	
+$insert_msg_contato->bindParam(1, $pescador_id, PDO::PARAM_INT);
+$insert_msg_contato->bindParam(2, $matricula);
+$insert_msg_contato->bindParam(3, $nome);
+$insert_msg_contato->bindParam(4, $endereco);
+$insert_msg_contato->bindParam(5, $bairro);
+$insert_msg_contato->bindParam(6, $estado);
+$insert_msg_contato->bindParam(7, $cpf);
+$insert_msg_contato->bindParam(8, $titulo);
+$insert_msg_contato->bindParam(9, $profissional);
+$insert_msg_contato->bindParam(10, $pis);
+$insert_msg_contato->bindParam(11, $nascimento);
+$insert_msg_contato->bindParam(12, $rgp);
+$insert_msg_contato->bindParam(13, $nome_pai);
+$insert_msg_contato->bindParam(14, $nome_mae);
+$insert_msg_contato->bindParam(15, $dependente);
+$insert_msg_contato->bindParam(16, $data_ins);
+$insert_msg_contato->bindParam(17, $insc_inss);
+$insert_msg_contato->bindParam(18, $rg);
+$insert_msg_contato->bindParam(19, $orgao);
+$insert_msg_contato->bindParam(20, $estado_civil);
+
+$result = $stmt->execute();
+
+if ( ! $result && ! $result ){
+	var_dump( $stmt->errorInfo() );
+	exit;
 }
+
+$_SESSION['sucess-editado']=1;
+header('location:../armazenamento.php');
+
+
+
+	$query = ("UPDATE pescadores SET ARQUIVO  = ? WHERE pescador_id = ?");
+
+	$stmt = $conn->prepare($query);
+
+	$stmt->bindParam(1, $file);
+	$stmt->bindParam(2, $id);
+
+	$result2 = $stmt->execute();
+
+
+	if ( ! $result && ! $result2 ){
+		var_dump( $stmt->errorInfo() );
+		exit;
+	}
+	$_SESSION['sucess-editado']=1;
+	header('location:../armazenamento.php');
+
 ?>
-</body>
-</html> 
