@@ -2,23 +2,23 @@
   require 'cabeçalho.php';
   require_once 'bd/conexao.php';
   ?>
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Detalhes Do Pescador</title>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
-  <!-- Page Container -->
-  <div class="w3-content w3-margin-top" style="max-width:1400px;text-align: center">
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title>Detalhes Do Pescador</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <!-- Page Container -->
+    <div class="w3-content w3-margin-top" style="max-width:1400px;text-align: center">
 
-    <!-- The Grid -->
+      <!-- The Grid -->
 
 
-    <!-- Left Column -->
-    <div class="w3-third">
+      <!-- Left Column -->
+      <div class="w3-third">
 
 
 <!--               ----------------------------------------foto---------------------------------------------------------------
@@ -79,7 +79,7 @@
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info"></i> Numero Da Matricula</div>
         </div>
-        <?php echo ($matricula); ?>
+        <input class="form-control" value="<?php echo ($matricula); ?>">
       </div>
     </div>
     <div class="form-group">
@@ -87,16 +87,16 @@
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Nome</div>
         </div>
-        <?php echo ($nome); ?> 
+        <input class="form-control" value="<?php echo ($nome); ?>"> 
       </div>
     </div>
 
     <div class="form-group">
       <div class="input-group mb-2">
         <div class="input-group-prepend">
-          <div class="input-group-text"><i cl text-infoass="fa fa-user fa" ></i>Endereço</div>
+          <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Endereço</div>
         </div>
-        <?php echo ($endereco); ?>
+        <input class="form-control" value="<?php echo ($endereco); ?>">
       </div>
     </div>
     <div class="form-group">
@@ -104,7 +104,7 @@
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Bairro</div>
         </div>
-        <?php echo ($bairro); ?>
+        <input class="form-control" value="<?php echo ($bairro); ?>">
       </div>
     </div>
     <div class="form-group">
@@ -112,7 +112,7 @@
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Estado</div>
         </div>
-        <?php echo ($estado); ?>
+        <input class="form-control" value="<?php echo ($estado); ?>">
       </div>
     </div>
     <div class="form-group">
@@ -120,7 +120,7 @@
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Data De Nascimento</div>
         </div>
-        <?php echo ($nascimento); ?>
+        <input class="form-control" value="<?php echo ($nascimento); ?>">
       </div>
     </div>
     <div class="form-group">
@@ -128,7 +128,7 @@
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info"></i>RG</div>
         </div>
-        <?php echo ($rg); ?>
+        <input class="form-control" value="<?php echo ($rg); ?>">
       </div>
     </div>
     <div class="form-group">
@@ -136,7 +136,7 @@
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Órgão Expedidor</div>
         </div>
-        <?php echo ($orgao); ?>
+        <input class="form-control" value="<?php echo ($orgao); ?>">
       </div>
     </div>
     <div class="form-group">
@@ -144,7 +144,7 @@
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>CPF</div>
         </div>
-        <?php echo ($cpf); ?>
+        <input class="form-control" value="<?php echo ($cpf); ?>">
       </div>
     </div>
     <div class="form-group">
@@ -152,7 +152,7 @@
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Titulo</div>
         </div>
-        <?php echo ($titulo); ?>
+        <input class="form-control" value="<?php echo ($titulo); ?>">
       </div>
     </div>
     <div class="form-group">
@@ -160,7 +160,7 @@
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Carteira Profissional</div>
         </div>
-        <?php echo ($profissional); ?>
+        <input class="form-control" value="<?php echo ($profissional); ?>">
       </div>
     </div>
 
@@ -169,7 +169,7 @@
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Estado Civil</div>
         </div>
-        <?php echo ($dados['nome_est']); ?>
+        <input class="form-control" value="<?php echo ($dados['nome_est']); ?>">
       </div>
     </div>
     <div class="form-group">
@@ -177,7 +177,7 @@
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Nome Do Pai</div>
         </div>
-        <?php echo ($nome_pai); ?> 
+        <input class="form-control" value="<?php echo ($nome_pai); ?>"> 
       </div>
     </div>
     <div class="form-group">
@@ -185,7 +185,7 @@
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Nome Da Mae</div>
         </div>
-        <?php echo ($nome_mae); ?>
+        <input class="form-control" value="<?php echo ($nome_mae); ?>">
       </div>
     </div>
     <div class="form-group">
@@ -193,7 +193,7 @@
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Nomes Dos Filhos</div>
         </div>
-        <?php echo ($dependete); ?>            
+        <input class="form-control" value="<?php echo ($dependete); ?>">            
       </div>
     </div>
     <div class="bg-info text-white text-center py-2">
@@ -204,7 +204,7 @@
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>PIS</div>
         </div>
-        <?php echo ($pis); ?>
+        <input class="form-control" value="<?php echo ($pis); ?>">
       </div>
     </div>
     <div class="form-group">
@@ -212,7 +212,7 @@
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info"></i>RGP</div>
         </div>
-        <?php echo ($rgp); ?>
+        <input class="form-control" value="<?php echo ($rgp); ?>">
       </div>
     </div>
     <div class="form-group">
@@ -220,7 +220,7 @@
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Data De Inscricão</div>
         </div>
-        <?php echo ($data_ins); ?>
+        <input class="form-control" value="<?php echo ($data_ins); ?>">
       </div>
     </div>
     <div class="form-group">
@@ -228,7 +228,7 @@
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Inscrição Do INSS</div>
         </div>
-        <?php echo ($insc_inss); ?>
+        <input class="form-control" value="<?php echo ($insc_inss); ?>">
       </div>
     </div>
     <?php
@@ -237,10 +237,7 @@
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
+
 
 
 
