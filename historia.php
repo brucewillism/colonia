@@ -1,3 +1,11 @@
+<html>
+<title> História </title>
+<?php
+include "cabeçalho.php";
+?>
+<br>
+<br>
+<br>
 <div class="">
           <div class="card-body">
             <h2 class="card-title">Sobre a Colônia</h2>
@@ -29,3 +37,6 @@
 
           </div>
         </div>
+        <?php
+  include "rodape.php"
+  ?>
