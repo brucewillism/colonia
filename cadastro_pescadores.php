@@ -6,22 +6,25 @@ include "cabeçalho.php";
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
   <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
   <script type="text/javascript" src="js/jquery.mask.min.js"></script>
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+
+  <script type="text/javascript" src="js/jquery.mask.min.js"/></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!------ Include the above in your HEAD tag ---------->
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   <script type="text/javascript">
 
     $(document).ready(function(){  
       $("#data").mask("99/99/9999");
-      $("#data1").mask("99/99/9999");
       $("#telefone").mask("(99) 9999-9999");
       $("#indicativoTelefone").mask("+55 (99) 9999 999");
       $("#rg").mask("9.999.999");
@@ -110,7 +113,7 @@ include "cabeçalho.php";
                   <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Data De Nascimento</div>
                   </div>
-                  <input class="form-control" name="nascimento"  placeholder="Digite Sua Data de nascimento"required>
+                  <input class="form-control" name="nascimento" id="data"  placeholder="Digite Sua Data de nascimento"required>
                 </div>
               </div>
               <div class="form-group">

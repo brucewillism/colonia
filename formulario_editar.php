@@ -1,62 +1,66 @@
 <?php
+include 'bd/conexao.php';
 include 'cabeçalho.php';
-require_once 'bd/conexao.php';
-// pega o ID da URL
-$id = isset($_GET['id']) ? (int) $_GET['id'] : null;
-    //Valida a variavel da URL
-if (empty($id)){
-  echo "ID para alteração não definido";
-  exit;
-}
-$stmt = "SELECT * FROM pescadores WHERE pescador_id='$id'";
-$stmt = $conn->prepare($stmt);
-$stmt->bindParam(':id', $id, PDO::PARAM_INT);
-$stmt->execute();
-$resultado_msg_contato = $stmt->fetch(PDO::FETCH_ASSOC);
-if(!is_array($resultado_msg_contato)){
-  echo "Nunhum contato encontrado";
-  exit;
-}
-$arquivo = $resultado_msg_contato['ARQUIVO'];
-$entry = base64_encode($arquivo);
-
 ?>
-<!doctype html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Editar</title>
-  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-  <script type="text/javascript" src="js/jquery.mask.min.js"></script>
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!------ Include the above in your HEAD tag ---------->
+<main>
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <?php
+// pega o ID da URL
+  $id = isset($_GET['id']) ? (int) $_GET['id'] : null;
+    //Valida a variavel da URL
+  if (empty($id)){
+    echo "ID para alteração não definido";
+    exit;
+  }
 
-  <script type="text/javascript">
+  $sql = "SELECT * FROM pescadores WHERE pescador_id='$id'";
+  $result = $conn->prepare($sql);
+  $result->bindParam(':id', $id, PDO::PARAM_INT);
+  $result->execute();
 
-    $(document).ready(function(){  
-      $("#data").mask("99/99/9999");
-      $("#data1").mask("99/99/9999");
-      $("#telefone").mask("(99) 9999-9999");
-      $("#indicativoTelefone").mask("+55 (99) 9999 999");
-      $("#rg").mask("9.999.999");
-      $("#cpf").mask("999.999.999-99");
-      $("#titulo").mask("9999.9999.9999");
-      $("#profissional").mask("999.999.999-99");
-      $("#pis").mask("999.99999.99-9");
-      $("#inss").mask("99.999.99999/99");
-    });
-  </script>
-</head>
-<body>
-  <h1>Editar</h1>
-  <form action="editar.php?id=<?php echo $id; ?>" method="POST">
+  $resultado = $result->fetch(PDO::FETCH_ASSOC);
+  if(!is_array($resultado)){
+    echo "Nunhum dado encontrado";
+    exit;
+  }
+  $arquivo = $resultado['ARQUIVO'];
+  $entry = base64_encode($arquivo);
+
+  ?>
+  <!doctype html>
+  <html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Editar</title>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+    <script type="text/javascript">
+      $(document).ready(function(){  
+        $("#data").mask("99/99/9999");
+        $("#data1").mask("99/99/9999");
+        $("#telefone").mask("(99) 9999-9999");
+        $("#indicativoTelefone").mask("+55 (99) 9999 999");
+        $("#rg").mask("9.999.999");
+        $("#cpf").mask("999.999.999-99");
+        $("#titulo").mask("9999.9999.9999");
+        $("#profissional").mask("999.999.999-99");
+        $("#pis").mask("999.99999.99-9");
+        $("#inss").mask("99.999.99999/99");
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Editar</h1>
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6 pb-5">
@@ -65,11 +69,12 @@ $entry = base64_encode($arquivo);
           <br>
           <br>
           <br>
-          <form action="bd/cadastrar_pescadores.php" method="post">
+          <form action="editar.php?id=<?=$id?>" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="<?=$id?>">
             <div class="card border-primary rounded-0">
               <div class="card-header p-0">
                 <div class="bg-info text-white text-center py-2">
-                  <h3><i class="fa fa-user fa" ></i> Editar o Cadastro Do Pescador <?php echo $resultado_msg_contato['nome']; ?></h3>
+                  <h3><i class="fa fa-user fa" ></i> Editar o Cadastro Do Pescador <?php echo $resultado['nome']; ?></h3>
                   <p class="m-0">Dados Pessoais Do Pescador</p>
                 </div>
               </div>
@@ -92,7 +97,7 @@ $entry = base64_encode($arquivo);
                     <div class="input-group-prepend">
                       <div class="input-group-text"><i class="fa fa-user fa text-info"></i> CADASTRO MAT. N</div>
                     </div>
-                    <input class="form-control" name="matricula" placeholder="Digite o Numero Da Matricula"  value="<?php echo $resultado_msg_contato['matricula']; ?>" >
+                    <input class="form-control" name="matricula" placeholder="Digite o Numero Da Matricula"  value="<?php echo $resultado['matricula']; ?>" >
 
                   </div>
                 </div>
@@ -101,7 +106,7 @@ $entry = base64_encode($arquivo);
                     <div class="input-group-prepend">
                       <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Nome</div>
                     </div>
-                    <input class="form-control"  name="nome" placeholder="Digite Seu Nome Completo"  value="<?php echo $resultado_msg_contato['nome']; ?>" >
+                    <input class="form-control"  name="nome" placeholder="Digite Seu Nome Completo"  value="<?php echo $resultado['nome']; ?>" >
 
                   </div>
                 </div>
@@ -111,7 +116,7 @@ $entry = base64_encode($arquivo);
                     <div class="input-group-prepend">
                       <div class="input-group-text"><i class="fa fa-user fa text-info"  ></i>Endereço</div>
                     </div>
-                    <input class="form-control" name="endereco" placeholder="Digite Seu endereço"  value="<?php echo $resultado_msg_contato['endereco']; ?>" >
+                    <input class="form-control" name="endereco" placeholder="Digite Seu endereço"  value="<?php echo $resultado['endereco']; ?>" >
 
                   </div>
                 </div>
@@ -120,7 +125,7 @@ $entry = base64_encode($arquivo);
                     <div class="input-group-prepend">
                       <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Bairro</div>
                     </div>
-                    <input class="form-control" name="bairro" placeholder="Digite Seu Bairro"  value="<?php echo $resultado_msg_contato['bairro']; ?>" >
+                    <input class="form-control" name="bairro" placeholder="Digite Seu Bairro"  value="<?php echo $resultado['bairro']; ?>" >
                   </div>
                 </div>
                 <div class="form-group">
@@ -128,7 +133,7 @@ $entry = base64_encode($arquivo);
                     <div class="input-group-prepend">
                       <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Estado</div>
                     </div>
-                    <input class="form-control" name="estado" placeholder="Digite Seu Estado"  value="<?php echo $resultado_msg_contato['estado']; ?>" >
+                    <input class="form-control" name="estado" placeholder="Digite Seu Estado"  value="<?php echo $resultado['estado']; ?>" >
                   </div>
                 </div>
                 <div class="form-group">
@@ -136,7 +141,7 @@ $entry = base64_encode($arquivo);
                     <div class="input-group-prepend">
                       <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Data De Nascimento</div>
                     </div>
-                    <input class="form-control" name="nascimento"  placeholder="Digite Sua Data de nascimento"  value="<?php echo $resultado_msg_contato['nascimento']; ?>" >
+                    <input class="form-control" name="nascimento"  placeholder="Digite Sua Data de nascimento"  value="<?php echo $resultado['nascimento']; ?>" >
                   </div>
                 </div>
                 <div class="form-group">
@@ -144,7 +149,7 @@ $entry = base64_encode($arquivo);
                     <div class="input-group-prepend">
                       <div class="input-group-text"><i class="fa fa-user fa text-info"></i>RG</div>
                     </div>
-                    <input class="form-control" id="rg" class="form-control" name="rg" placeholder="Digite Seu RG"  value="<?php echo $resultado_msg_contato['rg']; ?>" >
+                    <input class="form-control" id="rg" class="form-control" name="rg" placeholder="Digite Seu RG"  value="<?php echo $resultado['rg']; ?>" >
                   </div>
                 </div>
                 <div class="form-group">
@@ -152,7 +157,7 @@ $entry = base64_encode($arquivo);
                     <div class="input-group-prepend">
                       <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Órgão Expedidor</div>
                     </div>
-                    <input class="form-control" name="orgao" placeholder="Digite seu Órgão Expedidor"  value="<?php echo $resultado_msg_contato['orgao']; ?>" >
+                    <input class="form-control" name="orgao" placeholder="Digite seu Órgão Expedidor"  value="<?php echo $resultado['orgao']; ?>" >
                   </div>
                 </div>
                 <div class="form-group">
@@ -160,7 +165,7 @@ $entry = base64_encode($arquivo);
                     <div class="input-group-prepend">
                       <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>CPF</div>
                     </div>
-                    <input class="form-control" id="cpf" name="cpf" placeholder="Digite Seu CPF" value="<?php echo $resultado_msg_contato['cpf']; ?>" >
+                    <input class="form-control" id="cpf" name="cpf" placeholder="Digite Seu CPF" value="<?php echo $resultado['cpf']; ?>" >
                   </div>
                 </div>
                 <div class="form-group">
@@ -168,7 +173,7 @@ $entry = base64_encode($arquivo);
                     <div class="input-group-prepend">
                       <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Titulo</div>
                     </div>
-                    <input class="form-control" id="titulo" name="titulo" placeholder="Digite Seu Titulo"  value="<?php echo $resultado_msg_contato['titulo']; ?>">
+                    <input class="form-control" id="titulo" name="titulo" placeholder="Digite Seu Titulo"  value="<?php echo $resultado['titulo']; ?>">
                   </div>
                 </div>
                 <div class="form-group">
@@ -176,7 +181,7 @@ $entry = base64_encode($arquivo);
                     <div class="input-group-prepend">
                       <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Carteira Profissional</div>
                     </div>
-                    <input class="form-control" name="profissional" placeholder="Digite Seu Profissional"  value="<?php echo $resultado_msg_contato['profissional']; ?>" >
+                    <input class="form-control" name="profissional" placeholder="Digite Seu Profissional"  value="<?php echo $resultado['profissional']; ?>" >
                   </div>
                 </div>
 
@@ -203,7 +208,7 @@ $entry = base64_encode($arquivo);
                     <div class="input-group-prepend">
                       <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Nome Do Pai</div>
                     </div>
-                    <input class="form-control" name="nome_pai" placeholder="Digite o nome do pai"  value="<?php echo $resultado_msg_contato['nome_pai']; ?>" >
+                    <input class="form-control" name="nome_pai" placeholder="Digite o nome do pai"  value="<?php echo $resultado['nome_pai']; ?>" >
                   </div>
                 </div>
                 <div class="form-group">
@@ -211,7 +216,7 @@ $entry = base64_encode($arquivo);
                     <div class="input-group-prepend">
                       <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Nome Da Mae</div>
                     </div>
-                    <input class="form-control" name="nome_mae" placeholder="Digite o nome da mae"  value="<?php echo $resultado_msg_contato['nome_mae']; ?>" >
+                    <input class="form-control" name="nome_mae" placeholder="Digite o nome da mae"  value="<?php echo $resultado['nome_mae']; ?>" >
                   </div>
                 </div>
                 <div class="form-group">
@@ -219,11 +224,11 @@ $entry = base64_encode($arquivo);
                     <div class="input-group-prepend">
                       <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Nomes Dos Filhos</div>
                     </div>
-                    <input class="form-control" name="dependente" placeholder="Digite Os Nomes Dos Seus Dependentes"  value="<?php echo $resultado_msg_contato['dependente']; ?>" >
+                    <input class="form-control" name="dependente" placeholder="Digite Os Nomes Dos Seus Dependentes"  value="<?php echo $resultado['dependente']; ?>" >
                   </div>
                 </div>
                 <div class="bg-info text-white text-center py-2">
-                  <h3><i class="fa fa-user fa " ></i> Cadastro De Pescador <?php echo $resultado_msg_contato['nome']; ?></h3>
+                  <h3><i class="fa fa-user fa " ></i> Cadastro De Pescador <?php echo $resultado['nome']; ?></h3>
                   <p class="m-0">Dados Profissionais Do Pescador</p>
                 </div>
                 <div class="form-group">
@@ -231,7 +236,7 @@ $entry = base64_encode($arquivo);
                     <div class="input-group-prepend">
                       <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>PIS</div>
                     </div>
-                    <input class="form-control" id="pis" class="form-control" name="pis" placeholder="Digite Seu Pis"  value="<?php echo $resultado_msg_contato['pis']; ?>" >
+                    <input class="form-control" id="pis" class="form-control" name="pis" placeholder="Digite Seu Pis"  value="<?php echo $resultado['pis']; ?>" >
                   </div>
                 </div>
                 <div class="form-group">
@@ -239,7 +244,7 @@ $entry = base64_encode($arquivo);
                     <div class="input-group-prepend">
                       <div class="input-group-text"><i class="fa fa-user fa text-info"></i>RGP</div>
                     </div>
-                    <input class="form-control" name="rgp" placeholder="Digite Seu RGP"  value="<?php echo $resultado_msg_contato['rgp']; ?>" >
+                    <input class="form-control" name="rgp" placeholder="Digite Seu RGP"  value="<?php echo $resultado['rgp']; ?>" >
                   </div>
                 </div>
                 <div class="form-group">
@@ -247,7 +252,7 @@ $entry = base64_encode($arquivo);
                     <div class="input-group-prepend">
                       <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Data De Inscricão</div>
                     </div>
-                    <input class="form-control" name="data_ins" placeholder="Digite a Data de Inscricão"  value="<?php echo $resultado_msg_contato['data_ins']; ?>" >
+                    <input class="form-control" name="data_ins" placeholder="Digite a Data de Inscricão"  value="<?php echo $resultado['data_ins']; ?>" >
                   </div>
                 </div>
                 <div class="form-group">
@@ -255,7 +260,7 @@ $entry = base64_encode($arquivo);
                     <div class="input-group-prepend">
                       <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Inscrição Do INSS</div>
                     </div>
-                    <input class="form-control" id="inss" name="insc_inss" placeholder="Digite a Inscrição do INSS"  value="<?php echo $resultado_msg_contato['insc_inss']; ?>" >
+                    <input class="form-control" id="inss" name="insc_inss" placeholder="Digite a Inscrição do INSS"  value="<?php echo $resultado['insc_inss']; ?>" >
                   </div>
                 </div>
                 <div class="form-group">
@@ -302,7 +307,6 @@ $entry = base64_encode($arquivo);
           readURL(this);
         });   
       });
-
     </script>
   </body>
   </html>

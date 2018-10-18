@@ -50,13 +50,13 @@ if($file == false){
 	$result2 = $stmt->execute();
 
 
-		if ( ! $result && ! $result2 ){
-			var_dump( $stmt->errorInfo() );
-			exit;
-		}
+	if ( ! $result && ! $result2 ){
+		var_dump( $stmt->errorInfo() );
+		exit;
+	}
 
-		$_SESSION['sucess-editado']=1;
-		header('location:index-assoc.php');
+	$_SESSION['sucess-editado']=1;
+	header('location:index-assoc.php');
 
 }else{
 
@@ -85,20 +85,20 @@ if($file == false){
 
 	$query = ("UPDATE TB_NOTICIAS SET ARQUIVO  = ? WHERE ID_NOT = ?");
 
-		$stmt = $conn->prepare($query);
-		
-		$stmt->bindParam(1, $file);
-		$stmt->bindParam(2, $id);
+	$stmt = $conn->prepare($query);
+	
+	$stmt->bindParam(1, $file);
+	$stmt->bindParam(2, $id);
 
-		$result2 = $stmt->execute();
+	$result2 = $stmt->execute();
 
 
-		if ( ! $result && ! $result2 && ! $result1){
-			var_dump( $stmt->errorInfo() );
-			exit;
-		}
-		$_SESSION['sucess-editado']=1;
-		header('location:index-assoc.php');
+	if ( ! $result && ! $result2 && ! $result1){
+		var_dump( $stmt->errorInfo() );
+		exit;
+	}
+	$_SESSION['sucess-editado']=1;
+	header('location:index-assoc.php');
 }
 
 ?>

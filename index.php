@@ -100,7 +100,6 @@ require_once "cabeçalho.php";
         $rows = $stmt->rowCount();
 
         if ($rows <=0) {
-          echo "<h1>NÃO EXISTE NOTICIAS PLUBLICADAS :(</h1>";
         } else{         
 
           ?>
@@ -143,7 +142,7 @@ require_once "cabeçalho.php";
       $rows = $stmt->rowCount();
 
       if ($rows <=0) {
-        echo "<h1>NÃO EXISTE NOTICIAS PLUBLICADAS :(</h1>";
+        
       } else{         
 
         ?>
