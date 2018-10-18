@@ -22,7 +22,7 @@ require_once "cabeçalho.php";
         <div class="col-lg-6">
           <ul class="list-unstyled mb-0">
             <li>
-              <a href="#">História</a>
+              <a href="historia.php">História</a>
             </li>
             <li>
               <a href="#">Infraestrutura</a>
