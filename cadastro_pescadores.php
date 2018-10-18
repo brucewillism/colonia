@@ -5,34 +5,24 @@ include "cabeçalho.php";
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-
+  <title>Cadastro Dos Pescadores</title>
   <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
   <script type="text/javascript" src="js/jquery.mask.min.js"></script>
-
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
-
-  <script type="text/javascript" src="js/jquery.mask.min.js"/></script>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   <script type="text/javascript">
-
-    $(document).ready(function(){  
+    $(document).ready(function($){  
       $("#data").mask("99/99/9999");
       $("#telefone").mask("(99) 9999-9999");
-      $("#indicativoTelefone").mask("+55 (99) 9999 999");
+      $("#indicativoTelefone").mask("+55 (99) 9999-9999");
       $("#rg").mask("9.999.999");
       $("#cpf").mask("999.999.999-99");
       $("#titulo").mask("9999.9999.9999");
       $("#profissional").mask("999.999.999-99");
       $("#pis").mask("999.99999.99-9");
       $("#inss").mask("99.999.99999/99");
+      $('#cep').mask('00000-000');
     });
   </script>
 </head>
@@ -64,7 +54,7 @@ include "cabeçalho.php";
                   </div>
                   <input type="file"  class="form-control-file" name="file" id="imgInp">
                   <br>
-                  <img id='img-upload' style="width:300%;height:400px;" class="hidden">
+                  <img id='img-upload' src="data:image/jpeg;base64,<?= $entry ?>" style="width:100%;height:100%;"/>
                 </div>
               </div>
               <div class="form-group">
@@ -153,7 +143,7 @@ include "cabeçalho.php";
                   <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Carteira Profissional</div>
                   </div>
-                  <input class="form-control" name="profissional" placeholder="Digite Seu Profissional">
+                  <input class="form-control" name="profissional" id="profissional" placeholder="Digite Seu Profissional">
                 </div>
               </div>
 

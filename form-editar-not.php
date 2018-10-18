@@ -14,7 +14,7 @@ include 'cabeçalho.php';
     exit;
     }
 
-    $sql = "SELECT CATEGORIA, TITULO, SUBTITULO, ARQUIVO, TEXTO, PUBLICADO FROM pescadores WHERE ID_NOT='$id'";
+    $sql = "SELECT CATEGORIA, TITULO, SUBTITULO, ARQUIVO, TEXTO, PUBLICADO FROM TB_NOTICIAS WHERE ID_NOT='$id'";
     $result = $conn->prepare($sql);
     $result->bindParam(':id', $id, PDO::PARAM_INT);
     $result->execute();
