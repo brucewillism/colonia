@@ -14,6 +14,7 @@ include "cabeçalho.php";
   <script type="text/javascript">
     $(document).ready(function($){  
       $("#data").mask("99/99/9999");
+      $("#data1").mask("99/99/9999");
       $("#telefone").mask("(99) 9999-9999");
       $("#indicativoTelefone").mask("+55 (99) 9999-9999");
       $("#rg").mask("9.999.999");
@@ -214,7 +215,7 @@ include "cabeçalho.php";
                   <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Data De Inscricão</div>
                   </div>
-                  <input class="form-control" name="data_ins" placeholder="Digite a Data de Inscricão"required>
+                  <input class="form-control" id="data1" name="data_ins" placeholder="Digite a Data de Inscricão"required>
                 </div>
               </div>
               <div class="form-group">
