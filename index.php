@@ -9,13 +9,14 @@ require_once "cabeçalho.php";
 ?>
 <body>
  <!-- Page Content -->
- <div class="col-md-4">
+ <div class="col-lg-10">
 
+ <br>
+ <br>
+ <br>
+<div class="card-body">
   <!-- Categories Widget -->
-  <br>
-  <br>
-  <br>
-  <div class="card my-4">
+ <div class="col-md-4">
     <button class="btn btn-blue">Institucional</button>
     <div class="card-body">
       <div class="row">
@@ -47,9 +48,11 @@ require_once "cabeçalho.php";
         </div>
       </div>
     </div>
-    <div class="card my-4">
+    <div class="card my-12">
       <button class="btn btn-blue">Área Restrita</button>
       <div class="card-body">
+      <div class="row">
+      <ul class="list-unstyled mb-0">
         <?php if($_SESSION['logado'] == True): ?>
           <li><a href="cadastro_pescadores.php">Cadastre Um Novo Pescador</a></li>
           <li><a href="armazenamento.php">Listar Todos Pescadores</a></li>
@@ -177,6 +180,7 @@ if ($rows <=0) {
 
   </div>
 </div>      
+</div>
 <?php
 require_once "rodape.php";
 ?>
