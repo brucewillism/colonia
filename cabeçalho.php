@@ -20,6 +20,7 @@ if(isset($_SESSION["login"]) && isset($_SESSION["senha"])){
   <meta name="author" content="">
   <title>Home</title>
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
   <link href="css/blog-home.css" rel="stylesheet">
   <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
   <script type="text/javascript" src="js/jquery.mask.min.js"></script>

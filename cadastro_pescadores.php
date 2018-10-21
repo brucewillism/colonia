@@ -37,7 +37,7 @@ include "cabeçalho.php";
         <br>
         <br>
         <br>
-        <form action="bd/cadastrar_pescadores.php" method="post">
+        <form action="bd/cadastrar_pescadores.php" method="post" enctype="multipart/form-data">
           <div class="card border-primary rounded-0">
             <div class="card-header p-0">
               <div class="bg-info text-white text-center py-2">
