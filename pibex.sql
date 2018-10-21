@@ -73,7 +73,7 @@ CREATE TABLE `TB_COMENTARIO_p` (
   `COM_NOME` varchar(255) NOT NULL,
   `COM_COMENTARIO` varchar(255) NOT NULL,
   `pescador_id` int(11) NOT NULL,
-  FOREIGN KEY (pescador_id) REFERENCES pescadores(pescador_id)
+  FOREIGN KEY (pescador_id) REFERENCES pescadores(pescador_id) on delete cascade
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 
