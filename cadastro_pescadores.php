@@ -55,7 +55,6 @@ include "cabeçalho.php";
                   </div>
                   <input type="file"  class="form-control-file" name="file" id="imgInp">
                   <br>
-                  <img id='img-upload' src="data:image/jpeg;base64,<?= $entry ?>" style="width:100%;height:100%;"/>
                 </div>
               </div>
               <div class="form-group">
