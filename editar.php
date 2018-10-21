@@ -84,7 +84,7 @@ if($file == false){
 
 }else{
 	$query = ("UPDATE pescadores 
-		SET ARQUIVO  = :file
+		SET ARQUIVO  = :file,
 		matricula = :matricula, 
 		nome = :nome, 
 		endereco = :endereco, 
@@ -110,6 +110,26 @@ if($file == false){
 
 	$stmt->bindParam(":file", $file);
 	$stmt->bindParam(":pescador_id", $pescador_id);
+	$stmt->bindParam(":matricula", $matricula);
+	$stmt->bindParam(":nome", $nome);
+	$stmt->bindParam(":endereco", $endereco);
+	$stmt->bindParam(":bairro", $bairro);
+	$stmt->bindParam(":estado", $estado);
+	$stmt->bindParam(":cpf", $cpf);
+	$stmt->bindParam(":titulo", $titulo);
+	$stmt->bindParam(":profissional", $profissional);
+	$stmt->bindParam(":pis", $pis);
+	$stmt->bindParam(":nascimento", $nascimento);
+	$stmt->bindParam(":rgp", $rgp);
+	$stmt->bindParam(":nome_pai", $nome_pai);
+	$stmt->bindParam(":nome_mae", $nome_mae);
+	$stmt->bindParam(":dependente", $dependente);
+	$stmt->bindParam(":data_ins", $data_ins);
+	$stmt->bindParam(":insc_inss", $insc_inss);
+	$stmt->bindParam(":rg", $rg);
+	$stmt->bindParam(":orgao", $orgao);
+	$stmt->bindParam(":id_estado", $estado_civil);
+
 
 	$result2 = $stmt->execute();
 
