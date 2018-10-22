@@ -1,4 +1,6 @@
-<?php include 'cabeçalho.php'; ?>
+<?php include 'cabeçalho.php';
+$buscar = $_POST['pesquisa'];
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +9,15 @@
   <link rel="stylesheet" href="css/pesquizar.css">
 </head>
 <body>
-<br>
-<br>
+  <br>
+  <br>
+  <div class="card-body">
+    <h2 class="card-title">Resultados da sua Pesquisa <?php echo " Você digitou "."$buscar"; ?></h2>
+  </div>
+  <div class="card-footer text-muted">
+  </div>
+</div>
+
 <br>
 <br>
 <table class="table" border="1px" style="background: #C0C0C0;">

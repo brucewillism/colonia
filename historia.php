@@ -29,7 +29,7 @@ include "cabeçalho.php";
   <h2 class="card-title">Resumo</h2>
 </div>
 </div>
-<p>Fundada em 10 de Novembro de 1927 pela capitania dos portos foi o conselho nacional da pesca(CPP) que chegando em Itapissuma mobilizou os pescadores para transformar a colonia em uma instancia
+<p>Fundada em 10 de Novembro de 1927 pela capitania dos portos foi o conselho nacional da pesca(CPP) que chegando em Itapissuma mobilizou os pescadores para transformar a colonia em uma instancia de resistencia e de luta pelo direitos sociais e por meio de feliaçao á colonia os pescadores e pescadoras passam a ser registrados como profissionais recebendo a carteira de pesca que garante autorização para a pratica profissonal da pesca e uma futura aposentadoria no inicio as mulheres não poderiam participar da colônia foi a CPP que ajudou as mulheres de itapissuma a conquistar esse direito sendo elas as primeiras a ter a carteira de pescano Brasil no final da decada de 70. e em 1989 Joana Mousinho se tornou a primeira mulher eleita presidente de uma colônia de pescadores no Brasil atualmente toda a direção da colônia e composta por mulheres
 
 </p>  <div class="card-body">
   <h2 class="card-title">A Pesca No Litoral Norte</h2>

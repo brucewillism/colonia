@@ -2,8 +2,8 @@
 session_start();
 $host = "localhost";
 $usuario = "root";
-$senha = "lucy";
-$bd = "pibex";
+$senha = "0301HEX@";
+$bd = "colonia";
 
 try {
 	$conn = new PDO("mysql:host=localhost;dbname=$bd", $usuario, $senha);
