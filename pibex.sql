@@ -85,3 +85,21 @@ CREATE TABLE `TB_COMENTARIO` (
   `ID_NOT` int(11) NOT NULL,
   FOREIGN KEY (ID_NOT) REFERENCES TB_NOTICIAS(ID_NOT)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+CREATE TABLE IF NOT EXISTS `pagamentos` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `pescador_id` int(10) NOT NULL,
+  `vencimento` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
+  `prorrogado` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
+  `pagamento` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `forma_pagamento` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `baixar` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `valor` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `obs` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`),
+  FOREIGN KEY (pescador_id) REFERENCES pescadores(pescador_id) on delete cascade
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;

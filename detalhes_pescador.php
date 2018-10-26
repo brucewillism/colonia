@@ -311,9 +311,9 @@
   ?>
 
 </div>
-
-<br>
-
+<center>
+<input type="button" value="Imprimir" onClick="window.print()" value="Imprimir" id="btncad">
+</center>
 </div>
 
 <?php include 'rodape.php'; ?>

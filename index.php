@@ -62,6 +62,8 @@ require_once "cabeçalho.php";
                 <li><a href="armazenamento.php">Listar Todos Pescadores</a></li>
                 <li><a href="escrever-noticias.php">Cadastre Uma Nova Noticia</a></li>
                 <li><a href="index-assoc.php">Listar Todas As Noticias</a></li>
+                <li><a href="cad_pagamento.php">Cadastrar um Novo Pagamento</a></li>
+                <li><a href="lista_pag.php">Listar Todos os Pagamentos</a></li>
               <?php endif ?>
             </ul>
           </div>
