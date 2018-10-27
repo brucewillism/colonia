@@ -98,7 +98,6 @@ include 'cabeçalho.php';
 	</table>
 	<center>
 		<input type="button" value="Imprimir" onClick="window.print()" value="Imprimir" id="btncad">
-		<input type="button" value="Fechar" id="btncan">
 	</center>
 </div>
 </table>

@@ -38,7 +38,15 @@
   });
   });
 </script>
-
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function($){  
+      $("#data").mask("99/99/9999");
+      $("#data1").mask("99/99/9999");
+      $("#data2").mask("99/99/9999");
+    });
+  </script>
 <body>
   <br>
   <br>
@@ -52,7 +60,7 @@
       exit;
     }
 
-    $stmt = $conn->query("SELECT * 
+    $stmt = $conn->query("SELECT pescadores.nome, pescadores.pescador_id, pagamentos.pescador_id,pagamentos.vencimento,pagamentos.prorrogado,pagamentos.pagamento,pagamentos.forma_pagamento,pagamentos.baixar,pagamentos.valor,pagamentos.obs
       FROM pescadores
       INNER JOIN pagamentos
       ON pagamentos.pescador_id = pescadores.pescador_id WHERE id = '$id'");    
@@ -81,7 +89,7 @@
 
         <div class="col-md-6">
          <label>Pescador:</label>
-         <select name="pescador_id" class="form-control" style="margin-bottom:20px; "value="<?php echo $resultado['pescador_id']; ?>">
+         <select name="pescador_id" class="form-control" style="margin-bottom:20px; "value="<?php echo $resultado['nome']; ?>">
           <?php
           require_once 'bd/conexao.php';
           $sql = "SELECT * FROM pescadores";
@@ -96,11 +104,11 @@
 
       <div class="col-md-6"> 
         <label>Vencimento:</label>
-        <input type="date" name="vencimento" class="txt" maxlength="50" value="<?php echo $resultado['vencimento']; ?>"  style="width:200px;margin-bottom:20px;"><br>
+        <input type="text" id="data" name="vencimento" class="txt" maxlength="50" value="<?php echo $resultado['vencimento']; ?>"  style="width:200px;margin-bottom:20px;"><br>
         <label>Prorrogado:</label>
-        <input type="date" name="prorrogado" class="txt" maxlength="50" value="<?php echo $resultado['prorrogado']; ?>"  style="width:200px;margin-bottom:20px;"><br>
+        <input type="text" id="data1" name="prorrogado" class="txt" maxlength="50" value="<?php echo $resultado['prorrogado']; ?>"  style="width:200px;margin-bottom:20px;"><br>
         <label>Data Pagamento:</label>
-        <input type="date" name="pagamento" class="txt" maxlength="50" maxlength="2" value="<?php echo $resultado['pagamento']; ?>"  style="width:200px;margin-bottom:20px;" >
+        <input type="text" id="data2" name="pagamento" class="txt" maxlength="50" maxlength="2" value="<?php echo $resultado['pagamento']; ?>"  style="width:200px;margin-bottom:20px;" >
       </div>
     </div>
     <br>
