@@ -90,16 +90,14 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `pagamentos` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `pescador_id` int(10) NOT NULL,
-  `vencimento` varchar(155) COLLATE utf8_unicode_ci NOT NULL,
-  `prorrogado` varchar(155) COLLATE utf8_unicode_ci NOT NULL,
+  `id` int(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `pescador_id` int(11) NOT NULL,
+  `vencimento` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `prorrogado` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `pagamento` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `forma_pagamento` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `baixar` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `valor` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `obs` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`),
   FOREIGN KEY (pescador_id) REFERENCES pescadores(pescador_id) on delete cascade
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
+);

@@ -1,22 +1,23 @@
     <?php
-    include 'conexao.php';
+    require_once 'conexao.php';
     
-    $id = isset($_GET['id']) ? (int) $_GET['id'] : null;
+    $id = $_GET['id'];
     $vencimento = addslashes($_POST['vencimento']);
     $prorrogado = addslashes($_POST['prorrogado']);
     $pagamento = addslashes($_POST['pagamento']);
     $forma_pagamento = addslashes($_POST['forma_pagamento']);
     $baixar = addslashes($_POST['baixar']);
+    $valor = addslashes($_POST['valor']);
     $obs = addslashes($_POST['obs']);
 
-    $sql = ("UPDATE pagamentos
-      vencimento= :vencimento
-      prorrogado= :prorrogado 
-      pagamento= :pagamento
-      forma_pagamento= :forma_pagamento
-      baixar= :baixar
-      valor= :valor
-      obs= :obs
+    $sql = ("UPDATE pagamentos 
+      SET vencimento = :vencimento,
+      prorrogado = :prorrogado,
+      pagamento = :pagamento,
+      forma_pagamento = :forma_pagamento,
+      baixar = :baixar,
+      valor = :valor,
+      obs = :obs
       WHERE id = :id");
 
     $stmt = $conn->prepare($sql); 
@@ -33,11 +34,13 @@
     $result1 = $stmt->execute();
 
 
-    if ($result1){
+    if ( ! $result1){
       var_dump( $stmt->errorInfo() );
       exit;
     }
 
-  $_SESSION['sucess-editado']=1;
-  header('location:../lista_pag.php');
-  ?>
+    $_SESSION['sucess-editado']=1;
+    
+    header('location:../lista_pag.php');
+    
+    ?>

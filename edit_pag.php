@@ -38,45 +38,47 @@
   });
   });
 </script>
-  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-  <script type="text/javascript" src="js/jquery.mask.min.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function($){  
-      $("#data").mask("99/99/9999");
-      $("#data1").mask("99/99/9999");
-      $("#data2").mask("99/99/9999");
-    });
-  </script>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.mask.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function($){  
+    $("#data").mask("99/99/9999");
+    $("#data1").mask("99/99/9999");
+    $("#data2").mask("99/99/9999");
+  });
+</script>
 <body>
   <br>
   <br>
   <br>
-    <?php
+  <?php
 // pega o ID da URL
-    $id = isset($_GET['id']) ? (int) $_GET['id'] : null;
+  $id = isset($_GET['id']) ? (int) $_GET['id'] : null;
     //Valida a variavel da URL
-    if (empty($id)){
-      echo "ID para alteração não definido";
-      exit;
-    }
+  if (empty($id)){
+    echo "ID para alteração não definido";
+    exit;
+  }
 
-    $stmt = $conn->query("SELECT pescadores.nome, pescadores.pescador_id, pagamentos.pescador_id,pagamentos.vencimento,pagamentos.prorrogado,pagamentos.pagamento,pagamentos.forma_pagamento,pagamentos.baixar,pagamentos.valor,pagamentos.obs
-      FROM pescadores
-      INNER JOIN pagamentos
-      ON pagamentos.pescador_id = pescadores.pescador_id WHERE id = '$id'");    
-    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-    $stmt->execute();
+  $stmt = $conn->query("SELECT pescadores.nome, pescadores.pescador_id, pagamentos.pescador_id,pagamentos.vencimento,pagamentos.prorrogado,pagamentos.pagamento,pagamentos.forma_pagamento,pagamentos.baixar,pagamentos.valor,pagamentos.obs
+    FROM pescadores
+    INNER JOIN pagamentos
+    ON pagamentos.pescador_id = pescadores.pescador_id WHERE id = '$id'");    
+  $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+  $stmt->execute();
 
-    $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
-    
-    if(!is_array($resultado)){
-      echo "Nunhum dado encontrado";
-      exit;
-    }
+  $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+  
+  if(!is_array($resultado)){
+    echo "Nunhum dado encontrado";
+    exit;
+  }
 
-    ?>
+  ?>
 
-  <form class="" action="bd/editar_pag.php" method="post">
+  <form class="" action="bd/editar_pag.php?id=<?=$id?>" method="post">
+    <input type="hidden" name="id" value="<?=$id?>">
+
     <center>
       <font face="arial" size="5" color="black">
         <B>Cadastro Pagamento</B>
