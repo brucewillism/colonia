@@ -36,6 +36,7 @@
   }
   $stmt = $conn->query("SELECT *
    FROM pescadores
+   INNER JOIN estado_civil ON pescadores.id_estado = estado_civil.id_estado
    WHERE pescador_id = '$pescador_id'");
 
   $cadastro = $stmt->fetchAll();

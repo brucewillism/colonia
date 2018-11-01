@@ -30,7 +30,8 @@ require_once "cabeçalho.php";
         </thead>
         <?php
         require_once 'bd/conexao.php';
-        $stmt = $conn->query("SELECT * FROM pescadores");
+        $stmt = $conn->query("SELECT * FROM pescadores 
+            INNER JOIN estado_civil ON pescadores.id_estado = estado_civil.id_estado");
 
         $cadastro = $stmt->fetchAll();
         foreach ($cadastro as $dados) {
@@ -55,6 +56,9 @@ require_once "cabeçalho.php";
 </div>
 </div>
 </div>
+<center>
+<input type="button" value="Imprimir" onClick="window.print()" value="Imprimir" id="btncad">
+</center>
 </body>
 <?php include 'rodape.php'; ?>
 </html>
