@@ -12,24 +12,13 @@
   </head>
   <body>
     <!-- Page Container -->
-    <div class="w3-content w3-margin-top" style="max-width:1400px;text-align: center">
-
-      <!-- The Grid -->
-
-
-      <!-- Left Column -->
-      <div class="w3-third">
-
+    <div class="w3-content w3-margin-top" style="max-width:1010px; margin-right:300px; margin-left:30px;text-align: center">
 
 <!--               ----------------------------------------foto---------------------------------------------------------------
--->              
-<body>
+-->
   <br>
   <br>
-  <br>
-  <h1>Detalhes Do Pescador</h1>
-
-
+  <h2 class="w3-text-grey w3-padding-16" style="margin-left:300px;"><i class="fa fa-pencil-square-o"></i>Detalhes sobre o Pescador</h2>
   <?php
   if (isset($_GET['id'])){
     $pescador_id = $_GET['id'];
@@ -67,28 +56,33 @@
     $entry = base64_encode($arquivo);
     ?>
 
-    <div class='col-sm-6 col-md-4'>
+    <div class='col-sm-6 col-md-2'>
 
       <div class='thumbnail'>
 
-        <img src="data:image/jpeg;base64,<?= $entry ?>" class="img-responsive" style="width:400%;height:auto;">            
+        <img src="data:image/jpeg;base64,<?= $entry ?>" class="img-responsive" style="width:200%;height:auto; margin-top:10px; margin-left:500px; ">            
       </div>
     </div>
+
+    <div class="bg-info text-white text-center py-2 " style="width:50%;height:300%; margin-top:35px; margin-left:20px;">
+      <p class="m-0">Dados pessoais do Pescador</p>
+    </div>
+    <br>
     <br>
     <div class="form-group">
-      <div class="input-group mb-2">
+      <div class="input-group mb-2" style ="margin-top:10px;">
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info"></i> Numero Da Matricula</div>
         </div>
-        <input class="form-control" value="<?php echo ($matricula); ?>">
+        <input class="form-control" style="width:200%;height:200%; margin-right:800px; margin-top:10px;" value="<?php echo ($matricula); ?>">
       </div>
     </div>
     <div class="form-group">
-      <div class="input-group mb-2">
+      <div class="input-group mb-2" style ="margin-top:-90px; margin-right:300px; margin-left:250px;">
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Nome</div>
         </div>
-        <input class="form-control" value="<?php echo ($nome); ?>"> 
+        <input class="form-control" style="width:200%;height:200%; margin-right:550px; margin-top:10px;"  value="<?php echo ($nome); ?>"> 
       </div>
     </div>
 
@@ -97,23 +91,23 @@
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Endereço</div>
         </div>
-        <input class="form-control" value="<?php echo ($endereco); ?>">
+        <input class="form-control" style="width:200%;height:200%; margin-right:780px; margin-top:10px;" value="<?php echo ($endereco); ?>">
       </div>
     </div>
     <div class="form-group">
-      <div class="input-group mb-2">
+      <div class="input-group mb-2" style ="margin-top:-90px; margin-right:300px; margin-left:250px;">
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Bairro</div>
         </div>
-        <input class="form-control" value="<?php echo ($bairro); ?>">
+        <input class="form-control" style="width:200%;height:200%; margin-right:800px; margin-top:10px;margin-left:-10px; " value="<?php echo ($bairro); ?>">
       </div>
     </div>
     <div class="form-group">
-      <div class="input-group mb-2">
+      <div class="input-group mb-2" style ="margin-top:-90px; margin-right:300px; margin-left:500px;">
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Estado</div>
         </div>
-        <input class="form-control" value="<?php echo ($estado); ?>">
+        <input class="form-control" style="width:200%;height:200%; margin-right:800px; margin-top:10px;" value="<?php echo ($estado); ?>">
       </div>
     </div>
     <div class="form-group">
@@ -121,15 +115,15 @@
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Data De Nascimento</div>
         </div>
-        <input class="form-control" value="<?php echo ($nascimento); ?>">
+        <input class="form-control" style="width:200%;height:200%; margin-right:800px; margin-top:10px;" value="<?php echo ($nascimento); ?>">
       </div>
     </div>
     <div class="form-group">
-      <div class="input-group mb-2">
+      <div class="input-group mb-2" style ="margin-top:-90px; margin-right:300px; margin-left:250px;">
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info"></i>RG</div>
         </div>
-        <input class="form-control" value="<?php echo ($rg); ?>">
+        <input class="form-control" style="width:200%;height:200%; margin-right:700px; margin-top:10px;" value="<?php echo ($rg); ?>">
       </div>
     </div>
     <div class="form-group">
@@ -137,15 +131,15 @@
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Órgão Expedidor</div>
         </div>
-        <input class="form-control" value="<?php echo ($orgao); ?>">
+        <input class="form-control" style="width:200%;height:200%; margin-right:800px; margin-top:10px;" value="<?php echo ($orgao); ?>">
       </div>
     </div>
     <div class="form-group">
-      <div class="input-group mb-2">
+      <div class="input-group mb-2" style ="margin-top:-90px; margin-right:600px; margin-left:250px;">
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>CPF</div>
         </div>
-        <input class="form-control" value="<?php echo ($cpf); ?>">
+        <input class="form-control" style="width:200%;height:200%; margin-right:800px; margin-top:10px;" value="<?php echo ($cpf); ?>">
       </div>
     </div>
     <div class="form-group">
@@ -153,15 +147,15 @@
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Titulo</div>
         </div>
-        <input class="form-control" value="<?php echo ($titulo); ?>">
+        <input class="form-control" style="width:200%;height:200%; margin-right:800px; margin-top:10px;" value="<?php echo ($titulo); ?>">
       </div>
     </div>
     <div class="form-group">
-      <div class="input-group mb-2">
+      <div class="input-group mb-2" style ="margin-top:-90px; margin-right:800px; margin-left:250px;">
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Carteira Profissional</div>
         </div>
-        <input class="form-control" value="<?php echo ($profissional); ?>">
+        <input class="form-control" style="width:200%;height:200%; margin-right:700px; margin-top:10px;" value="<?php echo ($profissional); ?>">
       </div>
     </div>
 
@@ -170,15 +164,15 @@
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Estado Civil</div>
         </div>
-        <input class="form-control" value="<?php echo ($dados['nome_est']); ?>">
+        <input class="form-control" style="width:200%;height:200%; margin-right:800px; margin-top:10px;" value="<?php echo ($dados['nome_est']); ?>">
       </div>
     </div>
     <div class="form-group">
-      <div class="input-group mb-2">
+      <div class="input-group mb-2" style ="margin-top:-90px; margin-right:300px; margin-left:250px;">
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>Nome Do Pai</div>
         </div>
-        <input class="form-control" value="<?php echo ($nome_pai); ?>"> 
+        <input class="form-control" style="width:200%;height:200%; margin-right:300px; margin-top:10px;" value="<?php echo ($nome_pai); ?>"> 
       </div>
     </div>
     <div class="form-group">
@@ -186,63 +180,74 @@
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Nome Da Mae</div>
         </div>
-        <input class="form-control" value="<?php echo ($nome_mae); ?>">
+        <input class="form-control" style="width:200%;height:200%; margin-right:620px; margin-top:10px;" value="<?php echo ($nome_mae); ?>">
       </div>
     </div>
     <div class="form-group">
-      <div class="input-group mb-2">
+      <div class="input-group mb-2" style ="margin-top:-90px; margin-right:300px; margin-left:450px;">
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Nomes Dos Filhos</div>
         </div>
-        <input class="form-control" value="<?php echo ($dependete); ?>">            
+        <input class="form-control" style="width:200%;height:200%; margin-right:500px; margin-top:10px;" value="<?php echo ($dependete); ?>">            
       </div>
     </div>
-    <div class="bg-info text-white text-center py-2">
-      <p class="m-0">Dados Profissionais Dos Pescadores</p>
+</div>
+<div class="w3-content w3-margin-left" style="max-width:1010px; margin-right:300px; margin-left:200px;text-align: center">
+    <div class="bg-info text-white text-center py-2 " style="width:50%;height:300%; margin-top:-727px; margin-left:800px;">
+      <p class="m-0">Dados Profissionais do Pescador</p>
     </div>
+  
     <div class="form-group">
-      <div class="input-group mb-2">
+      <div class="input-group mb-2"  style ="margin-top:-90px; margin-right:300px; margin-left:500px;margin-top:68px;">
         <div class="input-group-prepend">
-          <div class="input-group-text"><i class="fa fa-user fa text-info" ></i>PIS</div>
-        </div>
-        <input class="form-control" value="<?php echo ($pis); ?>">
+    
       </div>
     </div>
-    <div class="form-group">
-      <div class="input-group mb-2">
-        <div class="input-group-prepend">
-          <div class="input-group-text"><i class="fa fa-user fa text-info"></i>RGP</div>
-        </div>
-        <input class="form-control" value="<?php echo ($rgp); ?>">
-      </div>
     </div>
+    <br>
+    <br>
+    <br>
+
     <div class="form-group">
-      <div class="input-group mb-2">
+      <div class="input-group mb-2" style ="margin-top:-90px; margin-right:300px; margin-left:800px;">
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Data De Inscricão</div>
         </div>
-        <input class="form-control" value="<?php echo ($data_ins); ?>">
+        <input class="form-control" style="width:200%;height:200%; margin-right:800px; margin-top:20px; margin-left:5px;" value="<?php echo ($data_ins); ?>">
       </div>
     </div>
     <div class="form-group">
-      <div class="input-group mb-2">
+      <div class="input-group mb-2" style ="margin-top:-90px; margin-right:300px; margin-left:1050px;margin-top:-100px; ">
         <div class="input-group-prepend">
           <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Inscrição Do INSS</div>
         </div>
-        <input class="form-control" value="<?php echo ($insc_inss); ?>">
+        <input class="form-control" style="width:200%;height:200%; margin-right:800px; margin-top:20px;margin-left:10px; " value="<?php echo ($insc_inss); ?>">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group mb-2" style ="margin-top:-90px; margin-right:300px; margin-left:1050px;margin-top:20px; ">
+        <div class="input-group-prepend">
+          <div class="input-group-text"><i class="fa fa-user fa text-info"></i>RGP</div>
+        </div>
+        <input class="form-control" style="width:200%;height:200%; margin-right:800px; margin-top:15px;" value="<?php echo ($rgp); ?>">
       </div>
     </div>
     <?php
   }
-  ?>                               
+  ?>   
+  <div class="form-group">
+      <div class="input-group mb-2"  style ="margin-top:-90px; margin-right:300px; margin-left:810px;margin-top:-100px; ">
+        <div class="input-group-prepend">
+          <div class="input-group-text"><i class="fa fa-user fa text-info " ></i>PIS</div>
+        </div>
+        <input class="form-control" style="width:200%;height:200%; margin-right:800px; margin-top:20px; margin-left:5px;" value="<?php echo ($pis); ?>">
+      </div>
+    </div>                            
 </div>
-</div>
-</div>
-
-
-
-
-<div class="w3-container w3-card w3-white w3-margin-bottom"><br>
+    </div>
+        <br>
+        <br>
+<div class="w3-container w3-card w3-white w3-margin-bottom" style="max-width:1000px; margin-right:300px; margin-left:20px; margin-top:420px;">
   <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-pencil-square-o"></i>Anotações sobre o Pescador</h2>
 
 
@@ -316,7 +321,6 @@
 <input type="button" value="Imprimir" onClick="window.print()" value="Imprimir" id="btncad">
 </center>
 </div>
-
 <?php include 'rodape.php'; ?>
 </body>
 </html>

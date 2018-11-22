@@ -126,7 +126,7 @@ include 'bd/conexao.php';
     </div>
   </div>
 
-<?php include 'rodape.php'; ?>
+
 
 </body>
 </html>

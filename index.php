@@ -18,7 +18,7 @@ require_once "cabeçalho.php";
    <div class="card-body">
     <!-- Categories Widget -->
 
-    <div class="col-md-4">
+    <div class="col-md-4" style="max-width:400px; margin-right:200px; margin-left:880px;margin-top:5px; ">
       <div class="card my-12">
         <button class="btn btn-blue">Institucional</button>
         <div class="card-body">
@@ -71,7 +71,7 @@ require_once "cabeçalho.php";
       </div>
     </div>
 
-    <div class="col-md-8">
+    <div class="col-md-8" style="margin-top:-400px;">
       <br>
       <br>
       <br>
@@ -90,7 +90,7 @@ require_once "cabeçalho.php";
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="d-block w-100" src="img/20.jpeg" class="img-responsive" style="width:100%;height:400px";>
+          <img class="d-block w-100" src="img/20.jpeg" class="img-responsive" style="width:200%;height:400px";>
         </div>
 
 
