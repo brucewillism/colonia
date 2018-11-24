@@ -23,6 +23,7 @@ require_once "cabeçalho.php";
                 <th>CPF</th>
                 <th>Endereco</th>
                 <th>Bairro</th>
+                <th>Embarcação</th>
                 <th>Deletar</th>
                 <th>Editar</th>
                 <th>Detalhes</th>
@@ -41,11 +42,13 @@ require_once "cabeçalho.php";
             $cpf = $dados['cpf'];
             $endereco = $dados['endereco'];
             $bairro = $dados['bairro'];
+            $embarcacao = $dados['embarcacao'];
             echo "<tr>
             <td>"."$nome"."</td>
             <td>"."$cpf"."</td>
             <td>"."$endereco"."</td>
             <td>"."$bairro"."</td>
+            <td>"."$embarcacao"."</td>
             <td><a  href='bd/excluir.php?id=".$pescador_id."'>Excluir</a></td>
             <td><a  href='formulario_editar.php?id=".$pescador_id."'>Editar</a></td>
             <td><a  href='detalhes_pescador.php?id=".$pescador_id."' >Mais detalhes</a></td>

@@ -50,7 +50,7 @@ include 'cabeçalho.php';
 			<th>Prorrogado</th>
 			<th>Pagamento</th>
 			<th>Forma de Pagamento</th>
-			<th>Baixado</th>
+			<th>Mes</th>
 			<th>Valor</th>
 			<th>Delete</th>
 			<th>Edit</th>
@@ -77,6 +77,7 @@ include 'cabeçalho.php';
 				$prorrogado=$dados['prorrogado'];
 				$pagamento=$dados['pagamento'];
 				$forma_pagamento=$dados['forma_pagamento'];
+				$pagamentos_mesais=$dados['pagamentos_mesais'];
 				$baixar=$dados['baixar'];
 				$valor=$dados['valor'];
 				$obs=$dados['obs'];
@@ -86,7 +87,7 @@ include 'cabeçalho.php';
 				<td>$prorrogado</td>
 				<td>$pagamento</td>
 				<td>$forma_pagamento</td>
-				<td>$baixar</td>
+				<td>$pagamentos_mesais</td>
 				<td>$valor</td>
 				<td><a  href='deletar_pag.php?id=".$id."'>Excluir</a></td>
 				<td><a  href='edit_pag.php?id=".$id."'>Editar</a></td>

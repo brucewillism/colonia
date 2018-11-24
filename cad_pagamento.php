@@ -39,14 +39,14 @@ include 'cabeçalho.php';
   });
 </script>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-  <script type="text/javascript" src="js/jquery.mask.min.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function($){  
-      $("#data").mask("99/99/9999");
-      $("#data1").mask("99/99/9999");
-      $("#data2").mask("99/99/9999");
-    });
-  </script>
+<script type="text/javascript" src="js/jquery.mask.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function($){  
+    $("#data").mask("99/99/9999");
+    $("#data1").mask("99/99/9999");
+    $("#data2").mask("99/99/9999");
+  });
+</script>
 <body>
   <br>
   <br>
@@ -97,6 +97,20 @@ include 'cabeçalho.php';
       </select>
     </div>
     <div class="col-md-3">
+      <label>Mes de Pagamento : </label>
+      <select name="pagamentos_mesais" required>
+        <?php
+        include 'bd/conexao.php';
+        $sql = "SELECT * FROM pagamentos_mesais";
+        foreach ($conn->query($sql) as $registro) {
+          $id_mes = $registro['id_mes'];
+          $nome_mes = $registro['nome_mes'];
+          echo "<option value='".$id_mes."'>".$nome_mes."</option>";
+        }
+        ?>
+      </select>  
+    </div>
+    <div class="col-md-3">
       <label>Lançar e Baixar:</label><br>
       <input type="checkbox" name="baixar" id="baixar" style="margin-bottom:20px;"/>
     </div>
@@ -117,6 +131,6 @@ include 'cabeçalho.php';
       <input type="button" value="Cancelar" id="btncan">
     </center>
   </div>
-  </div>
+</div>
 </form>
 </body>

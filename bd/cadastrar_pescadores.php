@@ -19,6 +19,12 @@ $data_ins = htmlspecialchars($_POST["data_ins"]);
 $insc_inss = htmlspecialchars($_POST["insc_inss"]);
 $rg = htmlspecialchars($_POST["rg"]);
 $orgao = htmlspecialchars($_POST["orgao"]); 
+$data_cat = htmlspecialchars($_POST["data_cat"]);
+$cei = htmlspecialchars($_POST["cei"]);
+$nit = htmlspecialchars($_POST["nit"]);
+$embarcacao = htmlspecialchars($_POST["embarcacao"]);
+$nivel = htmlspecialchars($_POST["nivel"]);
+$situacao = htmlspecialchars($_POST["situacao"]);
 // $assinatura_socio = htmlspecialchars($_POST["assinatura_socio"]);
 // $assinatura_presidente = htmlspecialchars($_POST["assinatura_presidente"]);
 $estado_civil = htmlspecialchars($_POST["estado_civil"]);
@@ -26,9 +32,10 @@ $file_path= addslashes($_FILES['file']['tmp_name']);
 
 $file = file_get_contents($file_path);
 
-$sql =("INSERT INTO pescadores (matricula, nome, endereco, bairro, estado, cpf, titulo, profissional, pis, nascimento, rgp, nome_pai, nome_mae, dependente, data_ins, insc_inss, rg, orgao, id_estado, ARQUIVO)
+$sql =("INSERT INTO pescadores (matricula, nome, endereco, bairro, estado, cpf, titulo, profissional, pis, nascimento, rgp, nome_pai, nome_mae, dependente, data_ins, insc_inss, rg, orgao, data_cat, cei, nit, embarcacao, nivel,
+situacao, id_estado, ARQUIVO)
 
-VALUES (:matricula, :nome, :endereco, :bairro, :estado, :cpf, :titulo, :profissional, :pis, :nascimento, :rgp, :nome_pai, :nome_mae, :dependente, :data_ins, :insc_inss, :rg, :orgao, :estado_civil, :file)");
+	VALUES (:matricula, :nome, :endereco, :bairro, :estado, :cpf, :titulo, :profissional, :pis, :nascimento, :rgp, :nome_pai, :nome_mae, :dependente, :data_ins, :insc_inss, :rg, :orgao, :data_cat, :cei, :nit, :embarcacao, :nivel, :situacao, :estado_civil, :file)");
 
 $stmt = $conn->prepare( $sql );
 $stmt->bindParam( ':matricula', $matricula);
@@ -49,6 +56,12 @@ $stmt->bindParam( ':data_ins', $data_ins);
 $stmt->bindParam( ':insc_inss', $insc_inss);
 $stmt->bindParam( ':rg', $rg);
 $stmt->bindParam( ':orgao', $orgao);
+$stmt->bindParam( ':data_cat', $data_cat);
+$stmt->bindParam( ':cei', $cei);
+$stmt->bindParam( ':nit', $nit);
+$stmt->bindParam( ':embarcacao', $embarcacao);
+$stmt->bindParam( ':nivel', $nivel);
+$stmt->bindParam( ':situacao', $situacao);
 $stmt->bindParam( ':estado_civil', $estado_civil);
 $stmt->bindParam( ':file', $file);
 $result = $stmt->execute();

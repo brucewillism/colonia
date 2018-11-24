@@ -21,7 +21,13 @@ $data_ins = addslashes($_POST['data_ins']) ;
 $insc_inss = addslashes($_POST['insc_inss']) ;
 $rg = addslashes($_POST['rg']) ;
 $orgao = addslashes($_POST['orgao']) ;
-$estado_civil = addslashes($_POST['estado_civil']) ;
+$data_cat = htmlspecialchars($_POST["data_cat"]);
+$cei = htmlspecialchars($_POST["cei"]);
+$nit = htmlspecialchars($_POST["nit"]);
+$embarcacao = htmlspecialchars($_POST["embarcacao"]);
+$nivel = htmlspecialchars($_POST["nivel"]);
+$situacao = htmlspecialchars($_POST["situacao"]);
+$estado_civil = addslashes($_POST['estado_civil']);
 
 $file_path= addslashes($_FILES['file']['tmp_name']);
 $file = file_get_contents($file_path);
@@ -54,6 +60,12 @@ if($file == false){
 		insc_inss = :insc_inss,
 		rg = :rg,
 		orgao = :orgao,
+		data_cat = :data_cat,
+		cei = :cei,
+		nit = :nit,
+		embarcacao = :embarcacao,
+		nivel = :nivel,
+		situacao = :situacao,
 		id_estado = :id_estado 
 		WHERE pescador_id = :pescador_id");
 
@@ -78,6 +90,13 @@ if($file == false){
 	$stmt->bindParam(":insc_inss", $insc_inss);
 	$stmt->bindParam(":rg", $rg);
 	$stmt->bindParam(":orgao", $orgao);
+	$stmt->bindParam(":data_cat", $data_cat);
+	$stmt->bindParam(":cei", $cei);
+	$stmt->bindParam(":nit", $nit);
+	$stmt->bindParam(":embarcacao", $embarcacao);
+	$stmt->bindParam(":nivel", $nivel);
+	$stmt->bindParam(":situacao", $situacao);
+
 	$stmt->bindParam(":id_estado", $estado_civil);
 
 	$result1 = $stmt->execute();
@@ -103,7 +122,13 @@ if($file == false){
 		insc_inss = :insc_inss,
 		rg = :rg,
 		orgao = :orgao,
-		id_estado = :id_estado 		
+		data_cat = :data_cat,
+		cei = :cei,
+		nit = :nit,
+		embarcacao = :embarcacao,
+		nivel = :nivel,
+		situacao = :situacao,
+		id_estado = :id_estado		
 		WHERE pescador_id = :pescador_id");
 
 	$stmt = $conn->prepare($query);
@@ -128,6 +153,13 @@ if($file == false){
 	$stmt->bindParam(":insc_inss", $insc_inss);
 	$stmt->bindParam(":rg", $rg);
 	$stmt->bindParam(":orgao", $orgao);
+	$stmt->bindParam(":data_cat", $data_cat);
+	$stmt->bindParam(":cei", $cei);
+	$stmt->bindParam(":nit", $nit);
+	$stmt->bindParam(":embarcacao", $embarcacao);
+	$stmt->bindParam(":nivel", $nivel);
+	$stmt->bindParam(":situacao", $situacao);
+
 	$stmt->bindParam(":id_estado", $estado_civil);
 
 

@@ -41,10 +41,16 @@ CREATE TABLE `pescadores` (
   `nome_pai` varchar(255) NOT NULL,
   `nome_mae` varchar(255) NOT NULL,
   `dependente` varchar(255)NOT NULL,
-  `data_ins` varchar (255) NOT NULL,
   `insc_inss` varchar(255)NOT NULL,
   `rg` varchar (255) NOT NULL,
   `orgao` varchar (255) NOT NULL,
+  `data_cat` varchar (255) NOT NULL,
+  `data_ins` varchar (255) NOT NULL,
+  `cei` varchar (255) NOT NULL,
+  `nit` varchar (255) NOT NULL,
+  `embarcacao` varchar (255) NOT NULL,
+  `nivel` varchar (255) NOT NULL,
+  `situacao` varchar (255) NOT NULL,
   -- `assinatura_socio` varchar(255)NOT NULL,
   -- `assinatura_presidente`varchar(255)NOT NULL,
   `id_estado` int(11) NOT NULL,
@@ -86,6 +92,27 @@ CREATE TABLE `TB_COMENTARIO` (
   FOREIGN KEY (ID_NOT) REFERENCES TB_NOTICIAS(ID_NOT)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
+DROP TABLE IF EXISTS `pagamentos_mesais`;
+
+CREATE TABLE `pagamentos_mesais` (
+  `id_mes` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `nome_mes` varchar(45) COLLATE utf8_unicode_ci NOT NULL UNIQUE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `pagamentos_mesais` (`id_mes`, `nome_mes`) VALUES
+(1,'janeiro'),
+(2,'fevereiro'),
+(3,'Marco'),
+(4,'Abril'), 
+(5,'Maio'),  
+(6,'Junho'), 
+(7,'Julho'), 
+(8,'Agosto'),
+(9,'Setembro'),
+(10,' Outubro'), 
+(11,' Novembro'), 
+(12,' Dezembro');
+
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -96,8 +123,10 @@ CREATE TABLE IF NOT EXISTS `pagamentos` (
   `prorrogado` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `pagamento` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `forma_pagamento` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `pagamentos_mesais` int(11) COLLATE utf8_unicode_ci NOT NULL,
   `baixar` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `valor` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `obs` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  FOREIGN KEY (pescador_id) REFERENCES pescadores(pescador_id) on delete cascade
-);
+  FOREIGN KEY (pescador_id) REFERENCES pescadores(pescador_id) on delete cascade,
+  FOREIGN KEY (pagamentos_mesais) REFERENCES pagamentos_mesais(id_mes) on delete cascade
+  );

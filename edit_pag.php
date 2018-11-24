@@ -123,6 +123,20 @@
       </select>
     </div>
     <div class="col-md-3">
+      <label>Mes de Pagamento : </label>
+      <select name="pagamentos_mesais" value="<?php echo $resultado['pagamentos_mesais']; ?>" required>
+        <?php
+        include 'bd/conexao.php';
+        $sql = "SELECT * FROM pagamentos_mesais";
+        foreach ($conn->query($sql) as $registro) {
+          $id_mes = $registro['id_mes'];
+          $nome_mes = $registro['nome_mes'];
+          echo "<option value='".$id_mes."'>".$nome_mes."</option>";
+        }
+        ?>
+      </select>  
+    </div>
+    <div class="col-md-3">
       <label>Lançar e Baixar:</label><br>
       <input type="checkbox" name="baixar" id="baixar" value="<?php echo $resultado['baixar']; ?>" style="margin-bottom:20px;"/>
     </div>
