@@ -2,7 +2,7 @@
 session_start();
 $host = "localhost";
 $usuario = "root";
-$senha = "0301HEX@";
+$senha = "ltds4750";
 $bd = "colonia";
 
 try {

@@ -238,7 +238,7 @@ foreach ($cadastro as $dados) {
       <div class="input-group-prepend">
         <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Data Da Carteira De Pesca</div>
       </div>
-      <input class="form-control" id="data1" name="data_cat" value="<?php echo ($data_cat); ?>"  placeholder="Digite a Data da carteora de Pesca">
+      <input class="form-control" id="data1" name="data_cat" value="<?php echo ($data_cat); ?>">
     </div>
   </div>
   <div class="form-group">
@@ -246,7 +246,7 @@ foreach ($cadastro as $dados) {
       <div class="input-group-prepend">
         <div class="input-group-text"><i class="fa fa-user fa text-info"></i>NIT</div>
       </div>
-      <input class="form-control" name="nit" value="<?php echo ($nit); ?>" placeholder="Digite o NIT">
+      <input class="form-control" name="nit" value="<?php echo ($nit); ?>">
     </div>
   </div>
   <div class="form-group">
@@ -254,7 +254,7 @@ foreach ($cadastro as $dados) {
       <div class="input-group-prepend">
         <div class="input-group-text"><i class="fa fa-user fa text-info"></i>CEI</div>
       </div>
-      <input class="form-control" name="cei" value="<?php echo ($cei); ?>"  placeholder="Digite o CEI"required>
+      <input class="form-control" name="cei" value="<?php echo ($cei); ?>">
     </div>
   </div>
   <div class="form-group">
@@ -262,7 +262,7 @@ foreach ($cadastro as $dados) {
       <div class="input-group-prepend">
         <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Data do inss</div>
       </div>
-      <input class="form-control" id="data3" name="data_ins" value="<?php echo ($data_ins); ?>"  placeholder="Digite o Data do inss"required>
+      <input class="form-control" id="data3" name="data_ins" value="<?php echo ($data_ins); ?>">
     </div>
   </div>
   <div class="form-group">
@@ -270,7 +270,7 @@ foreach ($cadastro as $dados) {
       <div class="input-group-prepend">
         <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Embarcação</div>
       </div>
-      <input class="form-control" name="embarcacao" value="<?php echo ($embarcacao); ?>"  placeholder="Digite o Nome da Embarcação"required>
+      <input class="form-control" name="embarcacao" value="<?php echo ($embarcacao); ?>">
     </div>
   </div>
   <div class="form-group">
@@ -278,23 +278,17 @@ foreach ($cadastro as $dados) {
       <div class="input-group-prepend">
         <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Nivel De Estudo</div>
       </div>
-      <input class="form-control"  name="nivel" value="<?php echo ($nivel); ?>"  placeholder="Digite o Nivel de Estudo">
+      <input class="form-control"  name="nivel" value="<?php echo ($nivel); ?>" >
     </div>
   </div>
-  <div class="form-group">
+   <div class="form-group">
     <div class="input-group mb-2">
       <div class="input-group-prepend">
         <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Situação</div>
       </div>
-      <select name="situacao">
-        <option value="aposentado">Aposentado</option>
-        <option value="ativo">Ativo</option>
-        <option value="faleceu">Faleceu</option>
-        <option value="transfirido">Transfirido</option>
-        <option value="ausente">Ausente</option>
-      </select>
+      <input class="form-control"  name="nivel" value="<?php echo ($situacao); ?>">
     </div>
-  </div>       
+  </div>
 
 
 
