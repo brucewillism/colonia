@@ -2,6 +2,7 @@
 session_start();
 $host = "localhost";
 $usuario = "root";
+<<<<<<< HEAD
 $senha = "lucy";
 $bd = "pibex";
 

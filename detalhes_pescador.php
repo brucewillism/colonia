@@ -229,7 +229,11 @@ foreach ($cadastro as $dados) {
       <div class="input-group-prepend">
         <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Data Da Carteira De Pesca</div>
       </div>
+<<<<<<< HEAD
       <input class="form-control" style="width:200%;height:200%; margin-right:800px; margin-top:19px; margin-left:5px;" id="data1" name="data_cat" value="<?php echo ($data_cat); ?>"  placeholder="Digite a Data da Carteira">
+=======
+      <input class="form-control" id="data1" name="data_cat" value="<?php echo ($data_cat); ?>">
+>>>>>>> 3ef3d3381b4305a35319199ad322fb845a726329
     </div>
   </div>
   <div class="form-group">
@@ -237,7 +241,11 @@ foreach ($cadastro as $dados) {
       <div class="input-group-prepend">
         <div class="input-group-text"><i class="fa fa-user fa text-info"></i>NIT</div>
       </div>
+<<<<<<< HEAD
       <input class="form-control" style="width:200%;height:200%; margin-right:850px; margin-top:19px; margin-left:5px;" name="nit" value="<?php echo ($nit); ?>" placeholder="Digite o NIT">
+=======
+      <input class="form-control" name="nit" value="<?php echo ($nit); ?>">
+>>>>>>> 3ef3d3381b4305a35319199ad322fb845a726329
     </div>
   </div>
   <div class="form-group">
@@ -245,7 +253,11 @@ foreach ($cadastro as $dados) {
       <div class="input-group-prepend">
         <div class="input-group-text"><i class="fa fa-user fa text-info"></i>CEI</div>
       </div>
+<<<<<<< HEAD
       <input class="form-control" style="width:200%;height:200%; margin-right:1850px; margin-top:19px; margin-left:5px;" name="cei" value="<?php echo ($cei); ?>" placeholder="Digite o CEI">
+=======
+      <input class="form-control" name="cei" value="<?php echo ($cei); ?>">
+>>>>>>> 3ef3d3381b4305a35319199ad322fb845a726329
     </div>
   </div>
   <div class="form-group">
@@ -253,7 +265,11 @@ foreach ($cadastro as $dados) {
       <div class="input-group-prepend">
         <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Data do inss</div>
       </div>
+<<<<<<< HEAD
       <input class="form-control" style="width:200%;height:200%; margin-right:1850px; margin-top:19px; margin-left:5px;" id="data3" name="data_ins" value="<?php echo ($data_ins); ?>"  placeholder="Digite o Data do inss"required>
+=======
+      <input class="form-control" id="data3" name="data_ins" value="<?php echo ($data_ins); ?>">
+>>>>>>> 3ef3d3381b4305a35319199ad322fb845a726329
     </div>
   </div>
   <div class="form-group">
@@ -261,7 +277,11 @@ foreach ($cadastro as $dados) {
       <div class="input-group-prepend">
         <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Embarcação</div>
       </div>
+<<<<<<< HEAD
       <input class="form-control" style="width:200%;height:200%; margin-right:1750px; margin-top:19px; margin-left:5px;" name="embarcacao" value="<?php echo ($embarcacao); ?>"  placeholder="Digite o Nome da Embarcação"required>
+=======
+      <input class="form-control" name="embarcacao" value="<?php echo ($embarcacao); ?>">
+>>>>>>> 3ef3d3381b4305a35319199ad322fb845a726329
     </div>
   </div>
   <div class="form-group">
@@ -269,9 +289,24 @@ foreach ($cadastro as $dados) {
       <div class="input-group-prepend">
         <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Nivel De Estudo</div>
       </div>
+<<<<<<< HEAD
       <input class="form-control" style="width:200%;height:200%; margin-right:1820px; margin-top:19px; margin-left:5px;" name="nivel" value="<?php echo ($nivel); ?>"  placeholder="Digite o Nivel de Estudo">
     </div>
   </div>
+=======
+      <input class="form-control"  name="nivel" value="<?php echo ($nivel); ?>" >
+    </div>
+  </div>
+   <div class="form-group">
+    <div class="input-group mb-2">
+      <div class="input-group-prepend">
+        <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Situação</div>
+      </div>
+      <input class="form-control"  name="nivel" value="<?php echo ($situacao); ?>">
+    </div>
+  </div>
+
+>>>>>>> 3ef3d3381b4305a35319199ad322fb845a726329
 
 
 
