@@ -4,7 +4,7 @@
  */
 function db_connect()
 {
-    $PDO = new PDO('mysql:host=' . 'localhost' . ';dbname=' . 'colonia' . ';charset=utf8', 'root', '0301HEX@');
+    $PDO = new PDO('mysql:host=' . 'localhost' . ';dbname=' . 'pibex' . ';charset=utf8', 'root', 'lucy');
 
     return $PDO;
 }

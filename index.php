@@ -18,17 +18,14 @@ require_once "cabeçalho.php";
    <div class="card-body">
     <!-- Categories Widget -->
 
-    <div class="col-md-4" style="max-width:400px; margin-right:200px; margin-left:880px;margin-top:5px; ">
+    <div class="col-md-4" style="max-width:400px; margin-right:200px; margin-left:850px;margin-top:5px; ">
       <div class="card my-12">
         <button class="btn btn-blue">Institucional</button>
         <div class="card-body">
           <div class="row">
             <div class="col-lg-6">
               <ul class="list-unstyled mb-0">
-                <li>
-                  <a href="historia.php">História</a>
-                </li>
-                <li>
+                  <a href="historia.php">História</a></button>
                   <a href="#">Infraestrutura</a>
                 </li>
                 <li>
@@ -71,7 +68,7 @@ require_once "cabeçalho.php";
       </div>
     </div>
 
-    <div class="col-md-8" style="margin-top:-400px;">
+    <div class="col-md-8" style="margin-top:-422px;">
       <br>
       <br>
       <br>

@@ -256,7 +256,7 @@ include 'cabeçalho.php';
                     <div class="input-group-prepend">
                       <div class="input-group-text"><i class="fa fa-user fa text-info"></i>Data Da Carteira De Pesca</div>
                     </div>
-                    <input class="form-control" id="data1" name="data_cat" value="<?php echo $resultado['data_cat']; ?>"  placeholder="Digite a Data da carteora de Pesca">
+                    <input class="form-control" id="data1" name="data_cat" value="<?php echo $resultado['data_cat']; ?>"  placeholder="Digite a Data da carteira de Pesca">
                   </div>
                 </div>
                 <div class="form-group">
